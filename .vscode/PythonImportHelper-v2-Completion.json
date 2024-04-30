@@ -1,0 +1,494 @@
+[
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "importPath": "flatted",
+        "description": "flatted",
+        "isExtraImport": true,
+        "detail": "flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "importPath": "flatted",
+        "description": "flatted",
+        "isExtraImport": true,
+        "detail": "flatted",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "send_from_directory",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "secure_filename",
+        "importPath": "werkzeug.utils",
+        "description": "werkzeug.utils",
+        "isExtraImport": true,
+        "detail": "werkzeug.utils",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "encode_base64",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_hex",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_base64",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_hex",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "binascii",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "binascii",
+        "description": "binascii",
+        "detail": "binascii",
+        "documentation": {}
+    },
+    {
+        "label": "urllib.parse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "urllib.parse",
+        "description": "urllib.parse",
+        "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "_Known",
+        "kind": 6,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "description": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _Known:\n    def __init__(self):\n        self.key = []\n        self.value = []\nclass _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "_String",
+        "kind": 6,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "description": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "peekOfCode": "class _String:\n    def __init__(self, value):\n        self.value = value\ndef _array_keys(value):\n    keys = []\n    i = 0\n    for _ in value:\n        keys.append(i)\n        i += 1\n    return keys",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "kind": 2,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "description": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "peekOfCode": "def parse(value, *args, **kwargs):\n    json = _json.loads(value, *args, **kwargs)\n    wrapped = []\n    for value in json:\n        wrapped.append(_wrap(value))\n    input = []\n    for value in wrapped:\n        if isinstance(value, _String):\n            input.append(value.value)\n        else:",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "description": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "peekOfCode": "def stringify(value, *args, **kwargs):\n    known = _Known()\n    input = []\n    output = []\n    i = int(_index(known, input, value))\n    while i < len(input):\n        output.append(_transform(known, input, input[i]))\n        i += 1\n    return _json.dumps(output, *args, **kwargs)",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.flatted",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "kind": 2,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "def stringify(value):\n    return _stringify(value, separators=(',', ':'))\nassert stringify([None, None]) == '[[null,null]]'\na = []\no = {}\nassert stringify(a) == '[[]]'\nassert stringify(o) == '[{}]'\na.append(a)\no['o'] = o\nassert stringify(a) == '[[\"0\"]]'",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "a",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "a = []\no = {}\nassert stringify(a) == '[[]]'\nassert stringify(o) == '[{}]'\na.append(a)\no['o'] = o\nassert stringify(a) == '[[\"0\"]]'\nassert stringify(o) == '[{\"o\":\"0\"}]'\nb = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o = {}\nassert stringify(a) == '[[]]'\nassert stringify(o) == '[{}]'\na.append(a)\no['o'] = o\nassert stringify(a) == '[[\"0\"]]'\nassert stringify(o) == '[{\"o\":\"0\"}]'\nb = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b\na.append(1)",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['o']",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o['o'] = o\nassert stringify(a) == '[[\"0\"]]'\nassert stringify(o) == '[{\"o\":\"0\"}]'\nb = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b\na.append(1)\na.append('two')\na.append(True)\no['one'] = 1\no['two'] = 'two'",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "b",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "b = parse(stringify(a))\nassert isinstance(b, list) and b[0] == b\na.append(1)\na.append('two')\na.append(True)\no['one'] = 1\no['two'] = 'two'\no['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['one']",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o['one'] = 1\no['two'] = 'two'\no['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'\na.append(o)\no['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['two']",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o['two'] = 'two'\no['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'\na.append(o)\no['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})\na.append([1, 2, 3])",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['three']",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o['three'] = True\nassert stringify(a) == '[[\"0\",1,\"1\",true],\"two\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true},\"two\"]'\na.append(o)\no['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})\na.append([1, 2, 3])\no['test'] = {'test': 'OK'}",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['a']",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o['a'] = a\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\"}]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\"},\"two\",[\"2\",1,\"1\",true,\"0\"]]'\na.append({'test': 'OK'})\na.append([1, 2, 3])\no['test'] = {'test': 'OK'}\no['array'] = [1, 2, 3]\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\",\"3\",\"4\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\",\"test\":\"3\",\"array\":\"4\"},{\"test\":\"5\"},[1,2,3],\"OK\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\",\"test\":\"3\",\"array\":\"4\"},\"two\",[\"2\",1,\"1\",true,\"0\",\"3\",\"4\"],{\"test\":\"5\"},[1,2,3],\"OK\"]'\na2 = parse(stringify(a));",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['test']",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o['test'] = {'test': 'OK'}\no['array'] = [1, 2, 3]\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\",\"3\",\"4\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\",\"test\":\"3\",\"array\":\"4\"},{\"test\":\"5\"},[1,2,3],\"OK\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\",\"test\":\"3\",\"array\":\"4\"},\"two\",[\"2\",1,\"1\",true,\"0\",\"3\",\"4\"],{\"test\":\"5\"},[1,2,3],\"OK\"]'\na2 = parse(stringify(a));\no2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o['array']",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o['array'] = [1, 2, 3]\nassert stringify(a) == '[[\"0\",1,\"1\",true,\"2\",\"3\",\"4\"],\"two\",{\"o\":\"2\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"0\",\"test\":\"3\",\"array\":\"4\"},{\"test\":\"5\"},[1,2,3],\"OK\"]'\nassert stringify(o) == '[{\"o\":\"0\",\"one\":1,\"two\":\"1\",\"three\":true,\"a\":\"2\",\"test\":\"3\",\"array\":\"4\"},\"two\",[\"2\",1,\"1\",true,\"0\",\"3\",\"4\"],{\"test\":\"5\"},[1,2,3],\"OK\"]'\na2 = parse(stringify(a));\no2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']\nstr = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "a2",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "a2 = parse(stringify(a));\no2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']\nstr = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')\nassert str['b']['t']['a'] == 'sup' and str['a'][1]['b'][0]['c'] == str['b']['t']\noo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "o2",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "o2 = parse(stringify(o));\nassert a2[0] == a2\nassert o2['o'] == o2\nassert a2[1] == 1 and a2[2] == 'two' and a2[3] == True and isinstance(a2[4], dict)\nassert a2[4] == a2[4]['o'] and a2 == a2[4]['o']['a']\nstr = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')\nassert str['b']['t']['a'] == 'sup' and str['a'][1]['b'][0]['c'] == str['b']['t']\noo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']\nprint('OK')",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "str",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "str = parse('[{\"prop\":\"1\",\"a\":\"2\",\"b\":\"3\"},{\"value\":123},[\"4\",\"5\"],{\"e\":\"6\",\"t\":\"7\",\"p\":4},{},{\"b\":\"8\"},\"f\",{\"a\":\"9\"},[\"10\"],\"sup\",{\"a\":1,\"d\":2,\"c\":\"7\",\"z\":\"11\",\"h\":1},{\"g\":2,\"a\":\"7\",\"b\":\"12\",\"f\":6},{\"r\":4,\"u\":\"7\",\"c\":5}]')\nassert str['b']['t']['a'] == 'sup' and str['a'][1]['b'][0]['c'] == str['b']['t']\noo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']\nprint('OK')",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "oo",
+        "kind": 5,
+        "importPath": "SecureEncoderReact.node_modules.flatted.python.test",
+        "description": "SecureEncoderReact.node_modules.flatted.python.test",
+        "peekOfCode": "oo = parse('[{\"a\":\"1\",\"b\":\"0\",\"c\":\"2\"},{\"aa\":\"3\"},{\"ca\":\"4\",\"cb\":\"5\",\"cc\":\"6\",\"cd\":\"7\",\"ce\":\"8\",\"cf\":\"9\"},{\"aaa\":\"10\"},{\"caa\":\"4\"},{\"cba\":\"5\"},{\"cca\":\"2\"},{\"cda\":\"4\"},\"value2\",\"value3\",\"value1\"]');\nassert oo['a']['aa']['aaa'] == 'value1' and oo == oo['b'] and oo['c']['ca']['caa'] == oo['c']['ca']\nprint('OK')",
+        "detail": "SecureEncoderReact.node_modules.flatted.python.test",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "upload_key",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n        file.save(file_path)\n        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200\n    return jsonify({'error': 'Invalid file type'}), 400",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "process_text",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def process_text():\n    data = request.get_json()\n    text = data['text']\n    operation = data['operation']\n    action = data['action']\n    try:\n        result = \"Operation not supported\"\n        if action == 'encode':\n            if operation == 'base64':\n                result = encode_base64(text)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "list_files",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def list_files():\n    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]\n    return jsonify(files)\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=5000)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\nCORS(app)  # Enable CORS for all domains\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['UPLOAD_FOLDER']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['ALLOWED_EXTENSIONS']",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app.secret_key",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "encode_base64",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def encode_base64(input_text: str) -> str:\n    \"\"\"Encode a string using Base64.\"\"\"\n    return base64.b64encode(input_text.encode()).decode()\ndef decode_base64(encoded_text: str) -> str:\n    \"\"\"Decode a Base64 encoded string.\"\"\"\n    return base64.b64decode(encoded_text.encode()).decode()\ndef encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_base64",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def decode_base64(encoded_text: str) -> str:\n    \"\"\"Decode a Base64 encoded string.\"\"\"\n    return base64.b64decode(encoded_text.encode()).decode()\ndef encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_hex",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_hex",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_utf8",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_utf8",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_latin1",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_latin1",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_ascii",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_ascii",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_url",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_url",
+        "kind": 2,
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "peekOfCode": "def decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
+        "detail": "encoder_decoder",
+        "documentation": {}
+    }
+]
