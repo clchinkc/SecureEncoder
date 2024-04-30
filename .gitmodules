@@ -1,0 +1,3 @@
+[submodule "SecureEncoderReact"]
+	path = SecureEncoderReact
+	url = https://github.com/clchinkc/SecureEncoderReact
