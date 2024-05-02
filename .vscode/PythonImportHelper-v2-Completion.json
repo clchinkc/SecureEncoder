@@ -90,7 +90,7 @@
         "documentation": {}
     },
     {
-        "label": "encode_hex",
+        "label": "decode_base64",
         "importPath": "encoder_decoder",
         "description": "encoder_decoder",
         "isExtraImport": true,
@@ -98,7 +98,7 @@
         "documentation": {}
     },
     {
-        "label": "decode_base64",
+        "label": "encode_hex",
         "importPath": "encoder_decoder",
         "description": "encoder_decoder",
         "isExtraImport": true,
@@ -111,6 +111,126 @@
         "description": "encoder_decoder",
         "isExtraImport": true,
         "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_utf8",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_utf8",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_latin1",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_latin1",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_ascii",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_ascii",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_url",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_url",
+        "importPath": "encoder_decoder",
+        "description": "encoder_decoder",
+        "isExtraImport": true,
+        "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_aes_key",
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "isExtraImport": true,
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_encrypt",
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "isExtraImport": true,
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_decrypt",
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "isExtraImport": true,
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_rsa_public_key",
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "isExtraImport": true,
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_rsa_private_key",
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "isExtraImport": true,
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_encrypt",
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "isExtraImport": true,
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_decrypt",
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "isExtraImport": true,
+        "detail": "encryption_decryption",
         "documentation": {}
     },
     {
@@ -138,6 +258,70 @@
         "importPath": "urllib.parse",
         "description": "urllib.parse",
         "detail": "urllib.parse",
+        "documentation": {}
+    },
+    {
+        "label": "Cipher",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "algorithms",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "modes",
+        "importPath": "cryptography.hazmat.primitives.ciphers",
+        "description": "cryptography.hazmat.primitives.ciphers",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.ciphers",
+        "documentation": {}
+    },
+    {
+        "label": "default_backend",
+        "importPath": "cryptography.hazmat.backends",
+        "description": "cryptography.hazmat.backends",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.backends",
+        "documentation": {}
+    },
+    {
+        "label": "rsa",
+        "importPath": "cryptography.hazmat.primitives.asymmetric",
+        "description": "cryptography.hazmat.primitives.asymmetric",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.asymmetric",
+        "documentation": {}
+    },
+    {
+        "label": "padding",
+        "importPath": "cryptography.hazmat.primitives.asymmetric",
+        "description": "cryptography.hazmat.primitives.asymmetric",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives.asymmetric",
+        "documentation": {}
+    },
+    {
+        "label": "hashes",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "serialization",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
         "documentation": {}
     },
     {
@@ -489,6 +673,87 @@
         "description": "encoder_decoder",
         "peekOfCode": "def decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
         "detail": "encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_aes_key",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def ensure_aes_key(key_file):\n    \"\"\"Ensure there is an AES key available, and return it.\"\"\"\n    if not os.path.exists(key_file):\n        key = os.urandom(32)  # AES-256 key\n        with open(key_file, 'wb') as kf:\n            kf.write(key)\n        print(f\"New AES key generated and saved to {key_file}\")\n    else:\n        with open(key_file, 'rb') as kf:\n            key = kf.read()",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_encrypt",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def aes_encrypt(plaintext: str, key: bytes):\n    \"\"\"Encrypt a string using AES encryption with the provided key.\"\"\"\n    # Generate a random IV\n    iv = os.urandom(16)\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    encryptor = cipher.encryptor()\n    # Encrypt the plaintext\n    ciphertext = encryptor.update(plaintext.encode()) + encryptor.finalize()\n    # Return IV + Ciphertext for decryption",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_decrypt",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def aes_decrypt(ciphertext: bytes, key: bytes):\n    \"\"\"Decrypt a string using AES decryption with the provided key.\"\"\"\n    # Extract IV from the beginning of the ciphertext\n    iv = ciphertext[:16]\n    actual_ciphertext = ciphertext[16:]\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    decryptor = cipher.decryptor()\n    # Decrypt the ciphertext\n    return decryptor.update(actual_ciphertext) + decryptor.finalize()",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "generate_rsa_keys",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def generate_rsa_keys():\n    \"\"\"Generate RSA private and public keys.\"\"\"\n    private_key = rsa.generate_private_key(\n        public_exponent=65537,\n        key_size=2048,\n        backend=default_backend()\n    )\n    public_key = private_key.public_key()\n    return private_key, public_key\ndef save_rsa_key(key, key_file, is_private=True):",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "save_rsa_key",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def save_rsa_key(key, key_file, is_private=True):\n    \"\"\"Save an RSA key (private or public) to a file.\"\"\"\n    with open(key_file, \"wb\") as kf:\n        if is_private:\n            kf.write(key.private_bytes(\n                encoding=serialization.Encoding.PEM,\n                format=serialization.PrivateFormat.PKCS8,\n                encryption_algorithm=serialization.NoEncryption()\n            ))\n        else:",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_rsa_public_key",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def ensure_rsa_public_key(public_key_file):\n    \"\"\"Ensure the RSA public key is available and return it.\"\"\"\n    if not os.path.exists(public_key_file):\n        # If the public key is missing, generate both keys to ensure matching pairs\n        private_key_file = public_key_file.replace(\"public\", \"private\")\n        if not os.path.exists(private_key_file):\n            private_key, public_key = generate_rsa_keys()\n            save_rsa_key(private_key, private_key_file, is_private=True)\n            save_rsa_key(public_key, public_key_file, is_private=False)\n        else:",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_rsa_private_key",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def ensure_rsa_private_key(private_key_file):\n    \"\"\"Ensure the RSA private key is available and return it.\"\"\"\n    if not os.path.exists(private_key_file):\n        # If the private key is missing, generate both keys to ensure matching pairs\n        public_key_file = private_key_file.replace(\"private\", \"public\")\n        private_key, public_key = generate_rsa_keys()\n        save_rsa_key(private_key, private_key_file, is_private=True)\n        save_rsa_key(public_key, public_key_file, is_private=False)\n    else:\n        # Load the existing private key",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_encrypt",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def rsa_encrypt(plaintext: str, public_key):\n    \"\"\"Encrypt a string using RSA public key.\"\"\"\n    ciphertext = public_key.encrypt(\n        plaintext.encode(),\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
+        "detail": "encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_decrypt",
+        "kind": 2,
+        "importPath": "encryption_decryption",
+        "description": "encryption_decryption",
+        "peekOfCode": "def rsa_decrypt(ciphertext: bytes, private_key):\n    \"\"\"Decrypt a string using RSA private key.\"\"\"\n    plaintext = private_key.decrypt(\n        ciphertext,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
+        "detail": "encryption_decryption",
         "documentation": {}
     }
 ]

@@ -4,7 +4,9 @@ from werkzeug.utils import secure_filename
 import os
 
 # Import your actual encoding and decoding functions
-from encoder_decoder import encode_base64, encode_hex, decode_base64, decode_hex
+from encoder_decoder import encode_base64, decode_base64, encode_hex, decode_hex, encode_utf8, decode_utf8, encode_latin1, decode_latin1, encode_ascii, decode_ascii, encode_url, decode_url
+from encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensure_rsa_public_key, ensure_rsa_private_key, rsa_encrypt, rsa_decrypt
+
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all domains
@@ -41,13 +43,45 @@ def process_text():
                 result = encode_base64(text)
             elif operation == 'hex':
                 result = encode_hex(text)
-            # Add other encoding operations here
+            elif operation == 'utf8':
+                result = encode_utf8(text).hex()
+            elif operation == 'latin1':
+                result = encode_latin1(text).hex()
+            elif operation == 'ascii':
+                result = encode_ascii(text)
+            elif operation == 'url':
+                result = encode_url(text)
+            elif operation == 'aes':
+                aes_key = ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))
+                result = aes_encrypt(text, aes_key).hex()
+            elif operation == 'rsa':
+                public_key = ensure_rsa_public_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_public_key.pem"))
+                result = rsa_encrypt(text, public_key).hex()
+            else:
+                return jsonify({'error': 'Invalid operation'}), 400
         elif action == 'decode':
             if operation == 'base64':
                 result = decode_base64(text)
             elif operation == 'hex':
                 result = decode_hex(text)
-            # Add other decoding operations here
+            elif operation == 'utf8':
+                result = decode_utf8(bytes.fromhex(text))
+            elif operation == 'latin1':
+                result = decode_latin1(bytes.fromhex(text))
+            elif operation == 'ascii':
+                result = decode_ascii(text)
+            elif operation == 'url':
+                result = decode_url(text)
+            elif operation == 'aes':
+                aes_key = ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))
+                encrypted_bytes = bytes.fromhex(text)
+                result = aes_decrypt(encrypted_bytes, aes_key).decode('utf-8')
+            elif operation == 'rsa':
+                private_key = ensure_rsa_private_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_private_key.pem"))
+                encrypted_bytes = bytes.fromhex(text)
+                result = rsa_decrypt(encrypted_bytes, private_key)
+            else:
+                return jsonify({'error': 'Invalid operation'}), 400
         else:
             return jsonify({'error': 'Invalid action'}), 400
         return jsonify({'result': result})
