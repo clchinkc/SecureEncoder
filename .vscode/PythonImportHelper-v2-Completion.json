@@ -57,6 +57,14 @@
         "documentation": {}
     },
     {
+        "label": "make_response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "CORS",
         "importPath": "flask_cors",
         "description": "flask_cors",
@@ -514,6 +522,24 @@
         "documentation": {}
     },
     {
+        "label": "list_files",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def list_files():\n    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]\n    return jsonify(files)\n@app.route('/download_key/<filename>')\ndef download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/process_text', methods=['POST'])",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "download_key",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    text = data['text']\n    operation = data['operation']",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "process_text",
         "kind": 2,
         "importPath": "app",
@@ -523,11 +549,11 @@
         "documentation": {}
     },
     {
-        "label": "list_files",
+        "label": "apply_security_headers",
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def list_files():\n    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]\n    return jsonify(files)\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=5000)",
+        "peekOfCode": "def apply_security_headers(response):\n    response.headers[\"Content-Security-Policy\"] = \"default-src 'self'; script-src 'self'; object-src 'none';\"\n    response.headers[\"X-Frame-Options\"] = \"SAMEORIGIN\"\n    response.headers[\"X-Content-Type-Options\"] = \"nosniff\"\n    response.headers[\"X-XSS-Protection\"] = \"1; mode=block\"\n    response.headers[\"Referrer-Policy\"] = \"no-referrer\"\n    return response\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=5000)",
         "detail": "app",
         "documentation": {}
     },
