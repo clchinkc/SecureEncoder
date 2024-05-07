@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, make_response
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
@@ -28,6 +28,19 @@ def upload_key():
         file.save(file_path)
         return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200
     return jsonify({'error': 'Invalid file type'}), 400
+
+@app.route('/files', methods=['GET'])
+def list_files():
+    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]
+    return jsonify(files)
+
+@app.route('/download_key/<filename>')
+def download_key(filename):
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+    if os.path.exists(file_path):
+        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+    return jsonify({'error': 'File not found'}), 404
+
 
 @app.route('/process_text', methods=['POST'])
 def process_text():
@@ -88,10 +101,14 @@ def process_text():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
-@app.route('/files', methods=['GET'])
-def list_files():
-    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]
-    return jsonify(files)
+@app.after_request
+def apply_security_headers(response):
+    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; object-src 'none';"
+    response.headers["X-Frame-Options"] = "SAMEORIGIN"
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-XSS-Protection"] = "1; mode=block"
+    response.headers["Referrer-Policy"] = "no-referrer"
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
