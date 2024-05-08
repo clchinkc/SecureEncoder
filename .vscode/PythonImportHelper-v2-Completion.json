@@ -65,6 +65,14 @@
         "documentation": {}
     },
     {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "CORS",
         "importPath": "flask_cors",
         "description": "flask_cors",
@@ -87,6 +95,23 @@
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
         "documentation": {}
     },
     {
@@ -535,7 +560,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    text = data['text']\n    operation = data['operation']",
+        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']",
         "detail": "app",
         "documentation": {}
     },
@@ -544,7 +569,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def process_text():\n    data = request.get_json()\n    text = data['text']\n    operation = data['operation']\n    action = data['action']\n    operations = {\n        'encode': {\n            'base64': encode_base64,\n            'hex': lambda x: encode_hex(x).hex(),\n            'utf8': lambda x: encode_utf8(x).hex(),",
+        "peekOfCode": "def process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']\n    session['action'] = data['action']\n    operations = {\n        'encode': {\n            'base64': encode_base64,\n            'hex': lambda x: encode_hex(x).hex(),\n            'utf8': lambda x: encode_utf8(x).hex(),",
         "detail": "app",
         "documentation": {}
     },
@@ -553,7 +578,16 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def apply_security_headers(response):\n    response.headers[\"Content-Security-Policy\"] = \"default-src 'self'; script-src 'self'; object-src 'none';\"\n    response.headers[\"X-Frame-Options\"] = \"SAMEORIGIN\"\n    response.headers[\"X-Content-Type-Options\"] = \"nosniff\"\n    response.headers[\"X-XSS-Protection\"] = \"1; mode=block\"\n    response.headers[\"Referrer-Policy\"] = \"no-referrer\"\n    return response\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=5000)",
+        "peekOfCode": "def apply_security_headers(response):\n    response.headers[\"Content-Security-Policy\"] = \"default-src 'self'; script-src 'self'; object-src 'none';\"\n    response.headers[\"X-Frame-Options\"] = \"SAMEORIGIN\"\n    response.headers[\"X-Content-Type-Options\"] = \"nosniff\"\n    response.headers[\"X-XSS-Protection\"] = \"1; mode=block\"\n    response.headers[\"Referrer-Policy\"] = \"no-referrer\"\n    return response\n@app.after_request\ndef add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "add_session_to_response",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))\n    response.set_cookie('result', session.get('result', ''))\n    response.set_cookie('operation', session.get('operation', ''))\n    response.set_cookie('action', session.get('action', ''))\n    response.set_cookie('text', session.get('text', ''))\n    return response\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
         "detail": "app",
         "documentation": {}
     },

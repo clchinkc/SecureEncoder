@@ -1,12 +1,17 @@
-from flask import Flask, request, jsonify, send_from_directory, make_response
+from flask import Flask, request, jsonify, send_from_directory, make_response, session
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
 import os
+from dotenv import load_dotenv
+import logging
+import json
 
-# Import your actual encoding and decoding functions
 from encoder_decoder import encode_base64, decode_base64, encode_hex, decode_hex, encode_utf8, decode_utf8, encode_latin1, decode_latin1, encode_ascii, decode_ascii, encode_url, decode_url
 from encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensure_rsa_public_key, ensure_rsa_private_key, rsa_encrypt, rsa_decrypt
 
+load_dotenv()
+
+logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all domains
@@ -45,9 +50,9 @@ def download_key(filename):
 @app.route('/process_text', methods=['POST'])
 def process_text():
     data = request.get_json()
-    text = data['text']
-    operation = data['operation']
-    action = data['action']
+    session['text'] = data['text']
+    session['operation'] = data['operation']
+    session['action'] = data['action']
 
     operations = {
         'encode': {
@@ -73,11 +78,15 @@ def process_text():
     }
 
     try:
-        if action in operations and operation in operations[action]:
-            result = operations[action][operation](text)
-            return jsonify({'result': result})
+        operation_func = operations[session['action']][session['operation']]
+        result = operation_func(session['text'])
+        session['result'] = result
+        return jsonify({'result': result})
+    except KeyError as e:
+        logging.error(f"Operation or action not found: {e}")
         return jsonify({'error': 'Invalid operation or action'}), 400
     except Exception as e:
+        logging.error(f"Error processing text: {e}")
         return jsonify({'error': str(e)}), 500
 
 @app.after_request
@@ -89,5 +98,14 @@ def apply_security_headers(response):
     response.headers["Referrer-Policy"] = "no-referrer"
     return response
 
+@app.after_request
+def add_session_to_response(response):
+    response.set_cookie('files', json.dumps(session.get('files', [])))
+    response.set_cookie('result', session.get('result', ''))
+    response.set_cookie('operation', session.get('operation', ''))
+    response.set_cookie('action', session.get('action', ''))
+    response.set_cookie('text', session.get('text', ''))
+    return response
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))
