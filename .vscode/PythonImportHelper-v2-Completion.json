@@ -544,7 +544,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def process_text():\n    data = request.get_json()\n    text = data['text']\n    operation = data['operation']\n    action = data['action']\n    try:\n        result = \"Operation not supported\"\n        if action == 'encode':\n            if operation == 'base64':\n                result = encode_base64(text)",
+        "peekOfCode": "def process_text():\n    data = request.get_json()\n    text = data['text']\n    operation = data['operation']\n    action = data['action']\n    operations = {\n        'encode': {\n            'base64': encode_base64,\n            'hex': lambda x: encode_hex(x).hex(),\n            'utf8': lambda x: encode_utf8(x).hex(),",
         "detail": "app",
         "documentation": {}
     },
