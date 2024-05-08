@@ -11,43 +11,47 @@ from encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensu
 
 load_dotenv()
 
-logging.basicConfig(level=logging.DEBUG)
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all domains
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')
 app.config['ALLOWED_EXTENSIONS'] = {'pem'}
 app.secret_key = os.urandom(24)
 
+logging.basicConfig(level=logging.DEBUG)
+
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
 
-@app.route('/upload_key', methods=['POST'])
+@app.route('/api/upload_key', methods=['POST'])
 def upload_key():
     file = request.files['file']
     if file.filename == '':
+        logging.error("No file selected for upload")
         return jsonify({'error': 'No file selected'}), 400
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200
+    logging.error("Invalid file type")
     return jsonify({'error': 'Invalid file type'}), 400
 
-@app.route('/files', methods=['GET'])
+@app.route('/api/files', methods=['GET'])
 def list_files():
     files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]
     return jsonify(files)
 
-@app.route('/download_key/<filename>')
+@app.route('/api/download_key/<filename>')
 def download_key(filename):
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     if os.path.exists(file_path):
         return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+    logging.error("File not found")
     return jsonify({'error': 'File not found'}), 404
 
 
-@app.route('/process_text', methods=['POST'])
+@app.route('/api/process_text', methods=['POST'])
 def process_text():
     data = request.get_json()
     session['text'] = data['text']
@@ -106,6 +110,11 @@ def add_session_to_response(response):
     response.set_cookie('action', session.get('action', ''))
     response.set_cookie('text', session.get('text', ''))
     return response
+
+@app.errorhandler(Exception)
+def handle_exception(e):
+    logging.error(f"Unhandled exception: {str(e)}")
+    return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))
