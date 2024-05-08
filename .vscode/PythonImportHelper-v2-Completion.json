@@ -533,7 +533,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)",
+        "peekOfCode": "def allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)",
         "detail": "app",
         "documentation": {}
     },
@@ -542,7 +542,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n        file.save(file_path)\n        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200\n    return jsonify({'error': 'Invalid file type'}), 400",
+        "peekOfCode": "def upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n        file.save(file_path)\n        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200",
         "detail": "app",
         "documentation": {}
     },
@@ -551,7 +551,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def list_files():\n    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]\n    return jsonify(files)\n@app.route('/download_key/<filename>')\ndef download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/process_text', methods=['POST'])",
+        "peekOfCode": "def list_files():\n    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]\n    return jsonify(files)\n@app.route('/api/download_key/<filename>')\ndef download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404",
         "detail": "app",
         "documentation": {}
     },
@@ -560,7 +560,7 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']",
+        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/api/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']",
         "detail": "app",
         "documentation": {}
     },
@@ -587,7 +587,16 @@
         "kind": 2,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "def add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))\n    response.set_cookie('result', session.get('result', ''))\n    response.set_cookie('operation', session.get('operation', ''))\n    response.set_cookie('action', session.get('action', ''))\n    response.set_cookie('text', session.get('text', ''))\n    return response\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
+        "peekOfCode": "def add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))\n    response.set_cookie('result', session.get('result', ''))\n    response.set_cookie('operation', session.get('operation', ''))\n    response.set_cookie('action', session.get('action', ''))\n    response.set_cookie('text', session.get('text', ''))\n    return response\n@app.errorhandler(Exception)\ndef handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "handle_exception",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
         "detail": "app",
         "documentation": {}
     },
@@ -596,7 +605,16 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app = Flask(__name__)\nCORS(app)  # Enable CORS for all domains\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']",
+        "peekOfCode": "app = Flask(__name__)\ncors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "cors",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "cors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']",
         "detail": "app",
         "documentation": {}
     },
@@ -605,7 +623,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400",
+        "peekOfCode": "app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':",
         "detail": "app",
         "documentation": {}
     },
@@ -614,7 +632,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):",
+        "peekOfCode": "app.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")",
         "detail": "app",
         "documentation": {}
     },
@@ -623,7 +641,7 @@
         "kind": 5,
         "importPath": "app",
         "description": "app",
-        "peekOfCode": "app.secret_key = os.urandom(24)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)",
+        "peekOfCode": "app.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400",
         "detail": "app",
         "documentation": {}
     },
