@@ -1,30 +1,5 @@
 [
     {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "stringify",
-        "importPath": "flatted",
-        "description": "flatted",
-        "isExtraImport": true,
-        "detail": "flatted",
-        "documentation": {}
-    },
-    {
-        "label": "parse",
-        "importPath": "flatted",
-        "description": "flatted",
-        "isExtraImport": true,
-        "detail": "flatted",
-        "documentation": {}
-    },
-    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -112,6 +87,15 @@
         "importPath": "logging",
         "description": "logging",
         "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -358,6 +342,480 @@
         "documentation": {}
     },
     {
+        "label": "padding",
+        "importPath": "cryptography.hazmat.primitives",
+        "description": "cryptography.hazmat.primitives",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "stringify",
+        "importPath": "flatted",
+        "description": "flatted",
+        "isExtraImport": true,
+        "detail": "flatted",
+        "documentation": {}
+    },
+    {
+        "label": "parse",
+        "importPath": "flatted",
+        "description": "flatted",
+        "isExtraImport": true,
+        "detail": "flatted",
+        "documentation": {}
+    },
+    {
+        "label": "encode_base64",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_base64",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_hex",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_hex",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_utf8",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_utf8",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_latin1",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_latin1",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_ascii",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_ascii",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_url",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_url",
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_aes_key",
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_encrypt",
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_decrypt",
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "generate_rsa_keys",
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_encrypt",
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_decrypt",
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "upload_key",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n        file.save(file_path)\n        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "list_files",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def list_files():\n    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]\n    return jsonify(files)\n@app.route('/api/download_key/<filename>')\ndef download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "download_key",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/api/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "process_text",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']\n    session['action'] = data['action']\n    operations = {\n        'encode': {\n            'base64': encode_base64,\n            'hex': lambda x: encode_hex(x).hex(),\n            'utf8': lambda x: encode_utf8(x).hex(),",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "apply_security_headers",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def apply_security_headers(response):\n    response.headers[\"Content-Security-Policy\"] = \"default-src 'self'; script-src 'self'; object-src 'none';\"\n    response.headers[\"X-Frame-Options\"] = \"SAMEORIGIN\"\n    response.headers[\"X-Content-Type-Options\"] = \"nosniff\"\n    response.headers[\"X-XSS-Protection\"] = \"1; mode=block\"\n    response.headers[\"Referrer-Policy\"] = \"no-referrer\"\n    return response\n@app.after_request\ndef add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "add_session_to_response",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))\n    response.set_cookie('result', session.get('result', ''))\n    response.set_cookie('operation', session.get('operation', ''))\n    response.set_cookie('action', session.get('action', ''))\n    response.set_cookie('text', session.get('text', ''))\n    return response\n@app.errorhandler(Exception)\ndef handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "handle_exception",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "app = Flask(__name__)\ncors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "cors",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "cors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['UPLOAD_FOLDER']",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config['ALLOWED_EXTENSIONS']",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "app.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.secret_key",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "app.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "encode_base64",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def encode_base64(input_text: str) -> str:\n    \"\"\"Encode a string using Base64.\"\"\"\n    return base64.b64encode(input_text.encode()).decode()\ndef decode_base64(encoded_text: str) -> str:\n    \"\"\"Decode a Base64 encoded string.\"\"\"\n    return base64.b64decode(encoded_text.encode()).decode()\ndef encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_base64",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def decode_base64(encoded_text: str) -> str:\n    \"\"\"Decode a Base64 encoded string.\"\"\"\n    return base64.b64decode(encoded_text.encode()).decode()\ndef encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_hex",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_hex",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_utf8",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_utf8",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_latin1",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_latin1",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_ascii",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_ascii",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "encode_url",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "decode_url",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encoder_decoder",
+        "description": "SecureEncoderFlask.encoder_decoder",
+        "peekOfCode": "def decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
+        "detail": "SecureEncoderFlask.encoder_decoder",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_aes_key",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def ensure_aes_key(key_file):\n    \"\"\"Ensure there is an AES key available, and return it.\"\"\"\n    if not os.path.exists(key_file):\n        key = os.urandom(32)  # AES-256 key\n        with open(key_file, 'wb') as kf:\n            kf.write(key)\n        print(f\"New AES key generated and saved to {key_file}\")\n    else:\n        with open(key_file, 'rb') as kf:\n            key = kf.read()",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_encrypt",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def aes_encrypt(plaintext: str, key: bytes):\n    \"\"\"Encrypt a string using AES encryption with the provided key.\"\"\"\n    # Generate a random IV\n    iv = os.urandom(16)\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    encryptor = cipher.encryptor()\n    # Encrypt the plaintext\n    ciphertext = encryptor.update(plaintext.encode()) + encryptor.finalize()\n    # Return IV + Ciphertext for decryption",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "aes_decrypt",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def aes_decrypt(ciphertext: bytes, key: bytes):\n    \"\"\"Decrypt a string using AES decryption with the provided key.\"\"\"\n    # Extract IV from the beginning of the ciphertext\n    iv = ciphertext[:16]\n    actual_ciphertext = ciphertext[16:]\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    decryptor = cipher.decryptor()\n    # Decrypt the ciphertext\n    return decryptor.update(actual_ciphertext) + decryptor.finalize()",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "generate_rsa_keys",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def generate_rsa_keys():\n    \"\"\"Generate RSA private and public keys.\"\"\"\n    private_key = rsa.generate_private_key(\n        public_exponent=65537,\n        key_size=2048,\n        backend=default_backend()\n    )\n    public_key = private_key.public_key()\n    return private_key, public_key\ndef save_rsa_key(key, key_file, is_private=True):",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "save_rsa_key",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def save_rsa_key(key, key_file, is_private=True):\n    \"\"\"Save an RSA key (private or public) to a file.\"\"\"\n    with open(key_file, \"wb\") as kf:\n        if is_private:\n            kf.write(key.private_bytes(\n                encoding=serialization.Encoding.PEM,\n                format=serialization.PrivateFormat.PKCS8,\n                encryption_algorithm=serialization.NoEncryption()\n            ))\n        else:",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_rsa_public_key",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def ensure_rsa_public_key(public_key_file):\n    \"\"\"Ensure the RSA public key is available and return it.\"\"\"\n    if not os.path.exists(public_key_file):\n        # If the public key is missing, generate both keys to ensure matching pairs\n        private_key_file = public_key_file.replace(\"public\", \"private\")\n        if not os.path.exists(private_key_file):\n            private_key, public_key = generate_rsa_keys()\n            save_rsa_key(private_key, private_key_file, is_private=True)\n            save_rsa_key(public_key, public_key_file, is_private=False)\n        else:",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "ensure_rsa_private_key",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def ensure_rsa_private_key(private_key_file):\n    \"\"\"Ensure the RSA private key is available and return it.\"\"\"\n    if not os.path.exists(private_key_file):\n        # If the private key is missing, generate both keys to ensure matching pairs\n        public_key_file = private_key_file.replace(\"private\", \"public\")\n        private_key, public_key = generate_rsa_keys()\n        save_rsa_key(private_key, private_key_file, is_private=True)\n        save_rsa_key(public_key, public_key_file, is_private=False)\n    else:\n        # Load the existing private key",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_encrypt",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def rsa_encrypt(plaintext: str, public_key):\n    \"\"\"Encrypt a string using RSA public key.\"\"\"\n    ciphertext = public_key.encrypt(\n        plaintext.encode(),\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "rsa_decrypt",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.encryption_decryption",
+        "description": "SecureEncoderFlask.encryption_decryption",
+        "peekOfCode": "def rsa_decrypt(ciphertext: bytes, private_key):\n    \"\"\"Decrypt a string using RSA private key.\"\"\"\n    plaintext = private_key.decrypt(\n        ciphertext,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
+        "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
         "label": "_Known",
         "kind": 6,
         "importPath": "SecureEncoderReact.node_modules.flatted.python.flatted",
@@ -529,309 +987,255 @@
         "documentation": {}
     },
     {
-        "label": "allowed_file",
+        "label": "test_encode_base64",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_encode_base64():\n    \"\"\"Test Base64 encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"SGVsbG8sIFdvcmxkIQ==\"\n    assert encode_base64(input_text) == expected_output, \"Base64 encoding failed\"\ndef test_decode_base64():\n    \"\"\"Test decoding of a Base64-encoded string.\"\"\"\n    encoded_text = \"SGVsbG8sIFdvcmxkIQ==\"\n    expected_output = \"Hello, World!\"\n    assert decode_base64(encoded_text) == expected_output, \"Base64 decoding failed\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "upload_key",
+        "label": "test_decode_base64",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n        file.save(file_path)\n        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_decode_base64():\n    \"\"\"Test decoding of a Base64-encoded string.\"\"\"\n    encoded_text = \"SGVsbG8sIFdvcmxkIQ==\"\n    expected_output = \"Hello, World!\"\n    assert decode_base64(encoded_text) == expected_output, \"Base64 decoding failed\"\ndef test_encode_hex():\n    \"\"\"Test Hex encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"48656c6c6f2c20576f726c6421\"\n    assert encode_hex(input_text) == expected_output, \"Hex encoding failed\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "list_files",
+        "label": "test_encode_hex",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def list_files():\n    files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]\n    return jsonify(files)\n@app.route('/api/download_key/<filename>')\ndef download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_encode_hex():\n    \"\"\"Test Hex encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"48656c6c6f2c20576f726c6421\"\n    assert encode_hex(input_text) == expected_output, \"Hex encoding failed\"\ndef test_decode_hex():\n    \"\"\"Test decoding of a Hex-encoded string.\"\"\"\n    encoded_text = \"48656c6c6f2c20576f726c6421\"\n    expected_output = \"Hello, World!\"\n    assert decode_hex(encoded_text) == expected_output, \"Hex decoding failed\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "download_key",
+        "label": "test_decode_hex",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/api/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_decode_hex():\n    \"\"\"Test decoding of a Hex-encoded string.\"\"\"\n    encoded_text = \"48656c6c6f2c20576f726c6421\"\n    expected_output = \"Hello, World!\"\n    assert decode_hex(encoded_text) == expected_output, \"Hex decoding failed\"\ndef test_encode_utf8():\n    \"\"\"Test UTF-8 encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = b'Hello, World!'\n    encoded_text = encode_utf8(input_text)",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "process_text",
+        "label": "test_encode_utf8",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']\n    session['action'] = data['action']\n    operations = {\n        'encode': {\n            'base64': encode_base64,\n            'hex': lambda x: encode_hex(x).hex(),\n            'utf8': lambda x: encode_utf8(x).hex(),",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_encode_utf8():\n    \"\"\"Test UTF-8 encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = b'Hello, World!'\n    encoded_text = encode_utf8(input_text)\n    assert encoded_text == expected_output, f\"UTF-8 encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_utf8():\n    \"\"\"Test decoding of a UTF-8 encoded byte array.\"\"\"\n    input_bytes = b'Hello, World!'\n    expected_output = \"Hello, World!\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "apply_security_headers",
+        "label": "test_decode_utf8",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def apply_security_headers(response):\n    response.headers[\"Content-Security-Policy\"] = \"default-src 'self'; script-src 'self'; object-src 'none';\"\n    response.headers[\"X-Frame-Options\"] = \"SAMEORIGIN\"\n    response.headers[\"X-Content-Type-Options\"] = \"nosniff\"\n    response.headers[\"X-XSS-Protection\"] = \"1; mode=block\"\n    response.headers[\"Referrer-Policy\"] = \"no-referrer\"\n    return response\n@app.after_request\ndef add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_decode_utf8():\n    \"\"\"Test decoding of a UTF-8 encoded byte array.\"\"\"\n    input_bytes = b'Hello, World!'\n    expected_output = \"Hello, World!\"\n    output_text = decode_utf8(input_bytes)\n    assert output_text == expected_output, f\"UTF-8 decoding failed: {output_text} != {expected_output}\"\ndef test_encode_latin1():\n    \"\"\"Test Latin-1 encoding of a string.\"\"\"\n    input_text = \"Café\"\n    expected_output = b'Caf\\xe9'",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "add_session_to_response",
+        "label": "test_encode_latin1",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))\n    response.set_cookie('result', session.get('result', ''))\n    response.set_cookie('operation', session.get('operation', ''))\n    response.set_cookie('action', session.get('action', ''))\n    response.set_cookie('text', session.get('text', ''))\n    return response\n@app.errorhandler(Exception)\ndef handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_encode_latin1():\n    \"\"\"Test Latin-1 encoding of a string.\"\"\"\n    input_text = \"Café\"\n    expected_output = b'Caf\\xe9'\n    encoded_text = encode_latin1(input_text)\n    assert encoded_text == expected_output, f\"Latin-1 encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_latin1():\n    \"\"\"Test decoding of a Latin-1 encoded byte array.\"\"\"\n    input_bytes = b'Caf\\xe9'\n    expected_output = \"Café\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "handle_exception",
+        "label": "test_decode_latin1",
         "kind": 2,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "def handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
-        "detail": "app",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_decode_latin1():\n    \"\"\"Test decoding of a Latin-1 encoded byte array.\"\"\"\n    input_bytes = b'Caf\\xe9'\n    expected_output = \"Café\"\n    output_text = decode_latin1(input_bytes)\n    assert output_text == expected_output, f\"Latin-1 decoding failed: {output_text} != {expected_output}\"\ndef test_encode_ascii():\n    \"\"\"Test ASCII encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"72 101 108 108 111 44 32 87 111 114 108 100 33\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "app",
-        "kind": 5,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "app = Flask(__name__)\ncors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():",
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "cors",
-        "kind": 5,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "cors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']",
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app.config['UPLOAD_FOLDER']",
-        "kind": 5,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':",
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app.config['ALLOWED_EXTENSIONS']",
-        "kind": 5,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "app.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")",
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "app.secret_key",
-        "kind": 5,
-        "importPath": "app",
-        "description": "app",
-        "peekOfCode": "app.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400",
-        "detail": "app",
-        "documentation": {}
-    },
-    {
-        "label": "encode_base64",
+        "label": "test_encode_ascii",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def encode_base64(input_text: str) -> str:\n    \"\"\"Encode a string using Base64.\"\"\"\n    return base64.b64encode(input_text.encode()).decode()\ndef decode_base64(encoded_text: str) -> str:\n    \"\"\"Decode a Base64 encoded string.\"\"\"\n    return base64.b64decode(encoded_text.encode()).decode()\ndef encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_encode_ascii():\n    \"\"\"Test ASCII encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"72 101 108 108 111 44 32 87 111 114 108 100 33\"\n    encoded_text = encode_ascii(input_text)\n    assert encoded_text == expected_output, f\"ASCII encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_ascii():\n    \"\"\"Test decoding of an ASCII-encoded string.\"\"\"\n    encoded_text = \"72 101 108 108 111 44 32 87 111 114 108 100 33\"\n    expected_output = \"Hello, World!\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "decode_base64",
+        "label": "test_decode_ascii",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def decode_base64(encoded_text: str) -> str:\n    \"\"\"Decode a Base64 encoded string.\"\"\"\n    return base64.b64decode(encoded_text.encode()).decode()\ndef encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_decode_ascii():\n    \"\"\"Test decoding of an ASCII-encoded string.\"\"\"\n    encoded_text = \"72 101 108 108 111 44 32 87 111 114 108 100 33\"\n    expected_output = \"Hello, World!\"\n    output_text = decode_ascii(encoded_text)\n    assert output_text == expected_output, f\"ASCII decoding failed: {output_text} != {expected_output}\"\ndef test_encode_url():\n    \"\"\"Test URL encoding of a string.\"\"\"\n    input_text = \"Hello, World! @2023\"\n    expected_output = \"Hello%2C%20World%21%20%402023\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "encode_hex",
+        "label": "test_encode_url",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_encode_url():\n    \"\"\"Test URL encoding of a string.\"\"\"\n    input_text = \"Hello, World! @2023\"\n    expected_output = \"Hello%2C%20World%21%20%402023\"\n    encoded_text = encode_url(input_text)\n    assert encoded_text == expected_output, f\"URL encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_url():\n    \"\"\"Test decoding of a URL-encoded string.\"\"\"\n    encoded_text = \"Hello%2C%20World%21%20%402023\"\n    expected_output = \"Hello, World! @2023\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "decode_hex",
+        "label": "test_decode_url",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
+        "description": "TestSecureEncoderFlask.test_encoder_decoder",
+        "peekOfCode": "def test_decode_url():\n    \"\"\"Test decoding of a URL-encoded string.\"\"\"\n    encoded_text = \"Hello%2C%20World%21%20%402023\"\n    expected_output = \"Hello, World! @2023\"\n    output_text = decode_url(encoded_text)\n    assert output_text == expected_output, f\"URL decoding failed: {output_text} != {expected_output}\"",
+        "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
     {
-        "label": "encode_utf8",
+        "label": "setup_module",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def setup_module(module):\n    \"\"\" Setup any state specific to the execution of the given module.\"\"\"\n    global original_key_file\n    original_key_file = \"aes_key.bin\"  # This should match your production key file path\n    global test_key_file\n    test_key_file = \"tests/test_aes_key.bin\"\n    # Ensure the test directory exists\n    os.makedirs(os.path.dirname(test_key_file), exist_ok=True)\ndef teardown_module(module):\n    \"\"\" Teardown any state that was previously setup with a setup_module method.\"\"\"",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "decode_utf8",
+        "label": "teardown_module",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def teardown_module(module):\n    \"\"\" Teardown any state that was previously setup with a setup_module method.\"\"\"\n    if os.path.exists(test_key_file):\n        os.remove(test_key_file)\ndef test_ensure_aes_key_generation():\n    \"\"\"Test that a new key is generated when the key file is missing.\"\"\"\n    assert not os.path.exists(test_key_file), \"Key file should not exist before the test\"\n    key = ensure_aes_key(test_key_file)\n    assert os.path.exists(test_key_file), \"Key file should be created after calling ensure_aes_key\"\n    with open(test_key_file, 'rb') as f:",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "encode_latin1",
+        "label": "test_ensure_aes_key_generation",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_ensure_aes_key_generation():\n    \"\"\"Test that a new key is generated when the key file is missing.\"\"\"\n    assert not os.path.exists(test_key_file), \"Key file should not exist before the test\"\n    key = ensure_aes_key(test_key_file)\n    assert os.path.exists(test_key_file), \"Key file should be created after calling ensure_aes_key\"\n    with open(test_key_file, 'rb') as f:\n        assert f.read() == key, \"Key file should contain the generated key\"\ndef test_ensure_aes_key_retrieval():\n    \"\"\"Test that an existing key is retrieved when the key file is present.\"\"\"\n    key = os.urandom(32)",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "decode_latin1",
+        "label": "test_ensure_aes_key_retrieval",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_ensure_aes_key_retrieval():\n    \"\"\"Test that an existing key is retrieved when the key file is present.\"\"\"\n    key = os.urandom(32)\n    with open(test_key_file, 'wb') as f:\n        f.write(key)\n    assert os.path.exists(test_key_file), \"Key file should exist before the test\"\n    retrieved_key = ensure_aes_key(test_key_file)\n    assert retrieved_key == key, \"Retrieved key should match the one in the key file\"\ndef test_aes_encrypt_decrypt():\n    \"\"\"Test that text is correctly encrypted and decrypted back to its original form.\"\"\"",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "encode_ascii",
+        "label": "test_aes_encrypt_decrypt",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_aes_encrypt_decrypt():\n    \"\"\"Test that text is correctly encrypted and decrypted back to its original form.\"\"\"\n    key = os.urandom(32)  # Generate a new key for each test to ensure isolation\n    plaintext = \"Hello, World!\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted.decode() == plaintext, \"Decrypted text should match the original\"\ndef test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "decode_ascii",
+        "label": "test_aes_encryption_decryption_empty_string",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted.decode() == plaintext, \"Decrypted text should be an empty string for empty input\"\ndef test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "encode_url",
+        "label": "test_aes_encryption_uniqueness",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def encode_url(input_text: str) -> str:\n    \"\"\"Encode a string for safe URL transmission.\"\"\"\n    return urllib.parse.quote(input_text)\ndef decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"\n    key1 = os.urandom(32)\n    key2 = os.urandom(32)\n    encrypted1 = aes_encrypt(plaintext, key1)\n    encrypted2 = aes_encrypt(plaintext, key2)\n    assert encrypted1 != encrypted2, \"Encryption with different keys should produce different outputs\"\ndef test_aes_encryption_with_padding():\n    \"\"\"Test that encryption and decryption correctly handle padding for block alignment.\"\"\"",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "decode_url",
+        "label": "test_aes_encryption_with_padding",
         "kind": 2,
-        "importPath": "encoder_decoder",
-        "description": "encoder_decoder",
-        "peekOfCode": "def decode_url(encoded_text: str) -> str:\n    \"\"\"Decode a URL-encoded string.\"\"\"\n    return urllib.parse.unquote(encoded_text)",
-        "detail": "encoder_decoder",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_aes_encryption_with_padding():\n    \"\"\"Test that encryption and decryption correctly handle padding for block alignment.\"\"\"\n    key = os.urandom(32)\n    padder = padding.PKCS7(128).padder()  # 128 bit (16 byte) block size for AES\n    plaintext = \"Text not block aligned\"\n    padded_plaintext = padder.update(plaintext.encode()) + padder.finalize()\n    encrypted = aes_encrypt(padded_plaintext.decode(), key)\n    decrypted = aes_decrypt(encrypted, key)\n    unpadder = padding.PKCS7(128).unpadder()\n    unpadded_plaintext = unpadder.update(decrypted) + unpadder.finalize()",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "ensure_aes_key",
+        "label": "test_aes_encryption_decryption_invalid_key",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def ensure_aes_key(key_file):\n    \"\"\"Ensure there is an AES key available, and return it.\"\"\"\n    if not os.path.exists(key_file):\n        key = os.urandom(32)  # AES-256 key\n        with open(key_file, 'wb') as kf:\n            kf.write(key)\n        print(f\"New AES key generated and saved to {key_file}\")\n    else:\n        with open(key_file, 'rb') as kf:\n            key = kf.read()",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_aes_encryption_decryption_invalid_key():\n    \"\"\"Test that decryption fails with an incorrect key.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"Secret message\"\n    encrypted = aes_encrypt(plaintext, key)\n    wrong_key = os.urandom(32)\n    try:\n        aes_decrypt(encrypted, wrong_key)\n    except Exception as e:\n        assert str(e) == \"Invalid key\", \"Decryption should fail with an incorrect key\"",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "aes_encrypt",
+        "label": "test_rsa_encrypt_decrypt",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def aes_encrypt(plaintext: str, key: bytes):\n    \"\"\"Encrypt a string using AES encryption with the provided key.\"\"\"\n    # Generate a random IV\n    iv = os.urandom(16)\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    encryptor = cipher.encryptor()\n    # Encrypt the plaintext\n    ciphertext = encryptor.update(plaintext.encode()) + encryptor.finalize()\n    # Return IV + Ciphertext for decryption",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_rsa_encrypt_decrypt():\n    \"\"\"Test that text is correctly encrypted and decrypted back to its original form using RSA.\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintext = \"Hello, RSA World!\"\n    encrypted = rsa_encrypt(plaintext, public_key)\n    decrypted = rsa_decrypt(encrypted, private_key)\n    assert decrypted == plaintext, \"Decrypted text should match the original plaintext\"\ndef test_rsa_encryption_uniqueness():\n    \"\"\"Test that RSA encryption of the same text results in different ciphertexts.\"\"\"\n    _, public_key = generate_rsa_keys()",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "aes_decrypt",
+        "label": "test_rsa_encryption_uniqueness",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def aes_decrypt(ciphertext: bytes, key: bytes):\n    \"\"\"Decrypt a string using AES decryption with the provided key.\"\"\"\n    # Extract IV from the beginning of the ciphertext\n    iv = ciphertext[:16]\n    actual_ciphertext = ciphertext[16:]\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    decryptor = cipher.decryptor()\n    # Decrypt the ciphertext\n    return decryptor.update(actual_ciphertext) + decryptor.finalize()",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_rsa_encryption_uniqueness():\n    \"\"\"Test that RSA encryption of the same text results in different ciphertexts.\"\"\"\n    _, public_key = generate_rsa_keys()\n    plaintext = \"Repeatable text\"\n    encrypted1 = rsa_encrypt(plaintext, public_key)\n    encrypted2 = rsa_encrypt(plaintext, public_key)\n    assert encrypted1 != encrypted2, \"RSA encryption should produce different outputs for the same input\"\ndef test_rsa_encrypt_decrypt_with_multiple_keys():\n    \"\"\"Test RSA encryption and decryption using multiple key pairs.\"\"\"\n    private_key1, public_key1 = generate_rsa_keys()",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "generate_rsa_keys",
+        "label": "test_rsa_encrypt_decrypt_with_multiple_keys",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def generate_rsa_keys():\n    \"\"\"Generate RSA private and public keys.\"\"\"\n    private_key = rsa.generate_private_key(\n        public_exponent=65537,\n        key_size=2048,\n        backend=default_backend()\n    )\n    public_key = private_key.public_key()\n    return private_key, public_key\ndef save_rsa_key(key, key_file, is_private=True):",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_rsa_encrypt_decrypt_with_multiple_keys():\n    \"\"\"Test RSA encryption and decryption using multiple key pairs.\"\"\"\n    private_key1, public_key1 = generate_rsa_keys()\n    private_key2, public_key2 = generate_rsa_keys()\n    plaintext = \"Shared Secret!\"\n    encrypted_with_key1 = rsa_encrypt(plaintext, public_key1)\n    decrypted_with_key1 = rsa_decrypt(encrypted_with_key1, private_key1)\n    encrypted_with_key2 = rsa_encrypt(plaintext, public_key2)\n    decrypted_with_key2 = rsa_decrypt(encrypted_with_key2, private_key2)\n    assert decrypted_with_key1 == plaintext, \"Decrypted text should match the original with key pair 1\"",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "save_rsa_key",
+        "label": "test_rsa_large_data_encryption",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def save_rsa_key(key, key_file, is_private=True):\n    \"\"\"Save an RSA key (private or public) to a file.\"\"\"\n    with open(key_file, \"wb\") as kf:\n        if is_private:\n            kf.write(key.private_bytes(\n                encoding=serialization.Encoding.PEM,\n                format=serialization.PrivateFormat.PKCS8,\n                encryption_algorithm=serialization.NoEncryption()\n            ))\n        else:",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_rsa_large_data_encryption():\n    \"\"\"Test RSA encryption and decryption with a chunking approach (demonstrative).\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintext = \"A\" * 1000  # Demonstrative chunking\n    chunk_size = 190  # Based on RSA key size minus padding overhead\n    encrypted_chunks = [rsa_encrypt(plaintext[i:i+chunk_size], public_key) for i in range(0, len(plaintext), chunk_size)]\n    decrypted_chunks = [rsa_decrypt(chunk, private_key) for chunk in encrypted_chunks]\n    decrypted_text = ''.join(decrypted_chunks)\n    assert decrypted_text == plaintext, \"Decrypted text should match the original large plaintext\"\ndef test_rsa_decryption_with_wrong_key():",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "ensure_rsa_public_key",
+        "label": "test_rsa_decryption_with_wrong_key",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def ensure_rsa_public_key(public_key_file):\n    \"\"\"Ensure the RSA public key is available and return it.\"\"\"\n    if not os.path.exists(public_key_file):\n        # If the public key is missing, generate both keys to ensure matching pairs\n        private_key_file = public_key_file.replace(\"public\", \"private\")\n        if not os.path.exists(private_key_file):\n            private_key, public_key = generate_rsa_keys()\n            save_rsa_key(private_key, private_key_file, is_private=True)\n            save_rsa_key(public_key, public_key_file, is_private=False)\n        else:",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_rsa_decryption_with_wrong_key():\n    \"\"\"Test RSA decryption fails when using a wrong private key.\"\"\"\n    private_key1, public_key1 = generate_rsa_keys()\n    private_key2, _ = generate_rsa_keys()  # Correct private key is not used\n    plaintext = \"Critical data\"\n    encrypted = rsa_encrypt(plaintext, public_key1)\n    try:\n        rsa_decrypt(encrypted, private_key2)\n        assert False, \"Decryption should fail but succeeded\"\n    except Exception as e:",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "ensure_rsa_private_key",
+        "label": "test_rsa_public_key_reuse",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def ensure_rsa_private_key(private_key_file):\n    \"\"\"Ensure the RSA private key is available and return it.\"\"\"\n    if not os.path.exists(private_key_file):\n        # If the private key is missing, generate both keys to ensure matching pairs\n        public_key_file = private_key_file.replace(\"private\", \"public\")\n        private_key, public_key = generate_rsa_keys()\n        save_rsa_key(private_key, private_key_file, is_private=True)\n        save_rsa_key(public_key, public_key_file, is_private=False)\n    else:\n        # Load the existing private key",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_rsa_public_key_reuse():\n    \"\"\"Test reusing the same public key for multiple encryptions.\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintexts = [\"Message 1\", \"Message 2\", \"Message 3\"]\n    encrypted_texts = [rsa_encrypt(pt, public_key) for pt in plaintexts]\n    decrypted_texts = [rsa_decrypt(et, private_key) for et in encrypted_texts]\n    assert all(dt == pt for dt, pt in zip(decrypted_texts, plaintexts)), \"All decrypted texts should match their original plaintexts\"\ndef test_rsa_padding_oracle_attack_scenario():\n    \"\"\"Simulate a scenario that should be resistant to padding oracle attacks.\"\"\"\n    private_key, public_key = generate_rsa_keys()",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
     {
-        "label": "rsa_encrypt",
+        "label": "test_rsa_padding_oracle_attack_scenario",
         "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def rsa_encrypt(plaintext: str, public_key):\n    \"\"\"Encrypt a string using RSA public key.\"\"\"\n    ciphertext = public_key.encrypt(\n        plaintext.encode(),\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
-        "detail": "encryption_decryption",
-        "documentation": {}
-    },
-    {
-        "label": "rsa_decrypt",
-        "kind": 2,
-        "importPath": "encryption_decryption",
-        "description": "encryption_decryption",
-        "peekOfCode": "def rsa_decrypt(ciphertext: bytes, private_key):\n    \"\"\"Decrypt a string using RSA private key.\"\"\"\n    plaintext = private_key.decrypt(\n        ciphertext,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
-        "detail": "encryption_decryption",
+        "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
+        "description": "TestSecureEncoderFlask.test_encryption_decryption",
+        "peekOfCode": "def test_rsa_padding_oracle_attack_scenario():\n    \"\"\"Simulate a scenario that should be resistant to padding oracle attacks.\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintext = \"Very sensitive data\"\n    encrypted = rsa_encrypt(plaintext, public_key)\n    # Correct XOR operation for tampering demonstration\n    tampered_ciphertext = encrypted[:-1] + bytes([encrypted[-1] ^ 0x01])\n    try:\n        rsa_decrypt(tampered_ciphertext, private_key)\n        assert False, \"Tampering should lead to decryption failure or incorrect output\"",
+        "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     }
 ]
