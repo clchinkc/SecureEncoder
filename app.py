@@ -49,55 +49,34 @@ def process_text():
     operation = data['operation']
     action = data['action']
 
+    operations = {
+        'encode': {
+            'base64': encode_base64,
+            'hex': lambda x: encode_hex(x).hex(),
+            'utf8': lambda x: encode_utf8(x).hex(),
+            'latin1': lambda x: encode_latin1(x).hex(),
+            'ascii': encode_ascii,
+            'url': encode_url,
+            'aes': lambda x: aes_encrypt(x, ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))).hex(),
+            'rsa': lambda x: rsa_encrypt(x, ensure_rsa_public_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_public_key.pem"))).hex(),
+        },
+        'decode': {
+            'base64': decode_base64,
+            'hex': lambda x: decode_hex(x),
+            'utf8': lambda x: decode_utf8(bytes.fromhex(x)),
+            'latin1': lambda x: decode_latin1(bytes.fromhex(x)),
+            'ascii': decode_ascii,
+            'url': decode_url,
+            'aes': lambda x: aes_decrypt(bytes.fromhex(x), ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))).decode('utf-8'),
+            'rsa': lambda x: rsa_decrypt(bytes.fromhex(x), ensure_rsa_private_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_private_key.pem"))),
+        }
+    }
+
     try:
-        result = "Operation not supported"
-        if action == 'encode':
-            if operation == 'base64':
-                result = encode_base64(text)
-            elif operation == 'hex':
-                result = encode_hex(text)
-            elif operation == 'utf8':
-                result = encode_utf8(text).hex()
-            elif operation == 'latin1':
-                result = encode_latin1(text).hex()
-            elif operation == 'ascii':
-                result = encode_ascii(text)
-            elif operation == 'url':
-                result = encode_url(text)
-            elif operation == 'aes':
-                aes_key = ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))
-                result = aes_encrypt(text, aes_key).hex()
-            elif operation == 'rsa':
-                public_key = ensure_rsa_public_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_public_key.pem"))
-                result = rsa_encrypt(text, public_key).hex()
-            else:
-                return jsonify({'error': 'Invalid operation'}), 400
-        elif action == 'decode':
-            if operation == 'base64':
-                result = decode_base64(text)
-            elif operation == 'hex':
-                result = decode_hex(text)
-            elif operation == 'utf8':
-                result = decode_utf8(bytes.fromhex(text))
-            elif operation == 'latin1':
-                result = decode_latin1(bytes.fromhex(text))
-            elif operation == 'ascii':
-                result = decode_ascii(text)
-            elif operation == 'url':
-                result = decode_url(text)
-            elif operation == 'aes':
-                aes_key = ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))
-                encrypted_bytes = bytes.fromhex(text)
-                result = aes_decrypt(encrypted_bytes, aes_key).decode('utf-8')
-            elif operation == 'rsa':
-                private_key = ensure_rsa_private_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_private_key.pem"))
-                encrypted_bytes = bytes.fromhex(text)
-                result = rsa_decrypt(encrypted_bytes, private_key)
-            else:
-                return jsonify({'error': 'Invalid operation'}), 400
-        else:
-            return jsonify({'error': 'Invalid action'}), 400
-        return jsonify({'result': result})
+        if action in operations and operation in operations[action]:
+            result = operations[action][operation](text)
+            return jsonify({'result': result})
+        return jsonify({'error': 'Invalid operation or action'}), 400
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
