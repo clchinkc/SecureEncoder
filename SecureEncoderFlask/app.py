@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory, make_response, session
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+from werkzeug.exceptions import HTTPException
 import os
 from dotenv import load_dotenv
 import logging
@@ -50,6 +51,11 @@ def download_key(filename):
     logging.error("File not found")
     return jsonify({'error': 'File not found'}), 404
 
+@app.route('/api/save_text', methods=['POST'])
+def save_text():
+    """Store user input in session."""
+    session['text'] = request.form.get('text', '')
+    return jsonify(status="success")
 
 @app.route('/api/process_text', methods=['POST'])
 def process_text():
@@ -113,6 +119,8 @@ def add_session_to_response(response):
 
 @app.errorhandler(Exception)
 def handle_exception(e):
+    if isinstance(e, HTTPException):
+        return e
     logging.error(f"Unhandled exception: {str(e)}")
     return jsonify({'error': str(e)}), 500
 

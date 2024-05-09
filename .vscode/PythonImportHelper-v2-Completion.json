@@ -64,6 +64,14 @@
         "documentation": {}
     },
     {
+        "label": "HTTPException",
+        "importPath": "werkzeug.exceptions",
+        "description": "werkzeug.exceptions",
+        "isExtraImport": true,
+        "detail": "werkzeug.exceptions",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -541,7 +549,16 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.app",
         "description": "SecureEncoderFlask.app",
-        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/api/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']",
+        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if os.path.exists(file_path):\n        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n    logging.error(\"File not found\")\n    return jsonify({'error': 'File not found'}), 404\n@app.route('/api/save_text', methods=['POST'])\ndef save_text():\n    \"\"\"Store user input in session.\"\"\"\n    session['text'] = request.form.get('text', '')",
+        "detail": "SecureEncoderFlask.app",
+        "documentation": {}
+    },
+    {
+        "label": "save_text",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.app",
+        "description": "SecureEncoderFlask.app",
+        "peekOfCode": "def save_text():\n    \"\"\"Store user input in session.\"\"\"\n    session['text'] = request.form.get('text', '')\n    return jsonify(status=\"success\")\n@app.route('/api/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']\n    session['action'] = data['action']",
         "detail": "SecureEncoderFlask.app",
         "documentation": {}
     },
@@ -568,7 +585,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.app",
         "description": "SecureEncoderFlask.app",
-        "peekOfCode": "def add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))\n    response.set_cookie('result', session.get('result', ''))\n    response.set_cookie('operation', session.get('operation', ''))\n    response.set_cookie('action', session.get('action', ''))\n    response.set_cookie('text', session.get('text', ''))\n    return response\n@app.errorhandler(Exception)\ndef handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")",
+        "peekOfCode": "def add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))\n    response.set_cookie('result', session.get('result', ''))\n    response.set_cookie('operation', session.get('operation', ''))\n    response.set_cookie('action', session.get('action', ''))\n    response.set_cookie('text', session.get('text', ''))\n    return response\n@app.errorhandler(Exception)\ndef handle_exception(e):\n    if isinstance(e, HTTPException):",
         "detail": "SecureEncoderFlask.app",
         "documentation": {}
     },
@@ -577,7 +594,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.app",
         "description": "SecureEncoderFlask.app",
-        "peekOfCode": "def handle_exception(e):\n    logging.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
+        "peekOfCode": "def handle_exception(e):\n    if isinstance(e, HTTPException):\n        return e\n    logging.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500\nif __name__ == '__main__':\n    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
         "detail": "SecureEncoderFlask.app",
         "documentation": {}
     },
