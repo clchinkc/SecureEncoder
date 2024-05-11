@@ -1,8 +1,10 @@
 from flask import Flask
 from flask_cors import CORS
 import os
+import logging
+from logging.handlers import RotatingFileHandler
 
-from SecureEncoderFlask.md5_model import db
+from .md5_model import db
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
@@ -28,3 +30,16 @@ def create_app(test_config=None):
     # app.register_blueprint(your_blueprint)
 
     return app
+
+def setup_logger(app):
+    if app.debug or os.getenv('FLASK_DEBUG') == '1':
+        app.logger.setLevel(logging.DEBUG)
+    else:
+        app.logger.setLevel(logging.WARNING)
+
+        # Create a file handler for production logs
+        file_handler = RotatingFileHandler('production.log', maxBytes=1024 * 1024 * 100, backupCount=10)
+        file_handler.setLevel(logging.WARNING)
+        formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+        file_handler.setFormatter(formatter)
+        app.logger.addHandler(file_handler)

@@ -1,7 +1,7 @@
 from cryptography.hazmat.primitives import padding
 import os
 
-from SecureEncoderFlask.encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, generate_rsa_keys, rsa_encrypt, rsa_decrypt
+from src.encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, generate_rsa_keys, rsa_encrypt, rsa_decrypt
 
 def setup_module(module):
     """ Setup any state specific to the execution of the given module."""
