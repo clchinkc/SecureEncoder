@@ -28,13 +28,13 @@ def test_decode_hex():
 def test_encode_utf8():
     """Test UTF-8 encoding of a string."""
     input_text = "Hello, World!"
-    expected_output = b'Hello, World!'
+    expected_output = "48656c6c6f2c20576f726c6421"
     encoded_text = encode_utf8(input_text)
     assert encoded_text == expected_output, f"UTF-8 encoding failed: {encoded_text} != {expected_output}"
 
 def test_decode_utf8():
     """Test decoding of a UTF-8 encoded byte array."""
-    input_bytes = b'Hello, World!'
+    input_bytes = "48656c6c6f2c20576f726c6421"
     expected_output = "Hello, World!"
     output_text = decode_utf8(input_bytes)
     assert output_text == expected_output, f"UTF-8 decoding failed: {output_text} != {expected_output}"
@@ -42,13 +42,13 @@ def test_decode_utf8():
 def test_encode_latin1():
     """Test Latin-1 encoding of a string."""
     input_text = "Café"
-    expected_output = b'Caf\xe9'
+    expected_output = "436166e9"
     encoded_text = encode_latin1(input_text)
     assert encoded_text == expected_output, f"Latin-1 encoding failed: {encoded_text} != {expected_output}"
 
 def test_decode_latin1():
     """Test decoding of a Latin-1 encoded byte array."""
-    input_bytes = b'Caf\xe9'
+    input_bytes = "436166e9"
     expected_output = "Café"
     output_text = decode_latin1(input_bytes)
     assert output_text == expected_output, f"Latin-1 decoding failed: {output_text} != {expected_output}"

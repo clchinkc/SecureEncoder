@@ -20,19 +20,19 @@ def decode_hex(encoded_text: str) -> str:
 
 def encode_utf8(input_text: str) -> bytes:
     """Encode a string using UTF-8."""
-    return input_text.encode('utf-8')
+    return input_text.encode('utf-8').hex()
 
-def decode_utf8(input_bytes: bytes) -> str:
+def decode_utf8(encoded_text: str) -> str:
     """Decode a UTF-8 encoded byte array."""
-    return input_bytes.decode('utf-8')
+    return bytes.fromhex(encoded_text).decode('utf-8')
 
 def encode_latin1(input_text: str) -> bytes:
     """Encode a string using ISO-8859-1 (Latin-1)."""
-    return input_text.encode('iso-8859-1')
+    return input_text.encode('iso-8859-1').hex()
 
-def decode_latin1(input_bytes: bytes) -> str:
+def decode_latin1(encoded_text: str) -> str:
     """Decode a ISO-8859-1 (Latin-1) encoded byte array."""
-    return input_bytes.decode('iso-8859-1')
+    return bytes.fromhex(encoded_text).decode('iso-8859-1')
 
 def encode_ascii(input_text: str) -> str:
     """Encode a string to ASCII values separated by spaces."""
