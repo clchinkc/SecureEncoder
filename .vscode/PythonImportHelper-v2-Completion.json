@@ -48,6 +48,22 @@
         "documentation": {}
     },
     {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
         "label": "CORS",
         "importPath": "flask_cors",
         "description": "flask_cors",
@@ -104,6 +120,14 @@
         "importPath": "json",
         "description": "json",
         "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "Faker",
+        "importPath": "faker",
+        "description": "faker",
+        "isExtraImport": true,
+        "detail": "faker",
         "documentation": {}
     },
     {
@@ -259,6 +283,54 @@
         "documentation": {}
     },
     {
+        "label": "db",
+        "importPath": "md5_model",
+        "description": "md5_model",
+        "isExtraImport": true,
+        "detail": "md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_encode",
+        "importPath": "md5_model",
+        "description": "md5_model",
+        "isExtraImport": true,
+        "detail": "md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_decode",
+        "importPath": "md5_model",
+        "description": "md5_model",
+        "isExtraImport": true,
+        "detail": "md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "populate_db",
+        "importPath": "md5_model",
+        "description": "md5_model",
+        "isExtraImport": true,
+        "detail": "md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "md5_model",
+        "description": "md5_model",
+        "isExtraImport": true,
+        "detail": "md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "create_app",
+        "description": "create_app",
+        "isExtraImport": true,
+        "detail": "create_app",
+        "documentation": {}
+    },
+    {
         "label": "base64",
         "kind": 6,
         "isExtraImport": true,
@@ -355,6 +427,23 @@
         "description": "cryptography.hazmat.primitives",
         "isExtraImport": true,
         "detail": "cryptography.hazmat.primitives",
+        "documentation": {}
+    },
+    {
+        "label": "hashlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "hashlib",
+        "description": "hashlib",
+        "detail": "hashlib",
+        "documentation": {}
+    },
+    {
+        "label": "SQLAlchemy",
+        "importPath": "flask_sqlalchemy",
+        "description": "flask_sqlalchemy",
+        "isExtraImport": true,
+        "detail": "flask_sqlalchemy",
         "documentation": {}
     },
     {
@@ -518,6 +607,55 @@
         "documentation": {}
     },
     {
+        "label": "db",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "MD5Hash",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_encode",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_decode",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "create_app",
+        "importPath": "SecureEncoderFlask.create_app",
+        "description": "SecureEncoderFlask.create_app",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.create_app",
+        "documentation": {}
+    },
+    {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
         "label": "allowed_file",
         "kind": 2,
         "importPath": "SecureEncoderFlask.app",
@@ -603,44 +741,17 @@
         "kind": 5,
         "importPath": "SecureEncoderFlask.app",
         "description": "SecureEncoderFlask.app",
-        "peekOfCode": "app = Flask(__name__)\ncors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():",
+        "peekOfCode": "app = create_app()\nwith app.app_context():\n    db.create_all()  # Create database tables for our data models\n    faker = Faker()\n    populate_db(faker, 1000)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']",
         "detail": "SecureEncoderFlask.app",
         "documentation": {}
     },
     {
-        "label": "cors",
-        "kind": 5,
-        "importPath": "SecureEncoderFlask.app",
-        "description": "SecureEncoderFlask.app",
-        "peekOfCode": "cors = CORS(app, resources={r\"/api/*\": {\"origins\": \"*\"}})\napp.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']",
-        "detail": "SecureEncoderFlask.app",
-        "documentation": {}
-    },
-    {
-        "label": "app.config['UPLOAD_FOLDER']",
-        "kind": 5,
-        "importPath": "SecureEncoderFlask.app",
-        "description": "SecureEncoderFlask.app",
-        "peekOfCode": "app.config['UPLOAD_FOLDER'] = os.path.join(app.root_path, 'keys')\napp.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':",
-        "detail": "SecureEncoderFlask.app",
-        "documentation": {}
-    },
-    {
-        "label": "app.config['ALLOWED_EXTENSIONS']",
-        "kind": 5,
-        "importPath": "SecureEncoderFlask.app",
-        "description": "SecureEncoderFlask.app",
-        "peekOfCode": "app.config['ALLOWED_EXTENSIONS'] = {'pem'}\napp.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")",
-        "detail": "SecureEncoderFlask.app",
-        "documentation": {}
-    },
-    {
-        "label": "app.secret_key",
-        "kind": 5,
-        "importPath": "SecureEncoderFlask.app",
-        "description": "SecureEncoderFlask.app",
-        "peekOfCode": "app.secret_key = os.urandom(24)\nlogging.basicConfig(level=logging.DEBUG)\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        logging.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400",
-        "detail": "SecureEncoderFlask.app",
+        "label": "create_app",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.create_app",
+        "description": "SecureEncoderFlask.create_app",
+        "peekOfCode": "def create_app(test_config=None):\n    app = Flask(__name__, instance_relative_config=True)\n    # Default configuration\n    app.config.from_mapping(\n        UPLOAD_FOLDER=os.path.join(app.root_path, 'keys'),\n        ALLOWED_EXTENSIONS={'pem'},\n        SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL', 'sqlite:///md5.db'),\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n        SECRET_KEY=os.urandom(24),\n    )",
+        "detail": "SecureEncoderFlask.create_app",
         "documentation": {}
     },
     {
@@ -830,6 +941,51 @@
         "description": "SecureEncoderFlask.encryption_decryption",
         "peekOfCode": "def rsa_decrypt(ciphertext: bytes, private_key):\n    \"\"\"Decrypt a string using RSA private key.\"\"\"\n    plaintext = private_key.decrypt(\n        ciphertext,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
         "detail": "SecureEncoderFlask.encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "MD5Hash",
+        "kind": 6,
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "peekOfCode": "class MD5Hash(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    text = db.Column(db.String(255), unique=True, nullable=False)\n    md5_hash = db.Column(db.String(32), unique=True, nullable=False)\n    def __init__(self, text, md5_hash):\n        self.text = text\n        self.md5_hash = md5_hash\ndef md5_encode(text):\n    hash_object = hashlib.md5(text.encode())\n    hash_hex = hash_object.hexdigest()",
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_encode",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "peekOfCode": "def md5_encode(text):\n    hash_object = hashlib.md5(text.encode())\n    hash_hex = hash_object.hexdigest()\n    existing_hash = MD5Hash.query.filter_by(md5_hash=hash_hex).first()\n    if not existing_hash:\n        new_hash = MD5Hash(text, hash_hex)\n        db.session.add(new_hash)\n        db.session.commit()\n    return hash_hex\ndef md5_decode(hash_hex):",
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_decode",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "peekOfCode": "def md5_decode(hash_hex):\n    match = MD5Hash.query.filter_by(md5_hash=hash_hex).first()\n    if match:\n        return match.text\n    return \"No match found\"\ndef populate_db(faker, num_entries=1000):\n    for _ in range(num_entries):\n        sentence = faker.sentence()\n        md5_encode(sentence)",
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "populate_db",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "peekOfCode": "def populate_db(faker, num_entries=1000):\n    for _ in range(num_entries):\n        sentence = faker.sentence()\n        md5_encode(sentence)",
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "peekOfCode": "db = SQLAlchemy()\nclass MD5Hash(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    text = db.Column(db.String(255), unique=True, nullable=False)\n    md5_hash = db.Column(db.String(32), unique=True, nullable=False)\n    def __init__(self, text, md5_hash):\n        self.text = text\n        self.md5_hash = md5_hash\ndef md5_encode(text):\n    hash_object = hashlib.md5(text.encode())",
+        "detail": "SecureEncoderFlask.md5_model",
         "documentation": {}
     },
     {
@@ -1253,6 +1409,51 @@
         "description": "TestSecureEncoderFlask.test_encryption_decryption",
         "peekOfCode": "def test_rsa_padding_oracle_attack_scenario():\n    \"\"\"Simulate a scenario that should be resistant to padding oracle attacks.\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintext = \"Very sensitive data\"\n    encrypted = rsa_encrypt(plaintext, public_key)\n    # Correct XOR operation for tampering demonstration\n    tampered_ciphertext = encrypted[:-1] + bytes([encrypted[-1] ^ 0x01])\n    try:\n        rsa_decrypt(tampered_ciphertext, private_key)\n        assert False, \"Tampering should lead to decryption failure or incorrect output\"",
         "detail": "TestSecureEncoderFlask.test_encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 2,
+        "importPath": "TestSecureEncoderFlask.test_md5_model",
+        "description": "TestSecureEncoderFlask.test_md5_model",
+        "peekOfCode": "def app():\n    app = create_app({\n        'TESTING': True,\n        'SQLALCHEMY_DATABASE_URI': 'sqlite:///:memory:',\n        'WTF_CSRF_ENABLED': False  # Disable CSRF tokens in the form for testing purposes.\n    })\n    with app.app_context():\n        db.create_all()\n    return app\n@pytest.fixture",
+        "detail": "TestSecureEncoderFlask.test_md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 2,
+        "importPath": "TestSecureEncoderFlask.test_md5_model",
+        "description": "TestSecureEncoderFlask.test_md5_model",
+        "peekOfCode": "def client(app):\n    return app.test_client()\ndef test_md5_encode(app):\n    # Use app context here for database operations\n    with app.app_context():\n        text = \"hello world\"\n        encoded = md5_encode(text)\n        stored_hash = MD5Hash.query.first()\n        assert stored_hash.md5_hash == encoded  # Ensure it's correctly stored in DB\n        assert len(encoded) == 32  # MD5 hashes should be 32 characters long",
+        "detail": "TestSecureEncoderFlask.test_md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "test_md5_encode",
+        "kind": 2,
+        "importPath": "TestSecureEncoderFlask.test_md5_model",
+        "description": "TestSecureEncoderFlask.test_md5_model",
+        "peekOfCode": "def test_md5_encode(app):\n    # Use app context here for database operations\n    with app.app_context():\n        text = \"hello world\"\n        encoded = md5_encode(text)\n        stored_hash = MD5Hash.query.first()\n        assert stored_hash.md5_hash == encoded  # Ensure it's correctly stored in DB\n        assert len(encoded) == 32  # MD5 hashes should be 32 characters long\ndef test_md5_decode(app):\n    with app.app_context():",
+        "detail": "TestSecureEncoderFlask.test_md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "test_md5_decode",
+        "kind": 2,
+        "importPath": "TestSecureEncoderFlask.test_md5_model",
+        "description": "TestSecureEncoderFlask.test_md5_model",
+        "peekOfCode": "def test_md5_decode(app):\n    with app.app_context():\n        text = \"hello world\"\n        encoded = md5_encode(text)\n        decoded = md5_decode(encoded)\n        assert decoded == text  # Ensure the decoded text matches the original\ndef test_md5_decode_no_match(app):\n    with app.app_context():\n        decoded = md5_decode(\"nonexistenthash\")\n        assert decoded is \"No match found\"  # Ensure correct message is returned when no match is found",
+        "detail": "TestSecureEncoderFlask.test_md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "test_md5_decode_no_match",
+        "kind": 2,
+        "importPath": "TestSecureEncoderFlask.test_md5_model",
+        "description": "TestSecureEncoderFlask.test_md5_model",
+        "peekOfCode": "def test_md5_decode_no_match(app):\n    with app.app_context():\n        decoded = md5_decode(\"nonexistenthash\")\n        assert decoded is \"No match found\"  # Ensure correct message is returned when no match is found",
+        "detail": "TestSecureEncoderFlask.test_md5_model",
         "documentation": {}
     }
 ]
