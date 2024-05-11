@@ -1,5 +1,5 @@
-from SecureEncoderFlask.md5_model import db, MD5Hash, md5_encode, md5_decode
-from SecureEncoderFlask.create_app import create_app
+from src.md5_model import db, MD5Hash, md5_encode, md5_decode
+from src.create_app import create_app
 import pytest
 
 @pytest.fixture

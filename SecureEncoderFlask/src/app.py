@@ -4,24 +4,31 @@ from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
 import os
 from dotenv import load_dotenv
-import logging
+
 import json
 from faker import Faker
 
-from encoder_decoder import encode_base64, decode_base64, encode_hex, decode_hex, encode_utf8, decode_utf8, encode_latin1, decode_latin1, encode_ascii, decode_ascii, encode_url, decode_url
-from encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensure_rsa_public_key, ensure_rsa_private_key, rsa_encrypt, rsa_decrypt
-from md5_model import db, md5_encode, md5_decode, populate_db
-from create_app import create_app
+from .encoder_decoder import encode_base64, decode_base64, encode_hex, decode_hex, encode_utf8, decode_utf8, encode_latin1, decode_latin1, encode_ascii, decode_ascii, encode_url, decode_url
+from .encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensure_rsa_public_key, ensure_rsa_private_key, rsa_encrypt, rsa_decrypt
+from .md5_model import db, md5_encode, md5_decode, populate_db
+from .create_app import create_app, setup_logger
 
 load_dotenv()
 
-logging.basicConfig(level=logging.INFO)
 
 app = create_app()
 with app.app_context():
-    db.create_all()  # Create database tables for our data models
+    db.create_all()
     faker = Faker()
     populate_db(faker, 1000)
+
+setup_logger(app)
+
+@app.route('/')
+def home():
+    app.logger.debug('This is a debug message, visible only in development')
+    app.logger.warning('This warning is logged in production')
+    return "Hello, check your log configuration based on the environment."
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
@@ -30,14 +37,14 @@ def allowed_file(filename):
 def upload_key():
     file = request.files['file']
     if file.filename == '':
-        logging.error("No file selected for upload")
+        app.logger.error("No file selected for upload")
         return jsonify({'error': 'No file selected'}), 400
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
         return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200
-    logging.error("Invalid file type")
+    app.logger.error("Invalid file type")
     return jsonify({'error': 'Invalid file type'}), 400
 
 @app.route('/api/files', methods=['GET'])
@@ -50,7 +57,7 @@ def download_key(filename):
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
     if os.path.exists(file_path):
         return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
-    logging.error("File not found")
+    app.logger.error("File not found")
     return jsonify({'error': 'File not found'}), 404
 
 @app.route('/api/save_text', methods=['POST'])
@@ -97,10 +104,10 @@ def process_text():
         session['result'] = result
         return jsonify({'result': result})
     except KeyError as e:
-        logging.error(f"Operation or action not found: {e}")
+        app.logger.error(f"Operation or action not found: {e}")
         return jsonify({'error': 'Invalid operation or action'}), 400
     except Exception as e:
-        logging.error(f"Error processing text: {e}")
+        app.logger.error(f"Error processing text: {e}")
         return jsonify({'error': str(e)}), 500
 
 @app.after_request
@@ -125,8 +132,8 @@ def add_session_to_response(response):
 def handle_exception(e):
     if isinstance(e, HTTPException):
         return e
-    logging.error(f"Unhandled exception: {str(e)}")
+    app.logger.error(f"Unhandled exception: {str(e)}")
     return jsonify({'error': str(e)}), 500
 
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))
+def main():
+    app.run(host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))
