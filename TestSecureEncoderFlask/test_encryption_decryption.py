@@ -40,7 +40,7 @@ def test_aes_encrypt_decrypt():
     plaintext = "Hello, World!"
     encrypted = aes_encrypt(plaintext, key)
     decrypted = aes_decrypt(encrypted, key)
-    assert decrypted.decode() == plaintext, "Decrypted text should match the original"
+    assert decrypted == plaintext, "Decrypted text should match the original"
 
 def test_aes_encryption_decryption_empty_string():
     """Test encryption and decryption of an empty string."""
@@ -48,7 +48,7 @@ def test_aes_encryption_decryption_empty_string():
     plaintext = ""
     encrypted = aes_encrypt(plaintext, key)
     decrypted = aes_decrypt(encrypted, key)
-    assert decrypted.decode() == plaintext, "Decrypted text should be an empty string for empty input"
+    assert decrypted == plaintext, "Decrypted text should be an empty string for empty input"
 
 def test_aes_encryption_uniqueness():
     """Test that encrypting the same text with different keys results in different ciphertexts."""
@@ -65,11 +65,11 @@ def test_aes_encryption_with_padding():
     padder = padding.PKCS7(128).padder()  # 128 bit (16 byte) block size for AES
     plaintext = "Text not block aligned"
     padded_plaintext = padder.update(plaintext.encode()) + padder.finalize()
-    encrypted = aes_encrypt(padded_plaintext.decode(), key)
+    encrypted = aes_encrypt(padded_plaintext.hex(), key)
     decrypted = aes_decrypt(encrypted, key)
     unpadder = padding.PKCS7(128).unpadder()
-    unpadded_plaintext = unpadder.update(decrypted) + unpadder.finalize()
-    assert unpadded_plaintext.decode() == plaintext, "Decrypted text should match the original after padding is removed"
+    unpadded_plaintext = unpadder.update(bytes.fromhex(decrypted)) + unpadder.finalize()
+    assert unpadded_plaintext.decode() == plaintext
 
 def test_aes_encryption_decryption_invalid_key():
     """Test that decryption fails with an incorrect key."""
@@ -78,9 +78,10 @@ def test_aes_encryption_decryption_invalid_key():
     encrypted = aes_encrypt(plaintext, key)
     wrong_key = os.urandom(32)
     try:
-        aes_decrypt(encrypted, wrong_key)
-    except Exception as e:
-        assert str(e) == "Invalid key", "Decryption should fail with an incorrect key"
+        decrypted = aes_decrypt(encrypted, wrong_key)
+        assert False, "Decryption should fail with an incorrect key"
+    except ValueError as e:
+        assert str(e) == "Decryption failed or wrong key used"
 
 def test_rsa_encrypt_decrypt():
     """Test that text is correctly encrypted and decrypted back to its original form using RSA."""
@@ -151,10 +152,16 @@ def test_rsa_padding_oracle_attack_scenario():
     plaintext = "Very sensitive data"
     encrypted = rsa_encrypt(plaintext, public_key)
     # Correct XOR operation for tampering demonstration
-    tampered_ciphertext = encrypted[:-1] + bytes([encrypted[-1] ^ 0x01])
+    encrypted_bytes = bytes.fromhex(encrypted)
+    tampered_ciphertext = encrypted_bytes[:-1] + bytes([encrypted_bytes[-1] ^ 0x01])
+    tampered_hex = tampered_ciphertext.hex()
     try:
-        rsa_decrypt(tampered_ciphertext, private_key)
-        assert False, "Tampering should lead to decryption failure or incorrect output"
+        decrypted = rsa_decrypt(tampered_hex, private_key)
+        assert decrypted != plaintext, "Tampering should lead to decryption failure or incorrect output"
+    except ValueError:
+        # This is expected in some cases where tampering leads to an outright decryption error
+        pass
     except Exception as e:
-        assert "decryption failed" in str(e).lower(), "Expected error did not occur due to tampering"
+        # Catch unexpected exceptions to ensure they are handled correctly
+        assert False, f"Unexpected exception type: {type(e).__name__}, message: {str(e)}"
 

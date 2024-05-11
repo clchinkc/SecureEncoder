@@ -315,19 +315,51 @@
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "md5_model",
-        "description": "md5_model",
-        "isExtraImport": true,
-        "detail": "md5_model",
-        "documentation": {}
-    },
-    {
         "label": "create_app",
         "importPath": "create_app",
         "description": "create_app",
         "isExtraImport": true,
         "detail": "create_app",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "MD5Hash",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_encode",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "md5_decode",
+        "importPath": "SecureEncoderFlask.md5_model",
+        "description": "SecureEncoderFlask.md5_model",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.md5_model",
         "documentation": {}
     },
     {
@@ -607,38 +639,6 @@
         "documentation": {}
     },
     {
-        "label": "db",
-        "importPath": "SecureEncoderFlask.md5_model",
-        "description": "SecureEncoderFlask.md5_model",
-        "isExtraImport": true,
-        "detail": "SecureEncoderFlask.md5_model",
-        "documentation": {}
-    },
-    {
-        "label": "MD5Hash",
-        "importPath": "SecureEncoderFlask.md5_model",
-        "description": "SecureEncoderFlask.md5_model",
-        "isExtraImport": true,
-        "detail": "SecureEncoderFlask.md5_model",
-        "documentation": {}
-    },
-    {
-        "label": "md5_encode",
-        "importPath": "SecureEncoderFlask.md5_model",
-        "description": "SecureEncoderFlask.md5_model",
-        "isExtraImport": true,
-        "detail": "SecureEncoderFlask.md5_model",
-        "documentation": {}
-    },
-    {
-        "label": "md5_decode",
-        "importPath": "SecureEncoderFlask.md5_model",
-        "description": "SecureEncoderFlask.md5_model",
-        "isExtraImport": true,
-        "detail": "SecureEncoderFlask.md5_model",
-        "documentation": {}
-    },
-    {
         "label": "create_app",
         "importPath": "SecureEncoderFlask.create_app",
         "description": "SecureEncoderFlask.create_app",
@@ -705,7 +705,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.app",
         "description": "SecureEncoderFlask.app",
-        "peekOfCode": "def process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']\n    session['action'] = data['action']\n    operations = {\n        'encode': {\n            'base64': encode_base64,\n            'hex': lambda x: encode_hex(x).hex(),\n            'utf8': lambda x: encode_utf8(x).hex(),",
+        "peekOfCode": "def process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']\n    session['action'] = data['action']\n    operations = {\n        'encode': {\n            'base64': encode_base64,\n            'hex': encode_hex,\n            'utf8': encode_utf8,",
         "detail": "SecureEncoderFlask.app",
         "documentation": {}
     },
@@ -777,7 +777,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encoder_decoder",
         "description": "SecureEncoderFlask.encoder_decoder",
-        "peekOfCode": "def encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:",
+        "peekOfCode": "def encode_hex(input_text: str) -> str:\n    \"\"\"Encode a string using Hex encoding.\"\"\"\n    return binascii.hexlify(input_text.encode()).decode()\ndef decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8').hex()\ndef decode_utf8(encoded_text: str) -> str:",
         "detail": "SecureEncoderFlask.encoder_decoder",
         "documentation": {}
     },
@@ -786,7 +786,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encoder_decoder",
         "description": "SecureEncoderFlask.encoder_decoder",
-        "peekOfCode": "def decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:",
+        "peekOfCode": "def decode_hex(encoded_text: str) -> str:\n    \"\"\"Decode a Hex encoded string.\"\"\"\n    return binascii.unhexlify(encoded_text.encode()).decode()\ndef encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8').hex()\ndef decode_utf8(encoded_text: str) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return bytes.fromhex(encoded_text).decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:",
         "detail": "SecureEncoderFlask.encoder_decoder",
         "documentation": {}
     },
@@ -795,7 +795,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encoder_decoder",
         "description": "SecureEncoderFlask.encoder_decoder",
-        "peekOfCode": "def encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8')\ndef decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:",
+        "peekOfCode": "def encode_utf8(input_text: str) -> bytes:\n    \"\"\"Encode a string using UTF-8.\"\"\"\n    return input_text.encode('utf-8').hex()\ndef decode_utf8(encoded_text: str) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return bytes.fromhex(encoded_text).decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1').hex()\ndef decode_latin1(encoded_text: str) -> str:",
         "detail": "SecureEncoderFlask.encoder_decoder",
         "documentation": {}
     },
@@ -804,7 +804,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encoder_decoder",
         "description": "SecureEncoderFlask.encoder_decoder",
-        "peekOfCode": "def decode_utf8(input_bytes: bytes) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return input_bytes.decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:",
+        "peekOfCode": "def decode_utf8(encoded_text: str) -> str:\n    \"\"\"Decode a UTF-8 encoded byte array.\"\"\"\n    return bytes.fromhex(encoded_text).decode('utf-8')\ndef encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1').hex()\ndef decode_latin1(encoded_text: str) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return bytes.fromhex(encoded_text).decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:",
         "detail": "SecureEncoderFlask.encoder_decoder",
         "documentation": {}
     },
@@ -813,7 +813,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encoder_decoder",
         "description": "SecureEncoderFlask.encoder_decoder",
-        "peekOfCode": "def encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1')\ndef decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:",
+        "peekOfCode": "def encode_latin1(input_text: str) -> bytes:\n    \"\"\"Encode a string using ISO-8859-1 (Latin-1).\"\"\"\n    return input_text.encode('iso-8859-1').hex()\ndef decode_latin1(encoded_text: str) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return bytes.fromhex(encoded_text).decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:",
         "detail": "SecureEncoderFlask.encoder_decoder",
         "documentation": {}
     },
@@ -822,7 +822,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encoder_decoder",
         "description": "SecureEncoderFlask.encoder_decoder",
-        "peekOfCode": "def decode_latin1(input_bytes: bytes) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return input_bytes.decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:",
+        "peekOfCode": "def decode_latin1(encoded_text: str) -> str:\n    \"\"\"Decode a ISO-8859-1 (Latin-1) encoded byte array.\"\"\"\n    return bytes.fromhex(encoded_text).decode('iso-8859-1')\ndef encode_ascii(input_text: str) -> str:\n    \"\"\"Encode a string to ASCII values separated by spaces.\"\"\"\n    return ' '.join(str(ord(char)) for char in input_text)\ndef decode_ascii(encoded_text: str) -> str:\n    \"\"\"Decode ASCII values separated by spaces to a string.\"\"\"\n    return ''.join(chr(int(code)) for code in encoded_text.split())\ndef encode_url(input_text: str) -> str:",
         "detail": "SecureEncoderFlask.encoder_decoder",
         "documentation": {}
     },
@@ -885,7 +885,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encryption_decryption",
         "description": "SecureEncoderFlask.encryption_decryption",
-        "peekOfCode": "def aes_decrypt(ciphertext: bytes, key: bytes):\n    \"\"\"Decrypt a string using AES decryption with the provided key.\"\"\"\n    # Extract IV from the beginning of the ciphertext\n    iv = ciphertext[:16]\n    actual_ciphertext = ciphertext[16:]\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    decryptor = cipher.decryptor()\n    # Decrypt the ciphertext\n    return decryptor.update(actual_ciphertext) + decryptor.finalize()",
+        "peekOfCode": "def aes_decrypt(ciphertext_hex: str, key: bytes):\n    \"\"\"Decrypt a string using AES decryption with the provided key.\"\"\"\n    ciphertext = bytes.fromhex(ciphertext_hex)\n    # Extract IV from the beginning of the ciphertext\n    iv = ciphertext[:16]\n    actual_ciphertext = ciphertext[16:]\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    decryptor = cipher.decryptor()\n    # Decrypt the ciphertext",
         "detail": "SecureEncoderFlask.encryption_decryption",
         "documentation": {}
     },
@@ -939,7 +939,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.encryption_decryption",
         "description": "SecureEncoderFlask.encryption_decryption",
-        "peekOfCode": "def rsa_decrypt(ciphertext: bytes, private_key):\n    \"\"\"Decrypt a string using RSA private key.\"\"\"\n    plaintext = private_key.decrypt(\n        ciphertext,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )\n    )",
+        "peekOfCode": "def rsa_decrypt(ciphertext_hex: str, private_key):\n    \"\"\"Decrypt a string using RSA private key.\"\"\"\n    ciphertext = bytes.fromhex(ciphertext_hex)\n    plaintext = private_key.decrypt(\n        ciphertext,\n        padding.OAEP(\n            mgf=padding.MGF1(algorithm=hashes.SHA256()),\n            algorithm=hashes.SHA256(),\n            label=None\n        )",
         "detail": "SecureEncoderFlask.encryption_decryption",
         "documentation": {}
     },
@@ -1191,7 +1191,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
         "description": "TestSecureEncoderFlask.test_encoder_decoder",
-        "peekOfCode": "def test_decode_hex():\n    \"\"\"Test decoding of a Hex-encoded string.\"\"\"\n    encoded_text = \"48656c6c6f2c20576f726c6421\"\n    expected_output = \"Hello, World!\"\n    assert decode_hex(encoded_text) == expected_output, \"Hex decoding failed\"\ndef test_encode_utf8():\n    \"\"\"Test UTF-8 encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = b'Hello, World!'\n    encoded_text = encode_utf8(input_text)",
+        "peekOfCode": "def test_decode_hex():\n    \"\"\"Test decoding of a Hex-encoded string.\"\"\"\n    encoded_text = \"48656c6c6f2c20576f726c6421\"\n    expected_output = \"Hello, World!\"\n    assert decode_hex(encoded_text) == expected_output, \"Hex decoding failed\"\ndef test_encode_utf8():\n    \"\"\"Test UTF-8 encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"48656c6c6f2c20576f726c6421\"\n    encoded_text = encode_utf8(input_text)",
         "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
@@ -1200,7 +1200,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
         "description": "TestSecureEncoderFlask.test_encoder_decoder",
-        "peekOfCode": "def test_encode_utf8():\n    \"\"\"Test UTF-8 encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = b'Hello, World!'\n    encoded_text = encode_utf8(input_text)\n    assert encoded_text == expected_output, f\"UTF-8 encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_utf8():\n    \"\"\"Test decoding of a UTF-8 encoded byte array.\"\"\"\n    input_bytes = b'Hello, World!'\n    expected_output = \"Hello, World!\"",
+        "peekOfCode": "def test_encode_utf8():\n    \"\"\"Test UTF-8 encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"48656c6c6f2c20576f726c6421\"\n    encoded_text = encode_utf8(input_text)\n    assert encoded_text == expected_output, f\"UTF-8 encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_utf8():\n    \"\"\"Test decoding of a UTF-8 encoded byte array.\"\"\"\n    input_bytes = \"48656c6c6f2c20576f726c6421\"\n    expected_output = \"Hello, World!\"",
         "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
@@ -1209,7 +1209,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
         "description": "TestSecureEncoderFlask.test_encoder_decoder",
-        "peekOfCode": "def test_decode_utf8():\n    \"\"\"Test decoding of a UTF-8 encoded byte array.\"\"\"\n    input_bytes = b'Hello, World!'\n    expected_output = \"Hello, World!\"\n    output_text = decode_utf8(input_bytes)\n    assert output_text == expected_output, f\"UTF-8 decoding failed: {output_text} != {expected_output}\"\ndef test_encode_latin1():\n    \"\"\"Test Latin-1 encoding of a string.\"\"\"\n    input_text = \"Café\"\n    expected_output = b'Caf\\xe9'",
+        "peekOfCode": "def test_decode_utf8():\n    \"\"\"Test decoding of a UTF-8 encoded byte array.\"\"\"\n    input_bytes = \"48656c6c6f2c20576f726c6421\"\n    expected_output = \"Hello, World!\"\n    output_text = decode_utf8(input_bytes)\n    assert output_text == expected_output, f\"UTF-8 decoding failed: {output_text} != {expected_output}\"\ndef test_encode_latin1():\n    \"\"\"Test Latin-1 encoding of a string.\"\"\"\n    input_text = \"Café\"\n    expected_output = \"436166e9\"",
         "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
@@ -1218,7 +1218,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
         "description": "TestSecureEncoderFlask.test_encoder_decoder",
-        "peekOfCode": "def test_encode_latin1():\n    \"\"\"Test Latin-1 encoding of a string.\"\"\"\n    input_text = \"Café\"\n    expected_output = b'Caf\\xe9'\n    encoded_text = encode_latin1(input_text)\n    assert encoded_text == expected_output, f\"Latin-1 encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_latin1():\n    \"\"\"Test decoding of a Latin-1 encoded byte array.\"\"\"\n    input_bytes = b'Caf\\xe9'\n    expected_output = \"Café\"",
+        "peekOfCode": "def test_encode_latin1():\n    \"\"\"Test Latin-1 encoding of a string.\"\"\"\n    input_text = \"Café\"\n    expected_output = \"436166e9\"\n    encoded_text = encode_latin1(input_text)\n    assert encoded_text == expected_output, f\"Latin-1 encoding failed: {encoded_text} != {expected_output}\"\ndef test_decode_latin1():\n    \"\"\"Test decoding of a Latin-1 encoded byte array.\"\"\"\n    input_bytes = \"436166e9\"\n    expected_output = \"Café\"",
         "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
@@ -1227,7 +1227,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encoder_decoder",
         "description": "TestSecureEncoderFlask.test_encoder_decoder",
-        "peekOfCode": "def test_decode_latin1():\n    \"\"\"Test decoding of a Latin-1 encoded byte array.\"\"\"\n    input_bytes = b'Caf\\xe9'\n    expected_output = \"Café\"\n    output_text = decode_latin1(input_bytes)\n    assert output_text == expected_output, f\"Latin-1 decoding failed: {output_text} != {expected_output}\"\ndef test_encode_ascii():\n    \"\"\"Test ASCII encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"72 101 108 108 111 44 32 87 111 114 108 100 33\"",
+        "peekOfCode": "def test_decode_latin1():\n    \"\"\"Test decoding of a Latin-1 encoded byte array.\"\"\"\n    input_bytes = \"436166e9\"\n    expected_output = \"Café\"\n    output_text = decode_latin1(input_bytes)\n    assert output_text == expected_output, f\"Latin-1 decoding failed: {output_text} != {expected_output}\"\ndef test_encode_ascii():\n    \"\"\"Test ASCII encoding of a string.\"\"\"\n    input_text = \"Hello, World!\"\n    expected_output = \"72 101 108 108 111 44 32 87 111 114 108 100 33\"",
         "detail": "TestSecureEncoderFlask.test_encoder_decoder",
         "documentation": {}
     },
@@ -1308,7 +1308,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
         "description": "TestSecureEncoderFlask.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encrypt_decrypt():\n    \"\"\"Test that text is correctly encrypted and decrypted back to its original form.\"\"\"\n    key = os.urandom(32)  # Generate a new key for each test to ensure isolation\n    plaintext = \"Hello, World!\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted.decode() == plaintext, \"Decrypted text should match the original\"\ndef test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)",
+        "peekOfCode": "def test_aes_encrypt_decrypt():\n    \"\"\"Test that text is correctly encrypted and decrypted back to its original form.\"\"\"\n    key = os.urandom(32)  # Generate a new key for each test to ensure isolation\n    plaintext = \"Hello, World!\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted == plaintext, \"Decrypted text should match the original\"\ndef test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)",
         "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
@@ -1317,7 +1317,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
         "description": "TestSecureEncoderFlask.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted.decode() == plaintext, \"Decrypted text should be an empty string for empty input\"\ndef test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"",
+        "peekOfCode": "def test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted == plaintext, \"Decrypted text should be an empty string for empty input\"\ndef test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"",
         "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
@@ -1335,7 +1335,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
         "description": "TestSecureEncoderFlask.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encryption_with_padding():\n    \"\"\"Test that encryption and decryption correctly handle padding for block alignment.\"\"\"\n    key = os.urandom(32)\n    padder = padding.PKCS7(128).padder()  # 128 bit (16 byte) block size for AES\n    plaintext = \"Text not block aligned\"\n    padded_plaintext = padder.update(plaintext.encode()) + padder.finalize()\n    encrypted = aes_encrypt(padded_plaintext.decode(), key)\n    decrypted = aes_decrypt(encrypted, key)\n    unpadder = padding.PKCS7(128).unpadder()\n    unpadded_plaintext = unpadder.update(decrypted) + unpadder.finalize()",
+        "peekOfCode": "def test_aes_encryption_with_padding():\n    \"\"\"Test that encryption and decryption correctly handle padding for block alignment.\"\"\"\n    key = os.urandom(32)\n    padder = padding.PKCS7(128).padder()  # 128 bit (16 byte) block size for AES\n    plaintext = \"Text not block aligned\"\n    padded_plaintext = padder.update(plaintext.encode()) + padder.finalize()\n    encrypted = aes_encrypt(padded_plaintext.hex(), key)\n    decrypted = aes_decrypt(encrypted, key)\n    unpadder = padding.PKCS7(128).unpadder()\n    unpadded_plaintext = unpadder.update(bytes.fromhex(decrypted)) + unpadder.finalize()",
         "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
@@ -1344,7 +1344,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
         "description": "TestSecureEncoderFlask.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encryption_decryption_invalid_key():\n    \"\"\"Test that decryption fails with an incorrect key.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"Secret message\"\n    encrypted = aes_encrypt(plaintext, key)\n    wrong_key = os.urandom(32)\n    try:\n        aes_decrypt(encrypted, wrong_key)\n    except Exception as e:\n        assert str(e) == \"Invalid key\", \"Decryption should fail with an incorrect key\"",
+        "peekOfCode": "def test_aes_encryption_decryption_invalid_key():\n    \"\"\"Test that decryption fails with an incorrect key.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"Secret message\"\n    encrypted = aes_encrypt(plaintext, key)\n    wrong_key = os.urandom(32)\n    try:\n        decrypted = aes_decrypt(encrypted, wrong_key)\n        assert False, \"Decryption should fail with an incorrect key\"\n    except ValueError as e:",
         "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
@@ -1407,7 +1407,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_encryption_decryption",
         "description": "TestSecureEncoderFlask.test_encryption_decryption",
-        "peekOfCode": "def test_rsa_padding_oracle_attack_scenario():\n    \"\"\"Simulate a scenario that should be resistant to padding oracle attacks.\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintext = \"Very sensitive data\"\n    encrypted = rsa_encrypt(plaintext, public_key)\n    # Correct XOR operation for tampering demonstration\n    tampered_ciphertext = encrypted[:-1] + bytes([encrypted[-1] ^ 0x01])\n    try:\n        rsa_decrypt(tampered_ciphertext, private_key)\n        assert False, \"Tampering should lead to decryption failure or incorrect output\"",
+        "peekOfCode": "def test_rsa_padding_oracle_attack_scenario():\n    \"\"\"Simulate a scenario that should be resistant to padding oracle attacks.\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintext = \"Very sensitive data\"\n    encrypted = rsa_encrypt(plaintext, public_key)\n    # Correct XOR operation for tampering demonstration\n    encrypted_bytes = bytes.fromhex(encrypted)\n    tampered_ciphertext = encrypted_bytes[:-1] + bytes([encrypted_bytes[-1] ^ 0x01])\n    tampered_hex = tampered_ciphertext.hex()\n    try:",
         "detail": "TestSecureEncoderFlask.test_encryption_decryption",
         "documentation": {}
     },
@@ -1443,7 +1443,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_md5_model",
         "description": "TestSecureEncoderFlask.test_md5_model",
-        "peekOfCode": "def test_md5_decode(app):\n    with app.app_context():\n        text = \"hello world\"\n        encoded = md5_encode(text)\n        decoded = md5_decode(encoded)\n        assert decoded == text  # Ensure the decoded text matches the original\ndef test_md5_decode_no_match(app):\n    with app.app_context():\n        decoded = md5_decode(\"nonexistenthash\")\n        assert decoded is \"No match found\"  # Ensure correct message is returned when no match is found",
+        "peekOfCode": "def test_md5_decode(app):\n    with app.app_context():\n        text = \"hello world\"\n        encoded = md5_encode(text)\n        decoded = md5_decode(encoded)\n        assert decoded == text  # Ensure the decoded text matches the original\ndef test_md5_decode_no_match(app):\n    with app.app_context():\n        decoded = md5_decode(\"nonexistenthash\")\n        assert decoded == \"No match found\"  # Ensure correct message is returned when no match is found",
         "detail": "TestSecureEncoderFlask.test_md5_model",
         "documentation": {}
     },
@@ -1452,7 +1452,7 @@
         "kind": 2,
         "importPath": "TestSecureEncoderFlask.test_md5_model",
         "description": "TestSecureEncoderFlask.test_md5_model",
-        "peekOfCode": "def test_md5_decode_no_match(app):\n    with app.app_context():\n        decoded = md5_decode(\"nonexistenthash\")\n        assert decoded is \"No match found\"  # Ensure correct message is returned when no match is found",
+        "peekOfCode": "def test_md5_decode_no_match(app):\n    with app.app_context():\n        decoded = md5_decode(\"nonexistenthash\")\n        assert decoded == \"No match found\"  # Ensure correct message is returned when no match is found",
         "detail": "TestSecureEncoderFlask.test_md5_model",
         "documentation": {}
     }

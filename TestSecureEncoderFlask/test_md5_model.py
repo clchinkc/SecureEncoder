@@ -38,4 +38,4 @@ def test_md5_decode(app):
 def test_md5_decode_no_match(app):
     with app.app_context():
         decoded = md5_decode("nonexistenthash")
-        assert decoded is "No match found"  # Ensure correct message is returned when no match is found
+        assert decoded == "No match found"  # Ensure correct message is returned when no match is found

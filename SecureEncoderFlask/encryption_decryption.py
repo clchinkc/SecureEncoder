@@ -26,10 +26,11 @@ def aes_encrypt(plaintext: str, key: bytes):
     # Encrypt the plaintext
     ciphertext = encryptor.update(plaintext.encode()) + encryptor.finalize()
     # Return IV + Ciphertext for decryption
-    return iv + ciphertext
+    return (iv + ciphertext).hex()
 
-def aes_decrypt(ciphertext: bytes, key: bytes):
+def aes_decrypt(ciphertext_hex: str, key: bytes):
     """Decrypt a string using AES decryption with the provided key."""
+    ciphertext = bytes.fromhex(ciphertext_hex)
     # Extract IV from the beginning of the ciphertext
     iv = ciphertext[:16]
     actual_ciphertext = ciphertext[16:]
@@ -37,7 +38,11 @@ def aes_decrypt(ciphertext: bytes, key: bytes):
     cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
     decryptor = cipher.decryptor()
     # Decrypt the ciphertext
-    return decryptor.update(actual_ciphertext) + decryptor.finalize()
+    decrypted = decryptor.update(actual_ciphertext) + decryptor.finalize()
+    try:
+        return decrypted.decode()
+    except UnicodeDecodeError:
+        raise ValueError("Decryption failed or wrong key used")
 
 def generate_rsa_keys():
     """Generate RSA private and public keys."""
@@ -120,10 +125,11 @@ def rsa_encrypt(plaintext: str, public_key):
             label=None
         )
     )
-    return ciphertext
+    return ciphertext.hex()
 
-def rsa_decrypt(ciphertext: bytes, private_key):
+def rsa_decrypt(ciphertext_hex: str, private_key):
     """Decrypt a string using RSA private key."""
+    ciphertext = bytes.fromhex(ciphertext_hex)
     plaintext = private_key.decrypt(
         ciphertext,
         padding.OAEP(
