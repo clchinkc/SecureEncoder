@@ -1,3 +1,5 @@
 [submodule "SecureEncoderReact"]
 	path = SecureEncoderReact
 	url = https://github.com/clchinkc/SecureEncoderReact
+	active = true
+	recurse = true

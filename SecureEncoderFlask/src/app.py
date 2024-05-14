@@ -41,24 +41,23 @@ def upload_key():
         return jsonify({'error': 'No file selected'}), 400
     if file and allowed_file(file.filename):
         filename = secure_filename(file.filename)
-        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-        file.save(file_path)
-        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 200
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 201
     app.logger.error("Invalid file type")
     return jsonify({'error': 'Invalid file type'}), 400
 
 @app.route('/api/files', methods=['GET'])
 def list_files():
     files = [f for f in os.listdir(app.config['UPLOAD_FOLDER']) if os.path.isfile(os.path.join(app.config['UPLOAD_FOLDER'], f))]
-    return jsonify(files)
+    return jsonify(files), 200
 
 @app.route('/api/download_key/<filename>')
 def download_key(filename):
     file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-    if os.path.exists(file_path):
-        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
-    app.logger.error("File not found")
-    return jsonify({'error': 'File not found'}), 404
+    if not os.path.exists(file_path):
+        app.logger.error("File not found")
+        return jsonify({'error': 'Key not found'}), 404
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
 
 @app.route('/api/save_text', methods=['POST'])
 def save_text():
@@ -102,7 +101,7 @@ def process_text():
         operation_func = operations[session['action']][session['operation']]
         result = operation_func(session['text'])
         session['result'] = result
-        return jsonify({'result': result})
+        return jsonify({'result': result}), 200
     except KeyError as e:
         app.logger.error(f"Operation or action not found: {e}")
         return jsonify({'error': 'Invalid operation or action'}), 400
