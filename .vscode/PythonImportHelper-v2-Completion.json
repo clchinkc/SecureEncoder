@@ -1,13 +1,5 @@
 [
     {
-        "label": "Flask",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "request",
         "importPath": "flask",
         "description": "flask",
@@ -32,14 +24,6 @@
         "documentation": {}
     },
     {
-        "label": "make_response",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "session",
         "importPath": "flask",
         "description": "flask",
@@ -53,22 +37,6 @@
         "description": "flask",
         "isExtraImport": true,
         "detail": "flask",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
-        "documentation": {}
-    },
-    {
-        "label": "CORS",
-        "importPath": "flask_cors",
-        "description": "flask_cors",
-        "isExtraImport": true,
-        "detail": "flask_cors",
         "documentation": {}
     },
     {
@@ -119,6 +87,14 @@
         "description": "faker",
         "isExtraImport": true,
         "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
         "documentation": {}
     },
     {
@@ -512,7 +488,16 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if not os.path.exists(file_path):\n        app.logger.error(\"File not found\")\n        return jsonify({'error': 'Key not found'}), 404\n    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n@app.route('/api/save_text', methods=['POST'])\ndef save_text():\n    \"\"\"Store user input in session.\"\"\"\n    session['text'] = request.form.get('text', '')",
+        "peekOfCode": "def download_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)\n    if not os.path.exists(file_path):\n        app.logger.error(\"File not found\")\n        return jsonify({'error': 'Key not found'}), 404\n    return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)\n@app.route('/api/delete_key/<filename>', methods=['DELETE'])\ndef delete_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))\n    if os.path.exists(file_path):",
+        "detail": "SecureEncoderFlask.src.app",
+        "documentation": {}
+    },
+    {
+        "label": "delete_key",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.app",
+        "description": "SecureEncoderFlask.src.app",
+        "peekOfCode": "def delete_key(filename):\n    file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))\n    if os.path.exists(file_path):\n        os.remove(file_path)\n        return jsonify({'message': 'File deleted successfully'}), 204\n    else:\n        return jsonify({'error': 'File not found'}), 404\n@app.route('/api/save_text', methods=['PATCH'])\ndef save_text():\n    data = request.get_json()",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
@@ -521,7 +506,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def save_text():\n    \"\"\"Store user input in session.\"\"\"\n    session['text'] = request.form.get('text', '')\n    return jsonify(status=\"success\")\n@app.route('/api/process_text', methods=['POST'])\ndef process_text():\n    data = request.get_json()\n    session['text'] = data['text']\n    session['operation'] = data['operation']\n    session['action'] = data['action']",
+        "peekOfCode": "def save_text():\n    data = request.get_json()\n    current_text = session.get('text', None)\n    new_text = data.get('new_text', None)\n    if current_text is None and new_text is None:\n        return jsonify({'message': 'No text provided'}), 400\n    elif current_text is None and new_text is not None:\n        session['text'] = new_text\n        return jsonify({'message': 'Text created successfully', 'text': new_text}), 201\n    elif current_text is not None and new_text is None:",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
@@ -557,7 +542,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def handle_exception(e):\n    if isinstance(e, HTTPException):\n        return e\n    app.logger.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500\ndef main():\n    app.run(host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
+        "peekOfCode": "def handle_exception(e):\n    if isinstance(e, HTTPException):\n        return e\n    app.logger.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500 if isinstance(e, KeyError) or isinstance(e, ValueError) else 400\ndef main():\n    app.run(host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
