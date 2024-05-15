@@ -1,5 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory, make_response, session
-from flask_cors import CORS
+from flask import request, jsonify, send_from_directory, session
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
 import os
@@ -59,11 +58,31 @@ def download_key(filename):
         return jsonify({'error': 'Key not found'}), 404
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
 
-@app.route('/api/save_text', methods=['POST'])
+@app.route('/api/delete_key/<filename>', methods=['DELETE'])
+def delete_key(filename):
+    file_path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))
+    if os.path.exists(file_path):
+        os.remove(file_path)
+        return jsonify({'message': 'File deleted successfully'}), 204
+    else:
+        return jsonify({'error': 'File not found'}), 404
+
+@app.route('/api/save_text', methods=['PATCH'])
 def save_text():
-    """Store user input in session."""
-    session['text'] = request.form.get('text', '')
-    return jsonify(status="success")
+    data = request.get_json()
+    current_text = session.get('text', None)
+    new_text = data.get('new_text', None)
+
+    if current_text is None and new_text is None:
+        return jsonify({'message': 'No text provided'}), 400
+    elif current_text is None and new_text is not None:
+        session['text'] = new_text
+        return jsonify({'message': 'Text created successfully', 'text': new_text}), 201
+    elif current_text is not None and new_text is None:
+        return jsonify({'message': 'No new text provided, text remains unchanged', 'text': current_text}), 204
+    else:
+        session['text'] = new_text
+        return jsonify({'message': 'Text updated successfully', 'new_text': new_text}), 200
 
 @app.route('/api/process_text', methods=['POST'])
 def process_text():
@@ -132,7 +151,7 @@ def handle_exception(e):
     if isinstance(e, HTTPException):
         return e
     app.logger.error(f"Unhandled exception: {str(e)}")
-    return jsonify({'error': str(e)}), 500
+    return jsonify({'error': str(e)}), 500 if isinstance(e, KeyError) or isinstance(e, ValueError) else 400
 
 def main():
     app.run(host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))
