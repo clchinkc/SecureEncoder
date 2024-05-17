@@ -470,7 +470,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        app.logger.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))\n        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 201\n    app.logger.error(\"Invalid file type\")",
+        "peekOfCode": "def upload_key():\n    file = request.files['file']\n    if file.filename == '':\n        app.logger.error(\"No file selected for upload\")\n        return jsonify({'error': 'No file selected'}), 400\n    if file and allowed_file(file.filename):\n        filename = secure_filename(file.filename)\n        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))\n        return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 201\n    app.logger.error(\"Invalid file type, a '.pem' file is needed\")",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
