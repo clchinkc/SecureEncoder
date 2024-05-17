@@ -42,8 +42,8 @@ def upload_key():
         filename = secure_filename(file.filename)
         file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return jsonify({'message': 'File uploaded successfully', 'filename': filename}), 201
-    app.logger.error("Invalid file type")
-    return jsonify({'error': 'Invalid file type'}), 400
+    app.logger.error("Invalid file type, a '.pem' file is needed")
+    return jsonify({'error': "Invalid file type, a '.pem' file is needed"}), 400
 
 @app.route('/api/files', methods=['GET'])
 def list_files():
