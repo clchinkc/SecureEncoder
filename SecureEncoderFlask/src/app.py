@@ -2,7 +2,6 @@ from flask import request, jsonify, send_from_directory, session
 from werkzeug.utils import secure_filename
 from werkzeug.exceptions import HTTPException
 import os
-from dotenv import load_dotenv
 
 import json
 from faker import Faker
@@ -12,7 +11,6 @@ from .encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ens
 from .md5_model import db, md5_encode, md5_decode, populate_db
 from .create_app import create_app, setup_logger
 
-load_dotenv()
 
 
 app = create_app()
@@ -154,4 +152,4 @@ def handle_exception(e):
     return jsonify({'error': str(e)}), 500 if isinstance(e, KeyError) or isinstance(e, ValueError) else 400
 
 def main():
-    app.run(host='0.0.0.0', port=int(os.environ.get('FLASK_PORT', '5000')))
+    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']))
