@@ -8,6 +8,7 @@ from .md5_model import db
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+    app.config.from_pyfile('config.py')
 
     # Default configuration
     app.config.from_mapping(
@@ -15,7 +16,6 @@ def create_app(test_config=None):
         ALLOWED_EXTENSIONS={'pem'},
         SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL', 'sqlite:///md5.db'),
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
-        SECRET_KEY=os.urandom(24),
     )
 
     if test_config is not None:
@@ -32,7 +32,7 @@ def create_app(test_config=None):
     return app
 
 def setup_logger(app):
-    if app.debug or os.getenv('FLASK_DEBUG') == '1':
+    if app.debug:
         app.logger.setLevel(logging.DEBUG)
     else:
         app.logger.setLevel(logging.WARNING)
