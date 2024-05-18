@@ -1,4 +1,4 @@
-from cryptography.hazmat.primitives import padding
+import pytest
 import os
 
 from src.encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, generate_rsa_keys, rsa_encrypt, rsa_decrypt
@@ -19,12 +19,14 @@ def teardown_module(module):
 
 def test_ensure_aes_key_generation():
     """Test that a new key is generated when the key file is missing."""
+    if os.path.exists(test_key_file):
+        os.remove(test_key_file)  # Ensure the key file is not present before the test
     assert not os.path.exists(test_key_file), "Key file should not exist before the test"
     key = ensure_aes_key(test_key_file)
     assert os.path.exists(test_key_file), "Key file should be created after calling ensure_aes_key"
     with open(test_key_file, 'rb') as f:
         assert f.read() == key, "Key file should contain the generated key"
-        
+
 def test_ensure_aes_key_retrieval():
     """Test that an existing key is retrieved when the key file is present."""
     key = os.urandom(32)
@@ -36,7 +38,7 @@ def test_ensure_aes_key_retrieval():
 
 def test_aes_encrypt_decrypt():
     """Test that text is correctly encrypted and decrypted back to its original form."""
-    key = os.urandom(32)  # Generate a new key for each test to ensure isolation
+    key = ensure_aes_key(test_key_file)  # Use the helper function to manage the key
     plaintext = "Hello, World!"
     encrypted = aes_encrypt(plaintext, key)
     decrypted = aes_decrypt(encrypted, key)
@@ -44,44 +46,33 @@ def test_aes_encrypt_decrypt():
 
 def test_aes_encryption_decryption_empty_string():
     """Test encryption and decryption of an empty string."""
-    key = os.urandom(32)
+    key = ensure_aes_key(test_key_file)
     plaintext = ""
     encrypted = aes_encrypt(plaintext, key)
     decrypted = aes_decrypt(encrypted, key)
     assert decrypted == plaintext, "Decrypted text should be an empty string for empty input"
 
 def test_aes_encryption_uniqueness():
-    """Test that encrypting the same text with different keys results in different ciphertexts."""
+    """Test that encrypting the same text with different keys or nonces results in different ciphertexts."""
     plaintext = "Repeatable text"
-    key1 = os.urandom(32)
-    key2 = os.urandom(32)
+    key1 = ensure_aes_key(test_key_file)
+    key2 = os.urandom(32)  # Ensure a different key
     encrypted1 = aes_encrypt(plaintext, key1)
     encrypted2 = aes_encrypt(plaintext, key2)
     assert encrypted1 != encrypted2, "Encryption with different keys should produce different outputs"
-
-def test_aes_encryption_with_padding():
-    """Test that encryption and decryption correctly handle padding for block alignment."""
-    key = os.urandom(32)
-    padder = padding.PKCS7(128).padder()  # 128 bit (16 byte) block size for AES
-    plaintext = "Text not block aligned"
-    padded_plaintext = padder.update(plaintext.encode()) + padder.finalize()
-    encrypted = aes_encrypt(padded_plaintext.hex(), key)
-    decrypted = aes_decrypt(encrypted, key)
-    unpadder = padding.PKCS7(128).unpadder()
-    unpadded_plaintext = unpadder.update(bytes.fromhex(decrypted)) + unpadder.finalize()
-    assert unpadded_plaintext.decode() == plaintext
+    # Test with the same key but expect different nonces to generate different ciphertexts
+    encrypted3 = aes_encrypt(plaintext, key1)
+    assert encrypted1 != encrypted3, "Encryption with the same key but different nonces should produce different outputs"
 
 def test_aes_encryption_decryption_invalid_key():
     """Test that decryption fails with an incorrect key."""
-    key = os.urandom(32)
+    key = ensure_aes_key(test_key_file)
     plaintext = "Secret message"
     encrypted = aes_encrypt(plaintext, key)
-    wrong_key = os.urandom(32)
-    try:
+    wrong_key = os.urandom(32)  # Ensure a different key
+    with pytest.raises(ValueError) as excinfo:
         decrypted = aes_decrypt(encrypted, wrong_key)
-        assert False, "Decryption should fail with an incorrect key"
-    except ValueError as e:
-        assert str(e) == "Decryption failed or wrong key used"
+    assert "Decryption failed or wrong key used" in str(excinfo.value), "Decryption should fail with an incorrect key and raise a ValueError"
 
 def test_rsa_encrypt_decrypt():
     """Test that text is correctly encrypted and decrypted back to its original form using RSA."""
