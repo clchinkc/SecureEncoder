@@ -1,5 +1,59 @@
 [
     {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "heapq",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "heapq",
+        "description": "heapq",
+        "detail": "heapq",
+        "documentation": {}
+    },
+    {
+        "label": "collections",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "collections",
+        "description": "collections",
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "brotli",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "brotli",
+        "description": "brotli",
+        "detail": "brotli",
+        "documentation": {}
+    },
+    {
+        "label": "zstandard",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zstandard",
+        "description": "zstandard",
+        "detail": "zstandard",
+        "documentation": {}
+    },
+    {
         "label": "request",
         "importPath": "flask",
         "description": "flask",
@@ -73,15 +127,6 @@
         "documentation": {}
     },
     {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
         "label": "Faker",
         "importPath": "faker",
         "description": "faker",
@@ -115,15 +160,6 @@
         "documentation": {}
     },
     {
-        "label": "base64",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "base64",
-        "description": "base64",
-        "detail": "base64",
-        "documentation": {}
-    },
-    {
         "label": "binascii",
         "kind": 6,
         "isExtraImport": true,
@@ -139,38 +175,6 @@
         "importPath": "urllib.parse",
         "description": "urllib.parse",
         "detail": "urllib.parse",
-        "documentation": {}
-    },
-    {
-        "label": "Cipher",
-        "importPath": "cryptography.hazmat.primitives.ciphers",
-        "description": "cryptography.hazmat.primitives.ciphers",
-        "isExtraImport": true,
-        "detail": "cryptography.hazmat.primitives.ciphers",
-        "documentation": {}
-    },
-    {
-        "label": "algorithms",
-        "importPath": "cryptography.hazmat.primitives.ciphers",
-        "description": "cryptography.hazmat.primitives.ciphers",
-        "isExtraImport": true,
-        "detail": "cryptography.hazmat.primitives.ciphers",
-        "documentation": {}
-    },
-    {
-        "label": "modes",
-        "importPath": "cryptography.hazmat.primitives.ciphers",
-        "description": "cryptography.hazmat.primitives.ciphers",
-        "isExtraImport": true,
-        "detail": "cryptography.hazmat.primitives.ciphers",
-        "documentation": {}
-    },
-    {
-        "label": "default_backend",
-        "importPath": "cryptography.hazmat.backends",
-        "description": "cryptography.hazmat.backends",
-        "isExtraImport": true,
-        "detail": "cryptography.hazmat.backends",
         "documentation": {}
     },
     {
@@ -206,11 +210,19 @@
         "documentation": {}
     },
     {
-        "label": "padding",
-        "importPath": "cryptography.hazmat.primitives",
-        "description": "cryptography.hazmat.primitives",
+        "label": "AESGCM",
+        "importPath": "cryptography.hazmat.primitives.ciphers.aead",
+        "description": "cryptography.hazmat.primitives.ciphers.aead",
         "isExtraImport": true,
-        "detail": "cryptography.hazmat.primitives",
+        "detail": "cryptography.hazmat.primitives.ciphers.aead",
+        "documentation": {}
+    },
+    {
+        "label": "default_backend",
+        "importPath": "cryptography.hazmat.backends",
+        "description": "cryptography.hazmat.backends",
+        "isExtraImport": true,
+        "detail": "cryptography.hazmat.backends",
         "documentation": {}
     },
     {
@@ -327,6 +339,15 @@
         "documentation": {}
     },
     {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
         "label": "ensure_aes_key",
         "importPath": "src.encryption_decryption",
         "description": "src.encryption_decryption",
@@ -415,15 +436,6 @@
         "documentation": {}
     },
     {
-        "label": "pytest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pytest",
-        "description": "pytest",
-        "detail": "pytest",
-        "documentation": {}
-    },
-    {
         "label": "main",
         "importPath": "src.app",
         "description": "src.app",
@@ -445,6 +457,213 @@
         "description": "flatted",
         "isExtraImport": true,
         "detail": "flatted",
+        "documentation": {}
+    },
+    {
+        "label": "Node",
+        "kind": 6,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "class Node:\n    def __init__(self, char, freq):\n        self.char = char\n        self.freq = freq\n        self.left = None\n        self.right = None\n    # Nodes will be compared based on their frequency\n    def __lt__(self, other):\n        return self.freq < other.freq\nclass HuffmanCoding:",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "HuffmanCoding",
+        "kind": 6,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "class HuffmanCoding:\n    def build_tree(self, text):\n        # Count frequency of appearance of each character\n        frequency = collections.Counter(text)\n        # Create a priority queue to hold the list of nodes\n        heap = [Node(char, freq) for char, freq in frequency.items()]\n        heapq.heapify(heap)\n        # Merge nodes until the heap has only one node\n        while len(heap) > 1:\n            left = heapq.heappop(heap)",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "base64_encode",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def base64_encode(data):\n    \"\"\"Encode binary data to Base64 string.\"\"\"\n    return base64.b64encode(data).decode('ascii')\ndef base64_decode(data):\n    \"\"\"Decode Base64 string to binary data.\"\"\"\n    return base64.b64decode(data.encode('ascii'))\ndef to_base64_string(data):\n    \"\"\"Convert list data to Base64 encoded JSON string.\"\"\"\n    return base64_encode(json.dumps(data).encode('utf-8'))\ndef from_base64_string(data):",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "base64_decode",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def base64_decode(data):\n    \"\"\"Decode Base64 string to binary data.\"\"\"\n    return base64.b64decode(data.encode('ascii'))\ndef to_base64_string(data):\n    \"\"\"Convert list data to Base64 encoded JSON string.\"\"\"\n    return base64_encode(json.dumps(data).encode('utf-8'))\ndef from_base64_string(data):\n    \"\"\"Convert Base64 encoded JSON string back to list.\"\"\"\n    return json.loads(base64_decode(data).decode('utf-8'))\nimport heapq",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "to_base64_string",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def to_base64_string(data):\n    \"\"\"Convert list data to Base64 encoded JSON string.\"\"\"\n    return base64_encode(json.dumps(data).encode('utf-8'))\ndef from_base64_string(data):\n    \"\"\"Convert Base64 encoded JSON string back to list.\"\"\"\n    return json.loads(base64_decode(data).decode('utf-8'))\nimport heapq\nimport collections\nclass Node:\n    def __init__(self, char, freq):",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "from_base64_string",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def from_base64_string(data):\n    \"\"\"Convert Base64 encoded JSON string back to list.\"\"\"\n    return json.loads(base64_decode(data).decode('utf-8'))\nimport heapq\nimport collections\nclass Node:\n    def __init__(self, char, freq):\n        self.char = char\n        self.freq = freq\n        self.left = None",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "encode_number",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def encode_number(n):\n    \"\"\"Encode a number using a simpler variable-length encoding.\"\"\"\n    bytes = []\n    while n > 127:\n        bytes.insert(0, (n & 0x7F) | 0x80)\n        n >>= 7\n    bytes.insert(0, n & 0x7F)\n    return bytes\ndef lz77_compress(text, window_size=100, min_match_length=3):\n    \"\"\"Compress using LZ77 with reduced overhead for smaller matches.\"\"\"",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "lz77_compress",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def lz77_compress(text, window_size=100, min_match_length=3):\n    \"\"\"Compress using LZ77 with reduced overhead for smaller matches.\"\"\"\n    i = 0\n    result = bytearray()\n    while i < len(text):\n        max_match = (0, 0)  # (offset, length)\n        if i + min_match_length <= len(text):  # Ensures there is enough data to form a match\n            for j in range(max(i - window_size, 0), i):\n                k = 0\n                while i + k < len(text) and k < window_size and text[j + k] == text[i + k]:",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "lz77_decompress",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def lz77_decompress(compressed):\n    \"\"\"Decompress data that was compressed with LZ77.\"\"\"\n    data = base64.b64decode(compressed)\n    result = []\n    i = 0\n    while i < len(data):\n        if data[i] == 255:  # Match flag found\n            i += 1\n            if i < len(data) and data[i] == 255:  # Escaped flag byte\n                result.append(chr(255))",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "brotli_compress",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def brotli_compress(data):\n    return base64_encode(brotli.compress(data.encode('utf-8')))\ndef brotli_decompress(compressed_data):\n    return brotli.decompress(base64_decode(compressed_data)).decode('utf-8')\nimport zstandard as zstd\ndef zstd_compress(data):\n    ctx = zstd.ZstdCompressor()\n    return base64_encode(ctx.compress(data.encode('utf-8')))\ndef zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "brotli_decompress",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def brotli_decompress(compressed_data):\n    return brotli.decompress(base64_decode(compressed_data)).decode('utf-8')\nimport zstandard as zstd\ndef zstd_compress(data):\n    ctx = zstd.ZstdCompressor()\n    return base64_encode(ctx.compress(data.encode('utf-8')))\ndef zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()\n    return ctx.decompress(base64_decode(compressed_data)).decode('utf-8')\n# Example usage",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "zstd_compress",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def zstd_compress(data):\n    ctx = zstd.ZstdCompressor()\n    return base64_encode(ctx.compress(data.encode('utf-8')))\ndef zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()\n    return ctx.decompress(base64_decode(compressed_data)).decode('utf-8')\n# Example usage\ninput_data = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ncompressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "zstd_decompress",
+        "kind": 2,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "def zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()\n    return ctx.decompress(base64_decode(compressed_data)).decode('utf-8')\n# Example usage\ninput_data = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ncompressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "huffman",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "huffman = HuffmanCoding()\ntext = \"example for huffman encoding\"\nencoded, code = huffman.encode(text)\ndecoded = huffman.decode(encoded, code)\nprint(\"Original:\", text)\nprint(\"Encoded:\", encoded)\nprint(\"Decoded:\", decoded)\nprint(\"Code:\", code)\nimport base64\ndef encode_number(n):",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "text",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "text = \"example for huffman encoding\"\nencoded, code = huffman.encode(text)\ndecoded = huffman.decode(encoded, code)\nprint(\"Original:\", text)\nprint(\"Encoded:\", encoded)\nprint(\"Decoded:\", decoded)\nprint(\"Code:\", code)\nimport base64\ndef encode_number(n):\n    \"\"\"Encode a number using a simpler variable-length encoding.\"\"\"",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "decoded",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "decoded = huffman.decode(encoded, code)\nprint(\"Original:\", text)\nprint(\"Encoded:\", encoded)\nprint(\"Decoded:\", decoded)\nprint(\"Code:\", code)\nimport base64\ndef encode_number(n):\n    \"\"\"Encode a number using a simpler variable-length encoding.\"\"\"\n    bytes = []\n    while n > 127:",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "input_data",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "input_data = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ncompressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "compressed_lz77",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "compressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "decompressed_lz77",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "decompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "compressed_brotli",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "compressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "decompressed_brotli",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "decompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))\nprint(\"Brotli Decompressed Correct:\", decompressed_brotli == input_data)",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "compressed_zstd",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "compressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))\nprint(\"Brotli Decompressed Correct:\", decompressed_brotli == input_data)\nprint(\"Zstandard Compressed:\", compressed_zstd)",
+        "detail": "hide.huffman coding",
+        "documentation": {}
+    },
+    {
+        "label": "decompressed_zstd",
+        "kind": 5,
+        "importPath": "hide.huffman coding",
+        "description": "hide.huffman coding",
+        "peekOfCode": "decompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))\nprint(\"Brotli Decompressed Correct:\", decompressed_brotli == input_data)\nprint(\"Zstandard Compressed:\", compressed_zstd)\nprint(\"Zstandard Compressed Size:\", len(compressed_zstd))",
+        "detail": "hide.huffman coding",
         "documentation": {}
     },
     {
@@ -704,7 +923,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.encryption_decryption",
         "description": "SecureEncoderFlask.src.encryption_decryption",
-        "peekOfCode": "def aes_encrypt(plaintext: str, key: bytes):\n    \"\"\"Encrypt a string using AES encryption with the provided key.\"\"\"\n    # Generate a random IV\n    iv = os.urandom(16)\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    encryptor = cipher.encryptor()\n    # Encrypt the plaintext\n    ciphertext = encryptor.update(plaintext.encode()) + encryptor.finalize()\n    # Return IV + Ciphertext for decryption",
+        "peekOfCode": "def aes_encrypt(plaintext: str, key: bytes):\n    \"\"\"Encrypt a string using AES-GCM encryption with the provided key.\"\"\"\n    # Generate a random nonce\n    nonce = os.urandom(12)\n    # Create an AESGCM object\n    aesgcm = AESGCM(key)\n    # Encrypt the plaintext\n    ciphertext = aesgcm.encrypt(nonce, plaintext.encode(), None)\n    # Return nonce + Ciphertext for decryption\n    return (nonce + ciphertext).hex()",
         "detail": "SecureEncoderFlask.src.encryption_decryption",
         "documentation": {}
     },
@@ -713,7 +932,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.encryption_decryption",
         "description": "SecureEncoderFlask.src.encryption_decryption",
-        "peekOfCode": "def aes_decrypt(ciphertext_hex: str, key: bytes):\n    \"\"\"Decrypt a string using AES decryption with the provided key.\"\"\"\n    ciphertext = bytes.fromhex(ciphertext_hex)\n    # Extract IV from the beginning of the ciphertext\n    iv = ciphertext[:16]\n    actual_ciphertext = ciphertext[16:]\n    # Create a Cipher object\n    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())\n    decryptor = cipher.decryptor()\n    # Decrypt the ciphertext",
+        "peekOfCode": "def aes_decrypt(ciphertext_hex: str, key: bytes):\n    \"\"\"Decrypt a string using AES-GCM decryption with the provided key.\"\"\"\n    ciphertext = bytes.fromhex(ciphertext_hex)\n    # Extract nonce from the beginning of the ciphertext\n    nonce = ciphertext[:12]\n    actual_ciphertext = ciphertext[12:]\n    # Create an AESGCM object\n    aesgcm = AESGCM(key)\n    # Decrypt the ciphertext\n    try:",
         "detail": "SecureEncoderFlask.src.encryption_decryption",
         "documentation": {}
     },
@@ -938,7 +1157,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_encryption_decryption",
         "description": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "peekOfCode": "def teardown_module(module):\n    \"\"\" Teardown any state that was previously setup with a setup_module method.\"\"\"\n    if os.path.exists(test_key_file):\n        os.remove(test_key_file)\ndef test_ensure_aes_key_generation():\n    \"\"\"Test that a new key is generated when the key file is missing.\"\"\"\n    assert not os.path.exists(test_key_file), \"Key file should not exist before the test\"\n    key = ensure_aes_key(test_key_file)\n    assert os.path.exists(test_key_file), \"Key file should be created after calling ensure_aes_key\"\n    with open(test_key_file, 'rb') as f:",
+        "peekOfCode": "def teardown_module(module):\n    \"\"\" Teardown any state that was previously setup with a setup_module method.\"\"\"\n    if os.path.exists(test_key_file):\n        os.remove(test_key_file)\ndef test_ensure_aes_key_generation():\n    \"\"\"Test that a new key is generated when the key file is missing.\"\"\"\n    if os.path.exists(test_key_file):\n        os.remove(test_key_file)  # Ensure the key file is not present before the test\n    assert not os.path.exists(test_key_file), \"Key file should not exist before the test\"\n    key = ensure_aes_key(test_key_file)",
         "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
         "documentation": {}
     },
@@ -947,7 +1166,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_encryption_decryption",
         "description": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "peekOfCode": "def test_ensure_aes_key_generation():\n    \"\"\"Test that a new key is generated when the key file is missing.\"\"\"\n    assert not os.path.exists(test_key_file), \"Key file should not exist before the test\"\n    key = ensure_aes_key(test_key_file)\n    assert os.path.exists(test_key_file), \"Key file should be created after calling ensure_aes_key\"\n    with open(test_key_file, 'rb') as f:\n        assert f.read() == key, \"Key file should contain the generated key\"\ndef test_ensure_aes_key_retrieval():\n    \"\"\"Test that an existing key is retrieved when the key file is present.\"\"\"\n    key = os.urandom(32)",
+        "peekOfCode": "def test_ensure_aes_key_generation():\n    \"\"\"Test that a new key is generated when the key file is missing.\"\"\"\n    if os.path.exists(test_key_file):\n        os.remove(test_key_file)  # Ensure the key file is not present before the test\n    assert not os.path.exists(test_key_file), \"Key file should not exist before the test\"\n    key = ensure_aes_key(test_key_file)\n    assert os.path.exists(test_key_file), \"Key file should be created after calling ensure_aes_key\"\n    with open(test_key_file, 'rb') as f:\n        assert f.read() == key, \"Key file should contain the generated key\"\ndef test_ensure_aes_key_retrieval():",
         "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
         "documentation": {}
     },
@@ -965,7 +1184,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_encryption_decryption",
         "description": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encrypt_decrypt():\n    \"\"\"Test that text is correctly encrypted and decrypted back to its original form.\"\"\"\n    key = os.urandom(32)  # Generate a new key for each test to ensure isolation\n    plaintext = \"Hello, World!\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted == plaintext, \"Decrypted text should match the original\"\ndef test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)",
+        "peekOfCode": "def test_aes_encrypt_decrypt():\n    \"\"\"Test that text is correctly encrypted and decrypted back to its original form.\"\"\"\n    key = ensure_aes_key(test_key_file)  # Use the helper function to manage the key\n    plaintext = \"Hello, World!\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted == plaintext, \"Decrypted text should match the original\"\ndef test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = ensure_aes_key(test_key_file)",
         "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
         "documentation": {}
     },
@@ -974,7 +1193,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_encryption_decryption",
         "description": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted == plaintext, \"Decrypted text should be an empty string for empty input\"\ndef test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"",
+        "peekOfCode": "def test_aes_encryption_decryption_empty_string():\n    \"\"\"Test encryption and decryption of an empty string.\"\"\"\n    key = ensure_aes_key(test_key_file)\n    plaintext = \"\"\n    encrypted = aes_encrypt(plaintext, key)\n    decrypted = aes_decrypt(encrypted, key)\n    assert decrypted == plaintext, \"Decrypted text should be an empty string for empty input\"\ndef test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys or nonces results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"",
         "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
         "documentation": {}
     },
@@ -983,16 +1202,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_encryption_decryption",
         "description": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"\n    key1 = os.urandom(32)\n    key2 = os.urandom(32)\n    encrypted1 = aes_encrypt(plaintext, key1)\n    encrypted2 = aes_encrypt(plaintext, key2)\n    assert encrypted1 != encrypted2, \"Encryption with different keys should produce different outputs\"\ndef test_aes_encryption_with_padding():\n    \"\"\"Test that encryption and decryption correctly handle padding for block alignment.\"\"\"",
-        "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "documentation": {}
-    },
-    {
-        "label": "test_aes_encryption_with_padding",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "description": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encryption_with_padding():\n    \"\"\"Test that encryption and decryption correctly handle padding for block alignment.\"\"\"\n    key = os.urandom(32)\n    padder = padding.PKCS7(128).padder()  # 128 bit (16 byte) block size for AES\n    plaintext = \"Text not block aligned\"\n    padded_plaintext = padder.update(plaintext.encode()) + padder.finalize()\n    encrypted = aes_encrypt(padded_plaintext.hex(), key)\n    decrypted = aes_decrypt(encrypted, key)\n    unpadder = padding.PKCS7(128).unpadder()\n    unpadded_plaintext = unpadder.update(bytes.fromhex(decrypted)) + unpadder.finalize()",
+        "peekOfCode": "def test_aes_encryption_uniqueness():\n    \"\"\"Test that encrypting the same text with different keys or nonces results in different ciphertexts.\"\"\"\n    plaintext = \"Repeatable text\"\n    key1 = ensure_aes_key(test_key_file)\n    key2 = os.urandom(32)  # Ensure a different key\n    encrypted1 = aes_encrypt(plaintext, key1)\n    encrypted2 = aes_encrypt(plaintext, key2)\n    assert encrypted1 != encrypted2, \"Encryption with different keys should produce different outputs\"\n    # Test with the same key but expect different nonces to generate different ciphertexts\n    encrypted3 = aes_encrypt(plaintext, key1)",
         "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
         "documentation": {}
     },
@@ -1001,7 +1211,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_encryption_decryption",
         "description": "SecureEncoderFlask.tests.test_encryption_decryption",
-        "peekOfCode": "def test_aes_encryption_decryption_invalid_key():\n    \"\"\"Test that decryption fails with an incorrect key.\"\"\"\n    key = os.urandom(32)\n    plaintext = \"Secret message\"\n    encrypted = aes_encrypt(plaintext, key)\n    wrong_key = os.urandom(32)\n    try:\n        decrypted = aes_decrypt(encrypted, wrong_key)\n        assert False, \"Decryption should fail with an incorrect key\"\n    except ValueError as e:",
+        "peekOfCode": "def test_aes_encryption_decryption_invalid_key():\n    \"\"\"Test that decryption fails with an incorrect key.\"\"\"\n    key = ensure_aes_key(test_key_file)\n    plaintext = \"Secret message\"\n    encrypted = aes_encrypt(plaintext, key)\n    wrong_key = os.urandom(32)  # Ensure a different key\n    with pytest.raises(ValueError) as excinfo:\n        decrypted = aes_decrypt(encrypted, wrong_key)\n    assert \"Decryption failed or wrong key used\" in str(excinfo.value), \"Decryption should fail with an incorrect key and raise a ValueError\"\ndef test_rsa_encrypt_decrypt():",
         "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
         "documentation": {}
     },

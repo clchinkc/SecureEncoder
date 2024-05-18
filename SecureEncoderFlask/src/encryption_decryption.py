@@ -1,8 +1,8 @@
-from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
-from cryptography.hazmat.backends import default_backend
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import hashes, serialization
 import os
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+from cryptography.hazmat.backends import default_backend
 
 def ensure_aes_key(key_file):
     """Ensure there is an AES key available, and return it."""
@@ -16,33 +16,32 @@ def ensure_aes_key(key_file):
             key = kf.read()
     return key
 
+# AES-GCM provides confidentiality along with built-in message integrity and authenticity checks, using a single algorithm.
 def aes_encrypt(plaintext: str, key: bytes):
-    """Encrypt a string using AES encryption with the provided key."""
-    # Generate a random IV
-    iv = os.urandom(16)
-    # Create a Cipher object
-    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
-    encryptor = cipher.encryptor()
+    """Encrypt a string using AES-GCM encryption with the provided key."""
+    # Generate a random nonce
+    nonce = os.urandom(12)
+    # Create an AESGCM object
+    aesgcm = AESGCM(key)
     # Encrypt the plaintext
-    ciphertext = encryptor.update(plaintext.encode()) + encryptor.finalize()
-    # Return IV + Ciphertext for decryption
-    return (iv + ciphertext).hex()
+    ciphertext = aesgcm.encrypt(nonce, plaintext.encode(), None)
+    # Return nonce + Ciphertext for decryption
+    return (nonce + ciphertext).hex()
 
 def aes_decrypt(ciphertext_hex: str, key: bytes):
-    """Decrypt a string using AES decryption with the provided key."""
+    """Decrypt a string using AES-GCM decryption with the provided key."""
     ciphertext = bytes.fromhex(ciphertext_hex)
-    # Extract IV from the beginning of the ciphertext
-    iv = ciphertext[:16]
-    actual_ciphertext = ciphertext[16:]
-    # Create a Cipher object
-    cipher = Cipher(algorithms.AES(key), modes.CFB(iv), backend=default_backend())
-    decryptor = cipher.decryptor()
+    # Extract nonce from the beginning of the ciphertext
+    nonce = ciphertext[:12]
+    actual_ciphertext = ciphertext[12:]
+    # Create an AESGCM object
+    aesgcm = AESGCM(key)
     # Decrypt the ciphertext
-    decrypted = decryptor.update(actual_ciphertext) + decryptor.finalize()
     try:
+        decrypted = aesgcm.decrypt(nonce, actual_ciphertext, None)
         return decrypted.decode()
-    except UnicodeDecodeError:
-        raise ValueError("Decryption failed or wrong key used")
+    except Exception as e:
+        raise ValueError("Decryption failed or wrong key used: " + str(e))
 
 def generate_rsa_keys():
     """Generate RSA private and public keys."""
