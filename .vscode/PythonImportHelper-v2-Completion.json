@@ -1,59 +1,5 @@
 [
     {
-        "label": "base64",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "base64",
-        "description": "base64",
-        "detail": "base64",
-        "documentation": {}
-    },
-    {
-        "label": "json",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "json",
-        "description": "json",
-        "detail": "json",
-        "documentation": {}
-    },
-    {
-        "label": "heapq",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "heapq",
-        "description": "heapq",
-        "detail": "heapq",
-        "documentation": {}
-    },
-    {
-        "label": "collections",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "collections",
-        "description": "collections",
-        "detail": "collections",
-        "documentation": {}
-    },
-    {
-        "label": "brotli",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "brotli",
-        "description": "brotli",
-        "detail": "brotli",
-        "documentation": {}
-    },
-    {
-        "label": "zstandard",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "zstandard",
-        "description": "zstandard",
-        "detail": "zstandard",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -119,11 +65,12 @@
         "documentation": {}
     },
     {
-        "label": "load_dotenv",
-        "importPath": "dotenv",
-        "description": "dotenv",
+        "label": "json",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "dotenv",
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
         "documentation": {}
     },
     {
@@ -132,6 +79,60 @@
         "description": "faker",
         "isExtraImport": true,
         "detail": "faker",
+        "documentation": {}
+    },
+    {
+        "label": "zlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zlib",
+        "description": "zlib",
+        "detail": "zlib",
+        "documentation": {}
+    },
+    {
+        "label": "brotli",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "brotli",
+        "description": "brotli",
+        "detail": "brotli",
+        "documentation": {}
+    },
+    {
+        "label": "zstandard",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "zstandard",
+        "description": "zstandard",
+        "detail": "zstandard",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "heapq",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "heapq",
+        "description": "heapq",
+        "detail": "heapq",
+        "documentation": {}
+    },
+    {
+        "label": "collections",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "collections",
+        "description": "collections",
+        "detail": "collections",
         "documentation": {}
     },
     {
@@ -243,6 +244,111 @@
         "documentation": {}
     },
     {
+        "label": "pytest",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_compress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_decompress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lz77_compress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lz77_decompress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lzw_compress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lzw_decompress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "zstd_compress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "zstd_decompress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "deflate_compress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "deflate_decompress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "brotli_compress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "brotli_decompress",
+        "importPath": "src.compression_decompression",
+        "description": "src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "src.compression_decompression",
+        "documentation": {}
+    },
+    {
         "label": "encode_base64",
         "importPath": "src.encoder_decoder",
         "description": "src.encoder_decoder",
@@ -336,15 +442,6 @@
         "description": "src.encoder_decoder",
         "isExtraImport": true,
         "detail": "src.encoder_decoder",
-        "documentation": {}
-    },
-    {
-        "label": "pytest",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "pytest",
-        "description": "pytest",
-        "detail": "pytest",
         "documentation": {}
     },
     {
@@ -460,218 +557,11 @@
         "documentation": {}
     },
     {
-        "label": "Node",
-        "kind": 6,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "class Node:\n    def __init__(self, char, freq):\n        self.char = char\n        self.freq = freq\n        self.left = None\n        self.right = None\n    # Nodes will be compared based on their frequency\n    def __lt__(self, other):\n        return self.freq < other.freq\nclass HuffmanCoding:",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "HuffmanCoding",
-        "kind": 6,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "class HuffmanCoding:\n    def build_tree(self, text):\n        # Count frequency of appearance of each character\n        frequency = collections.Counter(text)\n        # Create a priority queue to hold the list of nodes\n        heap = [Node(char, freq) for char, freq in frequency.items()]\n        heapq.heapify(heap)\n        # Merge nodes until the heap has only one node\n        while len(heap) > 1:\n            left = heapq.heappop(heap)",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "base64_encode",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def base64_encode(data):\n    \"\"\"Encode binary data to Base64 string.\"\"\"\n    return base64.b64encode(data).decode('ascii')\ndef base64_decode(data):\n    \"\"\"Decode Base64 string to binary data.\"\"\"\n    return base64.b64decode(data.encode('ascii'))\ndef to_base64_string(data):\n    \"\"\"Convert list data to Base64 encoded JSON string.\"\"\"\n    return base64_encode(json.dumps(data).encode('utf-8'))\ndef from_base64_string(data):",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "base64_decode",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def base64_decode(data):\n    \"\"\"Decode Base64 string to binary data.\"\"\"\n    return base64.b64decode(data.encode('ascii'))\ndef to_base64_string(data):\n    \"\"\"Convert list data to Base64 encoded JSON string.\"\"\"\n    return base64_encode(json.dumps(data).encode('utf-8'))\ndef from_base64_string(data):\n    \"\"\"Convert Base64 encoded JSON string back to list.\"\"\"\n    return json.loads(base64_decode(data).decode('utf-8'))\nimport heapq",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "to_base64_string",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def to_base64_string(data):\n    \"\"\"Convert list data to Base64 encoded JSON string.\"\"\"\n    return base64_encode(json.dumps(data).encode('utf-8'))\ndef from_base64_string(data):\n    \"\"\"Convert Base64 encoded JSON string back to list.\"\"\"\n    return json.loads(base64_decode(data).decode('utf-8'))\nimport heapq\nimport collections\nclass Node:\n    def __init__(self, char, freq):",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "from_base64_string",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def from_base64_string(data):\n    \"\"\"Convert Base64 encoded JSON string back to list.\"\"\"\n    return json.loads(base64_decode(data).decode('utf-8'))\nimport heapq\nimport collections\nclass Node:\n    def __init__(self, char, freq):\n        self.char = char\n        self.freq = freq\n        self.left = None",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "encode_number",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def encode_number(n):\n    \"\"\"Encode a number using a simpler variable-length encoding.\"\"\"\n    bytes = []\n    while n > 127:\n        bytes.insert(0, (n & 0x7F) | 0x80)\n        n >>= 7\n    bytes.insert(0, n & 0x7F)\n    return bytes\ndef lz77_compress(text, window_size=100, min_match_length=3):\n    \"\"\"Compress using LZ77 with reduced overhead for smaller matches.\"\"\"",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "lz77_compress",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def lz77_compress(text, window_size=100, min_match_length=3):\n    \"\"\"Compress using LZ77 with reduced overhead for smaller matches.\"\"\"\n    i = 0\n    result = bytearray()\n    while i < len(text):\n        max_match = (0, 0)  # (offset, length)\n        if i + min_match_length <= len(text):  # Ensures there is enough data to form a match\n            for j in range(max(i - window_size, 0), i):\n                k = 0\n                while i + k < len(text) and k < window_size and text[j + k] == text[i + k]:",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "lz77_decompress",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def lz77_decompress(compressed):\n    \"\"\"Decompress data that was compressed with LZ77.\"\"\"\n    data = base64.b64decode(compressed)\n    result = []\n    i = 0\n    while i < len(data):\n        if data[i] == 255:  # Match flag found\n            i += 1\n            if i < len(data) and data[i] == 255:  # Escaped flag byte\n                result.append(chr(255))",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "brotli_compress",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def brotli_compress(data):\n    return base64_encode(brotli.compress(data.encode('utf-8')))\ndef brotli_decompress(compressed_data):\n    return brotli.decompress(base64_decode(compressed_data)).decode('utf-8')\nimport zstandard as zstd\ndef zstd_compress(data):\n    ctx = zstd.ZstdCompressor()\n    return base64_encode(ctx.compress(data.encode('utf-8')))\ndef zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "brotli_decompress",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def brotli_decompress(compressed_data):\n    return brotli.decompress(base64_decode(compressed_data)).decode('utf-8')\nimport zstandard as zstd\ndef zstd_compress(data):\n    ctx = zstd.ZstdCompressor()\n    return base64_encode(ctx.compress(data.encode('utf-8')))\ndef zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()\n    return ctx.decompress(base64_decode(compressed_data)).decode('utf-8')\n# Example usage",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "zstd_compress",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def zstd_compress(data):\n    ctx = zstd.ZstdCompressor()\n    return base64_encode(ctx.compress(data.encode('utf-8')))\ndef zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()\n    return ctx.decompress(base64_decode(compressed_data)).decode('utf-8')\n# Example usage\ninput_data = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ncompressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "zstd_decompress",
-        "kind": 2,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "def zstd_decompress(compressed_data):\n    ctx = zstd.ZstdDecompressor()\n    return ctx.decompress(base64_decode(compressed_data)).decode('utf-8')\n# Example usage\ninput_data = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ncompressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "huffman",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "huffman = HuffmanCoding()\ntext = \"example for huffman encoding\"\nencoded, code = huffman.encode(text)\ndecoded = huffman.decode(encoded, code)\nprint(\"Original:\", text)\nprint(\"Encoded:\", encoded)\nprint(\"Decoded:\", decoded)\nprint(\"Code:\", code)\nimport base64\ndef encode_number(n):",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "text",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "text = \"example for huffman encoding\"\nencoded, code = huffman.encode(text)\ndecoded = huffman.decode(encoded, code)\nprint(\"Original:\", text)\nprint(\"Encoded:\", encoded)\nprint(\"Decoded:\", decoded)\nprint(\"Code:\", code)\nimport base64\ndef encode_number(n):\n    \"\"\"Encode a number using a simpler variable-length encoding.\"\"\"",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "decoded",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "decoded = huffman.decode(encoded, code)\nprint(\"Original:\", text)\nprint(\"Encoded:\", encoded)\nprint(\"Decoded:\", decoded)\nprint(\"Code:\", code)\nimport base64\ndef encode_number(n):\n    \"\"\"Encode a number using a simpler variable-length encoding.\"\"\"\n    bytes = []\n    while n > 127:",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "input_data",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "input_data = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ncompressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "compressed_lz77",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "compressed_lz77 = lz77_compress(input_data)\ndecompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "decompressed_lz77",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "decompressed_lz77 = lz77_decompress(compressed_lz77)\ncompressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "compressed_brotli",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "compressed_brotli = brotli_compress(input_data)\ndecompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "decompressed_brotli",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "decompressed_brotli = brotli_decompress(compressed_brotli)\ncompressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))\nprint(\"Brotli Decompressed Correct:\", decompressed_brotli == input_data)",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "compressed_zstd",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "compressed_zstd = zstd_compress(input_data)\ndecompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))\nprint(\"Brotli Decompressed Correct:\", decompressed_brotli == input_data)\nprint(\"Zstandard Compressed:\", compressed_zstd)",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "decompressed_zstd",
-        "kind": 5,
-        "importPath": "hide.huffman coding",
-        "description": "hide.huffman coding",
-        "peekOfCode": "decompressed_zstd = zstd_decompress(compressed_zstd)\nprint(\"Input Size:\", len(input_data))\nprint(\"LZ77 Compressed:\", compressed_lz77)\nprint(\"LZ77 Compressed Size:\", len(compressed_lz77))\nprint(\"LZ77 Decompressed Correct:\", decompressed_lz77 == input_data)\nprint(\"Brotli Compressed:\", compressed_brotli)\nprint(\"Brotli Compressed Size:\", len(compressed_brotli))\nprint(\"Brotli Decompressed Correct:\", decompressed_brotli == input_data)\nprint(\"Zstandard Compressed:\", compressed_zstd)\nprint(\"Zstandard Compressed Size:\", len(compressed_zstd))",
-        "detail": "hide.huffman coding",
-        "documentation": {}
-    },
-    {
-        "label": "DEBUG",
+        "label": "FLASK_DEBUG",
         "kind": 5,
         "importPath": "SecureEncoderFlask.instance.config",
         "description": "SecureEncoderFlask.instance.config",
-        "peekOfCode": "DEBUG = True\nSECRET_KEY = os.urandom(24)\nFLASK_PORT = 5000",
+        "peekOfCode": "FLASK_DEBUG = True\nSECRET_KEY = os.urandom(24)\nFLASK_PORT = 5000",
         "detail": "SecureEncoderFlask.instance.config",
         "documentation": {}
     },
@@ -694,11 +584,11 @@
         "documentation": {}
     },
     {
-        "label": "home",
+        "label": "index",
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def home():\n    app.logger.debug('This is a debug message, visible only in development')\n    app.logger.warning('This warning is logged in production')\n    return \"Hello, check your log configuration based on the environment.\"\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':",
+        "peekOfCode": "def index():\n    app.logger.debug('This is a debug message, visible only in development')\n    app.logger.warning('This warning is logged in production')\n    return \"Hello, please check your log configuration based on the environment.\"\ndef allowed_file(filename):\n    return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']\n@app.route('/api/upload_key', methods=['POST'])\ndef upload_key():\n    file = request.files['file']\n    if file.filename == '':",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
@@ -788,7 +678,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def handle_exception(e):\n    if isinstance(e, HTTPException):\n        return e\n    app.logger.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500 if isinstance(e, KeyError) or isinstance(e, ValueError) else 400\ndef main():\n    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']))",
+        "peekOfCode": "def handle_exception(e):\n    if isinstance(e, HTTPException):\n        return e\n    app.logger.error(f\"Unhandled exception: {str(e)}\")\n    return jsonify({'error': str(e)}), 500 if isinstance(e, KeyError) or isinstance(e, ValueError) else 400\ndef main():\n    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']), debug=app.config['FLASK_DEBUG'], use_reloader=True, threaded=True)",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
@@ -797,7 +687,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def main():\n    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']))",
+        "peekOfCode": "def main():\n    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']), debug=app.config['FLASK_DEBUG'], use_reloader=True, threaded=True)",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
@@ -806,8 +696,161 @@
         "kind": 5,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "app = create_app()\nwith app.app_context():\n    db.create_all()\n    faker = Faker()\n    populate_db(faker, 1000)\nsetup_logger(app)\n@app.route('/')\ndef home():\n    app.logger.debug('This is a debug message, visible only in development')\n    app.logger.warning('This warning is logged in production')",
+        "peekOfCode": "app = create_app()\nwith app.app_context():\n    db.create_all()\n    faker = Faker()\n    populate_db(faker, 1000)\nsetup_logger(app)\n@app.route('/')\ndef index():\n    app.logger.debug('This is a debug message, visible only in development')\n    app.logger.warning('This warning is logged in production')",
         "detail": "SecureEncoderFlask.src.app",
+        "documentation": {}
+    },
+    {
+        "label": "build_tree",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def build_tree(text):\n    frequency = collections.Counter(text)\n    # Handle single-character edge case\n    if len(frequency) == 1:\n        char = next(iter(frequency))\n        frequency[char] = 1\n        frequency['\\0'] = 1\n    heap = [(freq, count, char, None, None) for count, (char, freq) in enumerate(frequency.items())]\n    heapq.heapify(heap)\n    count = len(heap)",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "codes_from_node",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def codes_from_node(node, prefix=\"\", code={}):\n    if node is None:\n        return code\n    _, _, char, left, right = node\n    if char is not None:\n        code[char] = prefix\n    codes_from_node(left, prefix + \"0\", code)\n    codes_from_node(right, prefix + \"1\", code)\n    return code\ndef binary_to_ascii(binary):",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "binary_to_ascii",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def binary_to_ascii(binary):\n    base = 95\n    packed_int = int(binary, 2)\n    result = []\n    while packed_int > 0:\n        result.append(chr((packed_int % base) + 32))\n        packed_int //= base\n    return ''.join(reversed(result))\ndef ascii_to_binary(ascii_str):\n    base = 95",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "ascii_to_binary",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def ascii_to_binary(ascii_str):\n    base = 95\n    total = 0\n    for char in ascii_str:\n        total = total * base + (ord(char) - 32)\n    return bin(total)[2:]\ndef huffman_compress(text):\n    if not text:\n        return \"\"\n    root = build_tree(text)",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_compress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def huffman_compress(text):\n    if not text:\n        return \"\"\n    root = build_tree(text)\n    huffman_code = codes_from_node(root)\n    encoded_text = ''.join(huffman_code[char] for char in text)\n    encoded_ascii = binary_to_ascii(encoded_text)\n    dict_string = ','.join(f\"{ord(char)}:{int('1' + code, 2)}\" for char, code in huffman_code.items())\n    return f\"{len(dict_string)}:{dict_string}{encoded_ascii}\"\ndef huffman_decompress(combined):",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_decompress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def huffman_decompress(combined):\n    if not combined:\n        return ''\n    dict_length_end = combined.index(':')\n    dict_length = int(combined[:dict_length_end])\n    dict_string = combined[dict_length_end+1:dict_length_end+1+dict_length]\n    huffman_code = {chr(int(item.split(':')[0])): bin(int(item.split(':')[1]))[3:] for item in dict_string.split(',')}\n    reverse_code = {v: k for k, v in huffman_code.items()}\n    encoded_ascii = combined[dict_length_end+1+dict_length:]\n    encoded_text = ascii_to_binary(encoded_ascii)",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "encode_number",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def encode_number(n):\n    \"\"\"Encode a number using a simpler variable-length encoding.\"\"\"\n    bytes = []\n    while n > 127:\n        bytes.insert(0, (n & 0x7F) | 0x80)\n        n >>= 7\n    bytes.insert(0, n & 0x7F)\n    return bytes\ndef lz77_compress(text, window_size=100, min_match_length=3):\n    \"\"\"Compress using LZ77 with reduced overhead for smaller matches.\"\"\"",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lz77_compress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def lz77_compress(text, window_size=100, min_match_length=3):\n    \"\"\"Compress using LZ77 with reduced overhead for smaller matches.\"\"\"\n    if not text:\n        return \"\"\n    i = 0\n    result = bytearray()\n    while i < len(text):\n        max_match = (0, 0)  # (offset, length)\n        if i + min_match_length <= len(text):  # Ensures there is enough data to form a match\n            for j in range(max(i - window_size, 0), i):",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lz77_decompress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def lz77_decompress(compressed):\n    \"\"\"Decompress data that was compressed with LZ77.\"\"\"\n    if not compressed:\n        return \"\"\n    data = base64.b64decode(compressed)\n    result = []\n    i = 0\n    while i < len(data):\n        if data[i] == 255:  # Match flag found\n            i += 1",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lzw_compress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def lzw_compress(input_data):\n    if not input_data:\n        return \"\"\n    dict_size = 256\n    dictionary = {chr(i): i for i in range(dict_size)}\n    w = \"\"\n    compressed = []\n    for c in input_data:\n        wc = w + c\n        if wc in dictionary:",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "lzw_decompress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def lzw_decompress(compressed):\n    if not compressed:\n        return \"\"\n    compressed_bytes = base64.b64decode(compressed)\n    dict_size = 256\n    dictionary = {i: chr(i) for i in range(dict_size)}\n    bits = max(dict_size.bit_length(), 8)\n    byte_count = (bits + 7) // 8\n    # Unpack integers according to the bit size used during compression\n    compressed_integers = []",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "zstd_compress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def zstd_compress(data):\n    cctx = zstd.ZstdCompressor()\n    compressed_data = cctx.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef zstd_decompress(compressed):\n    dctx = zstd.ZstdDecompressor()\n    compressed_data = base64.b64decode(compressed)\n    return dctx.decompress(compressed_data).decode()\ndef deflate_compress(data):\n    compressed_data = zlib.compress(data.encode(), level=9)",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "zstd_decompress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def zstd_decompress(compressed):\n    dctx = zstd.ZstdDecompressor()\n    compressed_data = base64.b64decode(compressed)\n    return dctx.decompress(compressed_data).decode()\ndef deflate_compress(data):\n    compressed_data = zlib.compress(data.encode(), level=9)\n    return base64.b64encode(compressed_data).decode()\ndef deflate_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return zlib.decompress(compressed_data).decode()",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "deflate_compress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def deflate_compress(data):\n    compressed_data = zlib.compress(data.encode(), level=9)\n    return base64.b64encode(compressed_data).decode()\ndef deflate_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return zlib.decompress(compressed_data).decode()\ndef brotli_compress(data):\n    compressed_data = brotli.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef brotli_decompress(compressed):",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "deflate_decompress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def deflate_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return zlib.decompress(compressed_data).decode()\ndef brotli_compress(data):\n    compressed_data = brotli.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()\n# Example usage",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "brotli_compress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def brotli_compress(data):\n    compressed_data = brotli.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()\n# Example usage\nif __name__ == \"__main__\":\n    # text = \"Hello, world! This is an example of text compression.\"\n    text = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "brotli_decompress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "peekOfCode": "def brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()\n# Example usage\nif __name__ == \"__main__\":\n    # text = \"Hello, world! This is an example of text compression.\"\n    text = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\n    print(\"Original Text:\", text)\n    print(\"Original Text Size:\", len(text))\n    # Test Huffman",
+        "detail": "SecureEncoderFlask.src.compression_decompression",
         "documentation": {}
     },
     {
@@ -1060,6 +1103,78 @@
         "description": "SecureEncoderFlask.src.md5_model",
         "peekOfCode": "db = SQLAlchemy()\nclass MD5Hash(db.Model):\n    id = db.Column(db.Integer, primary_key=True)\n    text = db.Column(db.String(255), unique=True, nullable=False)\n    md5_hash = db.Column(db.String(32), unique=True, nullable=False)\n    def __init__(self, text, md5_hash):\n        self.text = text\n        self.md5_hash = md5_hash\ndef md5_encode(text):\n    hash_object = hashlib.md5(text.encode())",
         "detail": "SecureEncoderFlask.src.md5_model",
+        "documentation": {}
+    },
+    {
+        "label": "test_huffman_compression_cycle",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "def test_huffman_compression_cycle():\n    \"\"\"Test Huffman compression and decompression.\"\"\"\n    encoded = huffman_compress(TEST_TEXT)\n    decoded = huffman_decompress(encoded)\n    assert decoded == TEST_TEXT, \"Huffman decompression does not match the original\"\ndef test_lz77_compression_cycle():\n    \"\"\"Test LZ77 compression and decompression.\"\"\"\n    compressed = lz77_compress(TEST_TEXT)\n    decompressed = lz77_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"LZ77 decompression does not match the original\"",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "test_lz77_compression_cycle",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "def test_lz77_compression_cycle():\n    \"\"\"Test LZ77 compression and decompression.\"\"\"\n    compressed = lz77_compress(TEST_TEXT)\n    decompressed = lz77_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"LZ77 decompression does not match the original\"\ndef test_lzw_compression_cycle():\n    \"\"\"Test LZW compression and decompression.\"\"\"\n    compressed = lzw_compress(TEST_TEXT)\n    decompressed = lzw_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"LZW decompression does not match the original\"",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "test_lzw_compression_cycle",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "def test_lzw_compression_cycle():\n    \"\"\"Test LZW compression and decompression.\"\"\"\n    compressed = lzw_compress(TEST_TEXT)\n    decompressed = lzw_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"LZW decompression does not match the original\"\ndef test_zstd_compression_cycle():\n    \"\"\"Test Zstandard compression and decompression.\"\"\"\n    compressed = zstd_compress(TEST_TEXT)\n    decompressed = zstd_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Zstd decompression does not match the original\"",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "test_zstd_compression_cycle",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "def test_zstd_compression_cycle():\n    \"\"\"Test Zstandard compression and decompression.\"\"\"\n    compressed = zstd_compress(TEST_TEXT)\n    decompressed = zstd_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Zstd decompression does not match the original\"\ndef test_deflate_compression_cycle():\n    \"\"\"Test Deflate compression and decompression.\"\"\"\n    compressed = deflate_compress(TEST_TEXT)\n    decompressed = deflate_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Deflate decompression does not match the original\"",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "test_deflate_compression_cycle",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "def test_deflate_compression_cycle():\n    \"\"\"Test Deflate compression and decompression.\"\"\"\n    compressed = deflate_compress(TEST_TEXT)\n    decompressed = deflate_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Deflate decompression does not match the original\"\ndef test_brotli_compression_cycle():\n    \"\"\"Test Brotli compression and decompression.\"\"\"\n    compressed = brotli_compress(TEST_TEXT)\n    decompressed = brotli_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Brotli decompression does not match the original\"",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "test_brotli_compression_cycle",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "def test_brotli_compression_cycle():\n    \"\"\"Test Brotli compression and decompression.\"\"\"\n    compressed = brotli_compress(TEST_TEXT)\n    decompressed = brotli_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Brotli decompression does not match the original\"\n# Additional tests for edge cases\n@pytest.mark.parametrize(\"text\", [\"\", \"a\", TEST_TEXT])\ndef test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"\n    functions = [",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "test_compression_with_varied_text",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "def test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"\n    functions = [\n        (huffman_compress, huffman_decompress),\n        (lz77_compress, lz77_decompress),\n        (lzw_compress, lzw_decompress),\n        (zstd_compress, zstd_decompress),\n        (deflate_compress, deflate_decompress),\n        (brotli_compress, brotli_decompress)\n    ]",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "TEST_TEXT",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "TEST_TEXT = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ndef test_huffman_compression_cycle():\n    \"\"\"Test Huffman compression and decompression.\"\"\"\n    encoded = huffman_compress(TEST_TEXT)\n    decoded = huffman_decompress(encoded)\n    assert decoded == TEST_TEXT, \"Huffman decompression does not match the original\"\ndef test_lz77_compression_cycle():\n    \"\"\"Test LZ77 compression and decompression.\"\"\"\n    compressed = lz77_compress(TEST_TEXT)\n    decompressed = lz77_decompress(compressed)",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
         "documentation": {}
     },
     {

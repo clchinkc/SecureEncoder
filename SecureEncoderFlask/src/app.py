@@ -9,6 +9,7 @@ from faker import Faker
 from .encoder_decoder import encode_base64, decode_base64, encode_hex, decode_hex, encode_utf8, decode_utf8, encode_latin1, decode_latin1, encode_ascii, decode_ascii, encode_url, decode_url
 from .encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensure_rsa_public_key, ensure_rsa_private_key, rsa_encrypt, rsa_decrypt
 from .md5_model import db, md5_encode, md5_decode, populate_db
+from .compression_decompression import huffman_compress, huffman_decompress, lz77_compress, lz77_decompress, lzw_compress, lzw_decompress, zstd_compress, zstd_decompress, deflate_compress, deflate_decompress, brotli_compress, brotli_decompress
 from .create_app import create_app, setup_logger
 
 
@@ -22,10 +23,10 @@ with app.app_context():
 setup_logger(app)
 
 @app.route('/')
-def home():
+def index():
     app.logger.debug('This is a debug message, visible only in development')
     app.logger.warning('This warning is logged in production')
-    return "Hello, check your log configuration based on the environment."
+    return "Hello, please check your log configuration based on the environment."
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
@@ -100,6 +101,12 @@ def process_text():
             'aes': lambda x: aes_encrypt(x, ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))),
             'rsa': lambda x: rsa_encrypt(x, ensure_rsa_public_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_public_key.pem"))),
             'md5': md5_encode,
+            'huffman': huffman_compress,
+            'lz77': lz77_compress,
+            'lzw': lzw_compress,
+            'zstd': zstd_compress,
+            'deflate': deflate_compress,
+            'brotli': brotli_compress,
         },
         'decode': {
             'base64': decode_base64,
@@ -111,6 +118,12 @@ def process_text():
             'aes': lambda x: aes_decrypt(x, ensure_aes_key(os.path.join(app.config['UPLOAD_FOLDER'], "aes_key.pem"))),
             'rsa': lambda x: rsa_decrypt(x, ensure_rsa_private_key(os.path.join(app.config['UPLOAD_FOLDER'], "rsa_private_key.pem"))),
             'md5': md5_decode,
+            'huffman': huffman_decompress,
+            'lz77': lz77_decompress,
+            'lzw': lzw_decompress,
+            'zstd': zstd_decompress,
+            'deflate': deflate_decompress,
+            'brotli': brotli_decompress,
         }
     }
 
@@ -152,4 +165,4 @@ def handle_exception(e):
     return jsonify({'error': str(e)}), 500 if isinstance(e, KeyError) or isinstance(e, ValueError) else 400
 
 def main():
-    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']))
+    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']), debug=app.config['FLASK_DEBUG'], use_reloader=True, threaded=True)
