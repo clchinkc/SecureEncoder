@@ -2,7 +2,7 @@
 # Secure Encoder
 
 ## Introduction
-Secure Encoder is a web application designed to encode and decode text using various cryptographic algorithms. This application supports operations like Base64, Hex, UTF-8, Latin-1, ASCII, URL encoding/decoding, and encryption/decryption using AES and RSA algorithms. It aims to provide a user-friendly interface for secure text manipulation, which is especially useful for developers and security professionals.
+Secure Encoder is a web application designed to encode and decode text using various cryptographic algorithms. This application supports operations like Base64, Hex, UTF-8, Latin-1, ASCII, URL encoding/decoding, and encryption/decryption using AES and RSA algorithms. It aims to provide a user-friendly interface for secure text manipulation, which is especially useful for developers and security professionals. It is based on Python Flask, React, and a little bit of sqlalchemy. It is built with create-react-app and tailwind css.
 
 ## Features
 - **File Uploads:** Users can upload key files needed for encryption/decoding.
@@ -29,26 +29,23 @@ Secure Encoder is a web application designed to encode and decode text using var
    git clone SecureEncoderMain
    ```
 
-2. Set up the backend:
-   ```bash
-   cd SecureEncoderFlask
-   pip install -r requirements.txt
-   ```
-
-3. Set up the frontend:
-   ```bash
-   cd SecureEncoderReact
-   npm install
-   ```
-
-4. Set environment variables:
+2. Set environment variables:
    Update the `.env` file in the SecureEncoderReact directory or the src file inside SecureEncoderFlask directory if necessary.
 
-### Running the Application
+### Running the Application in Separate Terminals
 
 #### Backend
 1. Navigate to the `SecureEncoderFlask` directory.
-2. Run the Flask application:
+   ```bash
+   cd SecureEncoderFlask
+   ```
+
+2. Set up the backend for the first time running:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run the Flask application:
    ```bash
    python run.py
    ```
@@ -56,13 +53,21 @@ Secure Encoder is a web application designed to encode and decode text using var
 
 #### Frontend
 1. Open a new terminal and navigate to the `SecureEncoderReact` directory.
-2. Start the React application:
+   ```bash
+   cd SecureEncoderReact
+   ```
+
+2. Set up the frontend for the first time running:
+   ```bash
+   npm install
+   ```
+
+3. Start the React application:
    ```bash
    npm start
    ```
    This will launch the web application on `http://localhost:3000` and connect it to the Flask backend.
 
 ## Notes
-- Ensure CORS is properly configured to allow your frontend and backend to interact over different ports during development.
 - Keep your cryptographic keys secure and ensure they are not exposed to unauthorized users.
 - Regularly update dependencies to mitigate vulnerabilities associated with outdated libraries.
