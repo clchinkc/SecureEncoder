@@ -6,19 +6,20 @@ import os
 import json
 from faker import Faker
 
+from SecureEncoderFlask.src.compression_decompression import huffman_compress, huffman_decompress
 from .encoder_decoder import encode_base64, decode_base64, encode_hex, decode_hex, encode_utf8, decode_utf8, encode_latin1, decode_latin1, encode_ascii, decode_ascii, encode_url, decode_url
 from .encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensure_rsa_public_key, ensure_rsa_private_key, rsa_encrypt, rsa_decrypt
 from .md5_model import db, md5_encode, md5_decode, populate_db
-from .compression_decompression import huffman_compress, huffman_decompress, lz77_compress, lz77_decompress, lzw_compress, lzw_decompress, zstd_compress, zstd_decompress, deflate_compress, deflate_decompress, brotli_compress, brotli_decompress
+from .compression_decompression import  lz77_compress, lz77_decompress, lzw_compress, lzw_decompress, zstd_compress, zstd_decompress, deflate_compress, deflate_decompress, brotli_compress, brotli_decompress
 from .create_app import create_app, setup_logger
-
+from .huffman import huffman_compress, huffman_decompress
 
 
 app = create_app()
 with app.app_context():
     db.create_all()
     faker = Faker()
-    populate_db(faker, 1000)
+    populate_db(faker, 10)
 
 setup_logger(app)
 
@@ -130,7 +131,6 @@ def process_text():
     try:
         operation_func = operations[session['action']][session['operation']]
         result = operation_func(session['text'])
-        session['result'] = result
         return jsonify({'result': result}), 200
     except KeyError as e:
         app.logger.error(f"Operation or action not found: {e}")
@@ -141,11 +141,12 @@ def process_text():
 
 @app.after_request
 def apply_security_headers(response):
+    response.headers['Strict-Transport-Security'] = 'max-age=63072000; includeSubDomains'
     response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; object-src 'none';"
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-XSS-Protection"] = "1; mode=block"
-    response.headers["Referrer-Policy"] = "no-referrer"
+    response.headers["Referrer-Policy"] = "no-referrer-when-downgrade"
     return response
 
 @app.after_request

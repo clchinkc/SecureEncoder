@@ -82,6 +82,22 @@
         "documentation": {}
     },
     {
+        "label": "huffman_compress",
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_decompress",
+        "importPath": "SecureEncoderFlask.src.compression_decompression",
+        "description": "SecureEncoderFlask.src.compression_decompression",
+        "isExtraImport": true,
+        "detail": "SecureEncoderFlask.src.compression_decompression",
+        "documentation": {}
+    },
+    {
         "label": "zlib",
         "kind": 6,
         "isExtraImport": true,
@@ -115,24 +131,6 @@
         "importPath": "base64",
         "description": "base64",
         "detail": "base64",
-        "documentation": {}
-    },
-    {
-        "label": "heapq",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "heapq",
-        "description": "heapq",
-        "detail": "heapq",
-        "documentation": {}
-    },
-    {
-        "label": "collections",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "collections",
-        "description": "collections",
-        "detail": "collections",
         "documentation": {}
     },
     {
@@ -227,6 +225,23 @@
         "documentation": {}
     },
     {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "heapq",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "heapq",
+        "description": "heapq",
+        "detail": "heapq",
+        "documentation": {}
+    },
+    {
         "label": "hashlib",
         "kind": 6,
         "isExtraImport": true,
@@ -250,22 +265,6 @@
         "importPath": "pytest",
         "description": "pytest",
         "detail": "pytest",
-        "documentation": {}
-    },
-    {
-        "label": "huffman_compress",
-        "importPath": "src.compression_decompression",
-        "description": "src.compression_decompression",
-        "isExtraImport": true,
-        "detail": "src.compression_decompression",
-        "documentation": {}
-    },
-    {
-        "label": "huffman_decompress",
-        "importPath": "src.compression_decompression",
-        "description": "src.compression_decompression",
-        "isExtraImport": true,
-        "detail": "src.compression_decompression",
         "documentation": {}
     },
     {
@@ -493,6 +492,22 @@
         "documentation": {}
     },
     {
+        "label": "huffman_compress",
+        "importPath": "src.huffman",
+        "description": "src.huffman",
+        "isExtraImport": true,
+        "detail": "src.huffman",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_decompress",
+        "importPath": "src.huffman",
+        "description": "src.huffman",
+        "isExtraImport": true,
+        "detail": "src.huffman",
+        "documentation": {}
+    },
+    {
         "label": "db",
         "importPath": "src.md5_model",
         "description": "src.md5_model",
@@ -660,7 +675,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "def apply_security_headers(response):\n    response.headers[\"Content-Security-Policy\"] = \"default-src 'self'; script-src 'self'; object-src 'none';\"\n    response.headers[\"X-Frame-Options\"] = \"SAMEORIGIN\"\n    response.headers[\"X-Content-Type-Options\"] = \"nosniff\"\n    response.headers[\"X-XSS-Protection\"] = \"1; mode=block\"\n    response.headers[\"Referrer-Policy\"] = \"no-referrer\"\n    return response\n@app.after_request\ndef add_session_to_response(response):\n    response.set_cookie('files', json.dumps(session.get('files', [])))",
+        "peekOfCode": "def apply_security_headers(response):\n    response.headers['Strict-Transport-Security'] = 'max-age=63072000; includeSubDomains'\n    response.headers[\"Content-Security-Policy\"] = \"default-src 'self'; script-src 'self'; object-src 'none';\"\n    response.headers[\"X-Frame-Options\"] = \"SAMEORIGIN\"\n    response.headers[\"X-Content-Type-Options\"] = \"nosniff\"\n    response.headers[\"X-XSS-Protection\"] = \"1; mode=block\"\n    response.headers[\"Referrer-Policy\"] = \"no-referrer-when-downgrade\"\n    return response\n@app.after_request\ndef add_session_to_response(response):",
         "detail": "SecureEncoderFlask.src.app",
         "documentation": {}
     },
@@ -696,62 +711,8 @@
         "kind": 5,
         "importPath": "SecureEncoderFlask.src.app",
         "description": "SecureEncoderFlask.src.app",
-        "peekOfCode": "app = create_app()\nwith app.app_context():\n    db.create_all()\n    faker = Faker()\n    populate_db(faker, 1000)\nsetup_logger(app)\n@app.route('/')\ndef index():\n    app.logger.debug('This is a debug message, visible only in development')\n    app.logger.warning('This warning is logged in production')",
+        "peekOfCode": "app = create_app()\nwith app.app_context():\n    db.create_all()\n    faker = Faker()\n    populate_db(faker, 10)\nsetup_logger(app)\n@app.route('/')\ndef index():\n    app.logger.debug('This is a debug message, visible only in development')\n    app.logger.warning('This warning is logged in production')",
         "detail": "SecureEncoderFlask.src.app",
-        "documentation": {}
-    },
-    {
-        "label": "build_tree",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.src.compression_decompression",
-        "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def build_tree(text):\n    frequency = collections.Counter(text)\n    # Handle single-character edge case\n    if len(frequency) == 1:\n        char = next(iter(frequency))\n        frequency[char] = 1\n        frequency['\\0'] = 1\n    heap = [(freq, count, char, None, None) for count, (char, freq) in enumerate(frequency.items())]\n    heapq.heapify(heap)\n    count = len(heap)",
-        "detail": "SecureEncoderFlask.src.compression_decompression",
-        "documentation": {}
-    },
-    {
-        "label": "codes_from_node",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.src.compression_decompression",
-        "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def codes_from_node(node, prefix=\"\", code={}):\n    if node is None:\n        return code\n    _, _, char, left, right = node\n    if char is not None:\n        code[char] = prefix\n    codes_from_node(left, prefix + \"0\", code)\n    codes_from_node(right, prefix + \"1\", code)\n    return code\ndef binary_to_ascii(binary):",
-        "detail": "SecureEncoderFlask.src.compression_decompression",
-        "documentation": {}
-    },
-    {
-        "label": "binary_to_ascii",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.src.compression_decompression",
-        "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def binary_to_ascii(binary):\n    base = 95\n    packed_int = int(binary, 2)\n    result = []\n    while packed_int > 0:\n        result.append(chr((packed_int % base) + 32))\n        packed_int //= base\n    return ''.join(reversed(result))\ndef ascii_to_binary(ascii_str):\n    base = 95",
-        "detail": "SecureEncoderFlask.src.compression_decompression",
-        "documentation": {}
-    },
-    {
-        "label": "ascii_to_binary",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.src.compression_decompression",
-        "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def ascii_to_binary(ascii_str):\n    base = 95\n    total = 0\n    for char in ascii_str:\n        total = total * base + (ord(char) - 32)\n    return bin(total)[2:]\ndef huffman_compress(text):\n    if not text:\n        return \"\"\n    root = build_tree(text)",
-        "detail": "SecureEncoderFlask.src.compression_decompression",
-        "documentation": {}
-    },
-    {
-        "label": "huffman_compress",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.src.compression_decompression",
-        "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def huffman_compress(text):\n    if not text:\n        return \"\"\n    root = build_tree(text)\n    huffman_code = codes_from_node(root)\n    encoded_text = ''.join(huffman_code[char] for char in text)\n    encoded_ascii = binary_to_ascii(encoded_text)\n    dict_string = ','.join(f\"{ord(char)}:{int('1' + code, 2)}\" for char, code in huffman_code.items())\n    return f\"{len(dict_string)}:{dict_string}{encoded_ascii}\"\ndef huffman_decompress(combined):",
-        "detail": "SecureEncoderFlask.src.compression_decompression",
-        "documentation": {}
-    },
-    {
-        "label": "huffman_decompress",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.src.compression_decompression",
-        "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def huffman_decompress(combined):\n    if not combined:\n        return ''\n    dict_length_end = combined.index(':')\n    dict_length = int(combined[:dict_length_end])\n    dict_string = combined[dict_length_end+1:dict_length_end+1+dict_length]\n    huffman_code = {chr(int(item.split(':')[0])): bin(int(item.split(':')[1]))[3:] for item in dict_string.split(',')}\n    reverse_code = {v: k for k, v in huffman_code.items()}\n    encoded_ascii = combined[dict_length_end+1+dict_length:]\n    encoded_text = ascii_to_binary(encoded_ascii)",
-        "detail": "SecureEncoderFlask.src.compression_decompression",
         "documentation": {}
     },
     {
@@ -831,7 +792,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.compression_decompression",
         "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def deflate_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return zlib.decompress(compressed_data).decode()\ndef brotli_compress(data):\n    compressed_data = brotli.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()\n# Example usage",
+        "peekOfCode": "def deflate_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return zlib.decompress(compressed_data).decode()\ndef brotli_compress(data):\n    compressed_data = brotli.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()",
         "detail": "SecureEncoderFlask.src.compression_decompression",
         "documentation": {}
     },
@@ -840,7 +801,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.compression_decompression",
         "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def brotli_compress(data):\n    compressed_data = brotli.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()\n# Example usage\nif __name__ == \"__main__\":\n    # text = \"Hello, world! This is an example of text compression.\"\n    text = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"",
+        "peekOfCode": "def brotli_compress(data):\n    compressed_data = brotli.compress(data.encode())\n    return base64.b64encode(compressed_data).decode()\ndef brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()",
         "detail": "SecureEncoderFlask.src.compression_decompression",
         "documentation": {}
     },
@@ -849,7 +810,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.compression_decompression",
         "description": "SecureEncoderFlask.src.compression_decompression",
-        "peekOfCode": "def brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()\n# Example usage\nif __name__ == \"__main__\":\n    # text = \"Hello, world! This is an example of text compression.\"\n    text = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\n    print(\"Original Text:\", text)\n    print(\"Original Text Size:\", len(text))\n    # Test Huffman",
+        "peekOfCode": "def brotli_decompress(compressed):\n    compressed_data = base64.b64decode(compressed)\n    return brotli.decompress(compressed_data).decode()",
         "detail": "SecureEncoderFlask.src.compression_decompression",
         "documentation": {}
     },
@@ -858,7 +819,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.create_app",
         "description": "SecureEncoderFlask.src.create_app",
-        "peekOfCode": "def create_app(test_config=None):\n    app = Flask(__name__, instance_relative_config=True)\n    app.config.from_pyfile('config.py')\n    # Default configuration\n    app.config.from_mapping(\n        UPLOAD_FOLDER=os.path.join(app.root_path, 'keys'),\n        ALLOWED_EXTENSIONS={'pem'},\n        SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL', 'sqlite:///md5.db'),\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,\n    )",
+        "peekOfCode": "def create_app(test_config=None):\n    app = Flask(__name__, instance_relative_config=True)\n    app.config.from_pyfile('config.py')\n    # Default configuration\n    app.config.from_mapping(\n        UPLOAD_FOLDER=os.path.join(app.root_path, 'keys'),\n        ALLOWED_EXTENSIONS={'pem'},\n        MAX_CONTENT_LENGTH=16 * 1024 * 1024,\n        SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL', 'sqlite:///md5.db'),\n        SQLALCHEMY_TRACK_MODIFICATIONS=False,",
         "detail": "SecureEncoderFlask.src.create_app",
         "documentation": {}
     },
@@ -1061,6 +1022,33 @@
         "documentation": {}
     },
     {
+        "label": "HuffmanCoding",
+        "kind": 6,
+        "importPath": "SecureEncoderFlask.src.huffman",
+        "description": "SecureEncoderFlask.src.huffman",
+        "peekOfCode": "class HuffmanCoding:\n    class Node:\n        def __init__(self, char=None, freq=None):\n            self.char = char\n            self.freq = freq\n            self.left = None\n            self.right = None\n        def __lt__(self, other):\n            return self.freq < other.freq\n    def __init__(self):",
+        "detail": "SecureEncoderFlask.src.huffman",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_compress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.huffman",
+        "description": "SecureEncoderFlask.src.huffman",
+        "peekOfCode": "def huffman_compress(data):\n    huffman_algorithm = HuffmanCoding()\n    return huffman_algorithm.compress(data)\ndef huffman_decompress(data):\n    huffman_algorithm = HuffmanCoding()\n    return huffman_algorithm.decompress(data)\nclass HuffmanCoding:\n    class Node:\n        def __init__(self, char=None, freq=None):\n            self.char = char",
+        "detail": "SecureEncoderFlask.src.huffman",
+        "documentation": {}
+    },
+    {
+        "label": "huffman_decompress",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.src.huffman",
+        "description": "SecureEncoderFlask.src.huffman",
+        "peekOfCode": "def huffman_decompress(data):\n    huffman_algorithm = HuffmanCoding()\n    return huffman_algorithm.decompress(data)\nclass HuffmanCoding:\n    class Node:\n        def __init__(self, char=None, freq=None):\n            self.char = char\n            self.freq = freq\n            self.left = None\n            self.right = None",
+        "detail": "SecureEncoderFlask.src.huffman",
+        "documentation": {}
+    },
+    {
         "label": "MD5Hash",
         "kind": 6,
         "importPath": "SecureEncoderFlask.src.md5_model",
@@ -1106,15 +1094,6 @@
         "documentation": {}
     },
     {
-        "label": "test_huffman_compression_cycle",
-        "kind": 2,
-        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
-        "description": "SecureEncoderFlask.tests.test_compression_decompression",
-        "peekOfCode": "def test_huffman_compression_cycle():\n    \"\"\"Test Huffman compression and decompression.\"\"\"\n    encoded = huffman_compress(TEST_TEXT)\n    decoded = huffman_decompress(encoded)\n    assert decoded == TEST_TEXT, \"Huffman decompression does not match the original\"\ndef test_lz77_compression_cycle():\n    \"\"\"Test LZ77 compression and decompression.\"\"\"\n    compressed = lz77_compress(TEST_TEXT)\n    decompressed = lz77_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"LZ77 decompression does not match the original\"",
-        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
-        "documentation": {}
-    },
-    {
         "label": "test_lz77_compression_cycle",
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
@@ -1155,7 +1134,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
         "description": "SecureEncoderFlask.tests.test_compression_decompression",
-        "peekOfCode": "def test_brotli_compression_cycle():\n    \"\"\"Test Brotli compression and decompression.\"\"\"\n    compressed = brotli_compress(TEST_TEXT)\n    decompressed = brotli_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Brotli decompression does not match the original\"\n# Additional tests for edge cases\n@pytest.mark.parametrize(\"text\", [\"\", \"a\", TEST_TEXT])\ndef test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"\n    functions = [",
+        "peekOfCode": "def test_brotli_compression_cycle():\n    \"\"\"Test Brotli compression and decompression.\"\"\"\n    compressed = brotli_compress(TEST_TEXT)\n    decompressed = brotli_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"Brotli decompression does not match the original\"\n# Additional tests for edge cases\n@pytest.mark.parametrize(\"text\", [\"\", \"a\", TEST_TEXT, SPECIAL_TEST_TEXT])\ndef test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"\n    functions = [",
         "detail": "SecureEncoderFlask.tests.test_compression_decompression",
         "documentation": {}
     },
@@ -1164,7 +1143,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
         "description": "SecureEncoderFlask.tests.test_compression_decompression",
-        "peekOfCode": "def test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"\n    functions = [\n        (huffman_compress, huffman_decompress),\n        (lz77_compress, lz77_decompress),\n        (lzw_compress, lzw_decompress),\n        (zstd_compress, zstd_decompress),\n        (deflate_compress, deflate_decompress),\n        (brotli_compress, brotli_decompress)\n    ]",
+        "peekOfCode": "def test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"\n    functions = [\n        (lz77_compress, lz77_decompress),\n        (lzw_compress, lzw_decompress),\n        (zstd_compress, zstd_decompress),\n        (deflate_compress, deflate_decompress),\n        (brotli_compress, brotli_decompress)\n    ]\n    for compress, decompress in functions:",
         "detail": "SecureEncoderFlask.tests.test_compression_decompression",
         "documentation": {}
     },
@@ -1173,7 +1152,16 @@
         "kind": 5,
         "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
         "description": "SecureEncoderFlask.tests.test_compression_decompression",
-        "peekOfCode": "TEST_TEXT = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\ndef test_huffman_compression_cycle():\n    \"\"\"Test Huffman compression and decompression.\"\"\"\n    encoded = huffman_compress(TEST_TEXT)\n    decoded = huffman_decompress(encoded)\n    assert decoded == TEST_TEXT, \"Huffman decompression does not match the original\"\ndef test_lz77_compression_cycle():\n    \"\"\"Test LZ77 compression and decompression.\"\"\"\n    compressed = lz77_compress(TEST_TEXT)\n    decompressed = lz77_decompress(compressed)",
+        "peekOfCode": "TEST_TEXT = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\nSPECIAL_TEST_TEXT = \"~!#$%^&*()_+\"\ndef test_lz77_compression_cycle():\n    \"\"\"Test LZ77 compression and decompression.\"\"\"\n    compressed = lz77_compress(TEST_TEXT)\n    decompressed = lz77_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"LZ77 decompression does not match the original\"\ndef test_lzw_compression_cycle():\n    \"\"\"Test LZW compression and decompression.\"\"\"\n    compressed = lzw_compress(TEST_TEXT)",
+        "detail": "SecureEncoderFlask.tests.test_compression_decompression",
+        "documentation": {}
+    },
+    {
+        "label": "SPECIAL_TEST_TEXT",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.tests.test_compression_decompression",
+        "description": "SecureEncoderFlask.tests.test_compression_decompression",
+        "peekOfCode": "SPECIAL_TEST_TEXT = \"~!#$%^&*()_+\"\ndef test_lz77_compression_cycle():\n    \"\"\"Test LZ77 compression and decompression.\"\"\"\n    compressed = lz77_compress(TEST_TEXT)\n    decompressed = lz77_decompress(compressed)\n    assert decompressed == TEST_TEXT, \"LZ77 decompression does not match the original\"\ndef test_lzw_compression_cycle():\n    \"\"\"Test LZW compression and decompression.\"\"\"\n    compressed = lzw_compress(TEST_TEXT)\n    decompressed = lzw_decompress(compressed)",
         "detail": "SecureEncoderFlask.tests.test_compression_decompression",
         "documentation": {}
     },
@@ -1418,6 +1406,42 @@
         "description": "SecureEncoderFlask.tests.test_encryption_decryption",
         "peekOfCode": "def test_rsa_padding_oracle_attack_scenario():\n    \"\"\"Simulate a scenario that should be resistant to padding oracle attacks.\"\"\"\n    private_key, public_key = generate_rsa_keys()\n    plaintext = \"Very sensitive data\"\n    encrypted = rsa_encrypt(plaintext, public_key)\n    # Correct XOR operation for tampering demonstration\n    encrypted_bytes = bytes.fromhex(encrypted)\n    tampered_ciphertext = encrypted_bytes[:-1] + bytes([encrypted_bytes[-1] ^ 0x01])\n    tampered_hex = tampered_ciphertext.hex()\n    try:",
         "detail": "SecureEncoderFlask.tests.test_encryption_decryption",
+        "documentation": {}
+    },
+    {
+        "label": "test_huffman_compression_cycle",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_huffman",
+        "description": "SecureEncoderFlask.tests.test_huffman",
+        "peekOfCode": "def test_huffman_compression_cycle():\n    \"\"\"Test Huffman compression and decompression.\"\"\"\n    encoded_data = huffman_compress(\"he\")\n    assert encoded_data == \"eyJjb21wcmVzc2VkX2RhdGEiOiAiTVRBPSIsICJzZXJpYWxpemVkX3RyZWUiOiB7ImxlZnQiOiB7ImNoYXIiOiAiZSJ9LCAicmlnaHQiOiB7ImNoYXIiOiAiaCJ9fX0=\"\n    decoded_data = huffman_decompress(encoded_data)\n    assert decoded_data == \"he\"\n# Additional tests for edge cases\n@pytest.mark.parametrize(\"text\", [\"\", \"a\", TEST_TEXT, SPECIAL_TEST_TEXT])\ndef test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"",
+        "detail": "SecureEncoderFlask.tests.test_huffman",
+        "documentation": {}
+    },
+    {
+        "label": "test_compression_with_varied_text",
+        "kind": 2,
+        "importPath": "SecureEncoderFlask.tests.test_huffman",
+        "description": "SecureEncoderFlask.tests.test_huffman",
+        "peekOfCode": "def test_compression_with_varied_text(text):\n    \"\"\"Test compression algorithms with varied text inputs.\"\"\"\n    functions = [\n        (huffman_compress, huffman_decompress),\n    ]\n    for compress, decompress in functions:\n        encoded = compress(text)\n        decoded = decompress(encoded)\n        assert decoded == text, f\"{compress.__name__} failed with text: {text}\"",
+        "detail": "SecureEncoderFlask.tests.test_huffman",
+        "documentation": {}
+    },
+    {
+        "label": "TEST_TEXT",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.tests.test_huffman",
+        "description": "SecureEncoderFlask.tests.test_huffman",
+        "peekOfCode": "TEST_TEXT = \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.\"\nSPECIAL_TEST_TEXT = \"~!#$%^&*()_+\"\ndef test_huffman_compression_cycle():\n    \"\"\"Test Huffman compression and decompression.\"\"\"\n    encoded_data = huffman_compress(\"he\")\n    assert encoded_data == \"eyJjb21wcmVzc2VkX2RhdGEiOiAiTVRBPSIsICJzZXJpYWxpemVkX3RyZWUiOiB7ImxlZnQiOiB7ImNoYXIiOiAiZSJ9LCAicmlnaHQiOiB7ImNoYXIiOiAiaCJ9fX0=\"\n    decoded_data = huffman_decompress(encoded_data)\n    assert decoded_data == \"he\"\n# Additional tests for edge cases\n@pytest.mark.parametrize(\"text\", [\"\", \"a\", TEST_TEXT, SPECIAL_TEST_TEXT])",
+        "detail": "SecureEncoderFlask.tests.test_huffman",
+        "documentation": {}
+    },
+    {
+        "label": "SPECIAL_TEST_TEXT",
+        "kind": 5,
+        "importPath": "SecureEncoderFlask.tests.test_huffman",
+        "description": "SecureEncoderFlask.tests.test_huffman",
+        "peekOfCode": "SPECIAL_TEST_TEXT = \"~!#$%^&*()_+\"\ndef test_huffman_compression_cycle():\n    \"\"\"Test Huffman compression and decompression.\"\"\"\n    encoded_data = huffman_compress(\"he\")\n    assert encoded_data == \"eyJjb21wcmVzc2VkX2RhdGEiOiAiTVRBPSIsICJzZXJpYWxpemVkX3RyZWUiOiB7ImxlZnQiOiB7ImNoYXIiOiAiZSJ9LCAicmlnaHQiOiB7ImNoYXIiOiAiaCJ9fX0=\"\n    decoded_data = huffman_decompress(encoded_data)\n    assert decoded_data == \"he\"\n# Additional tests for edge cases\n@pytest.mark.parametrize(\"text\", [\"\", \"a\", TEST_TEXT, SPECIAL_TEST_TEXT])\ndef test_compression_with_varied_text(text):",
+        "detail": "SecureEncoderFlask.tests.test_huffman",
         "documentation": {}
     },
     {
