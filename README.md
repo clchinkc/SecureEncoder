@@ -1,4 +1,3 @@
-
 # Secure Encoder
 
 ## Introduction
@@ -68,6 +67,54 @@ Secure Encoder is a web application designed to encode and decode text using var
    ```
    This will launch the web application on `http://localhost:3000` and connect it to the Flask backend.
 
+# React Frontend with Docker Compose
+
+This project sets up a React frontend application using Docker and Docker Compose for development with hot reloading.
+
+## Prerequisites
+
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+## Getting Started
+
+Follow these instructions to get the React frontend application up and running in a Docker container.
+
+### Step 1: Clone the Repository
+
+Clone the repository to your local machine:
+
+```bash
+git clone <your-repository-url>
+cd <your-repository-directory>
+```
+
+### Step 2: Build and Run the Container
+
+Use Docker Compose to build and start the container:
+
+```bash
+docker-compose up --build
+```
+
+### Step 3: Accessing the Application
+
+Open your browser and navigate to:
+
+```bash
+http://localhost:3000
+```
+
+### Stopping the Container
+
+Open your browser and navigate to:
+
+```bash
+docker-compose down
+```
+
+
 ## Notes
 - Keep your cryptographic keys secure and ensure they are not exposed to unauthorized users.
 - Regularly update dependencies to mitigate vulnerabilities associated with outdated libraries.
+#
