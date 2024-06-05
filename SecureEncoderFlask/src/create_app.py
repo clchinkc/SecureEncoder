@@ -3,7 +3,6 @@ from flask_cors import CORS
 import os
 import logging
 from logging.handlers import RotatingFileHandler
-
 from .md5_model import db
 
 def create_app(test_config=None):
@@ -14,6 +13,7 @@ def create_app(test_config=None):
     app.config.from_mapping(
         UPLOAD_FOLDER=os.path.join(app.root_path, 'keys'),
         ALLOWED_EXTENSIONS={'pem'},
+        MAX_CONTENT_LENGTH=16 * 1024 * 1024,
         SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL', 'sqlite:///md5.db'),
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
     )
@@ -21,6 +21,7 @@ def create_app(test_config=None):
     if test_config is not None:
         # Load the test config if passed in
         app.config.update(test_config)
+
 
     # Initialize plugins
     db.init_app(app)
