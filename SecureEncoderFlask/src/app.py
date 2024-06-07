@@ -6,7 +6,6 @@ import os
 import json
 from faker import Faker
 
-from SecureEncoderFlask.src.compression_decompression import huffman_compress, huffman_decompress
 from .encoder_decoder import encode_base64, decode_base64, encode_hex, decode_hex, encode_utf8, decode_utf8, encode_latin1, decode_latin1, encode_ascii, decode_ascii, encode_url, decode_url
 from .encryption_decryption import ensure_aes_key, aes_encrypt, aes_decrypt, ensure_rsa_public_key, ensure_rsa_private_key, rsa_encrypt, rsa_decrypt
 from .md5_model import db, md5_encode, md5_decode, populate_db
@@ -74,12 +73,12 @@ def save_text():
     new_text = data.get('new_text', None)
 
     if current_text is None and new_text is None:
-        return jsonify({'message': 'No text provided'}), 400
+        return jsonify({'message': 'No text provided'}), 204
     elif current_text is None and new_text is not None:
         session['text'] = new_text
         return jsonify({'message': 'Text created successfully', 'text': new_text}), 201
     elif current_text is not None and new_text is None:
-        return jsonify({'message': 'No new text provided, text remains unchanged', 'text': current_text}), 204
+        return jsonify({'message': 'No new text provided, text remains unchanged', 'text': current_text}), 304
     else:
         session['text'] = new_text
         return jsonify({'message': 'Text updated successfully', 'new_text': new_text}), 200
