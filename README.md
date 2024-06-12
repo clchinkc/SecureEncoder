@@ -85,8 +85,8 @@ Follow these instructions to get the React frontend application up and running i
 Clone the repository to your local machine:
 
 ```bash
-git clone <your-repository-url>
-cd <your-repository-directory>
+git clone SecureEncoderMain
+cd SecureEncoderMain
 ```
 
 ### Step 2: Build and Run the Container
