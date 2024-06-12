@@ -4,31 +4,28 @@ import os
 import logging
 from logging.handlers import RotatingFileHandler
 from .md5_model import db
+from .file_routes import file_bp
+from .text_routes import text_bp
+from decouple import config
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_pyfile('config.py')
 
     # Default configuration
-    app.config.from_mapping(
-        UPLOAD_FOLDER=os.path.join(app.root_path, 'keys'),
-        ALLOWED_EXTENSIONS={'pem'},
-        MAX_CONTENT_LENGTH=16 * 1024 * 1024,
-        SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL', 'sqlite:///md5.db'),
-        SQLALCHEMY_TRACK_MODIFICATIONS=False,
-    )
+    app.config.from_object(config("APP_SETTINGS"))
+    app.config.from_mapping(UPLOAD_FOLDER=os.path.join(app.root_path, 'keys'))
 
     if test_config is not None:
         # Load the test config if passed in
         app.config.update(test_config)
 
-
     # Initialize plugins
     db.init_app(app)
     CORS(app, resources={r"/api/*": {"origins": "*"}})
 
-    # Register your blueprints and routes here
-    # app.register_blueprint(your_blueprint)
+    # Register blueprints
+    app.register_blueprint(file_bp)
+    app.register_blueprint(text_bp)
 
     return app
 

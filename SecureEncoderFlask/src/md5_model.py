@@ -1,5 +1,6 @@
 import hashlib
 from flask_sqlalchemy import SQLAlchemy
+import functools
 
 db = SQLAlchemy()
 
@@ -22,6 +23,7 @@ def md5_encode(text):
         db.session.commit()
     return hash_hex
 
+@functools.lru_cache(maxsize=1)
 def md5_decode(hash_hex):
     match = MD5Hash.query.filter_by(md5_hash=hash_hex).first()
     if match:

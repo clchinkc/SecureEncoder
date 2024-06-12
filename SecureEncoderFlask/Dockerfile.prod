@@ -1,0 +1,15 @@
+FROM python:3.9-slim-buster as build
+WORKDIR /src
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY . .
+
+FROM python:3.9-slim-buster
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+WORKDIR /src
+COPY --from=build /usr/local/lib/python3.9/site-packages /usr/local/lib/python3.9/site-packages
+COPY --from=build /src /src
+RUN chown -R appuser:appuser /src
+USER appuser
+EXPOSE 5000
+ENTRYPOINT ["python", "run.py"]
