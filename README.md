@@ -80,16 +80,7 @@ This project sets up a React frontend application using Docker and Docker Compos
 
 Follow these instructions to get the React frontend application up and running in a Docker container.
 
-### Step 1: Clone the Repository
-
-Clone the repository to your local machine:
-
-```bash
-git clone SecureEncoderMain
-cd SecureEncoderMain
-```
-
-### Step 2: Build and Run the Container
+### Step 1: Build and Run the Container
 
 Use Docker Compose to build and start the container:
 
@@ -97,7 +88,7 @@ Use Docker Compose to build and start the container:
 docker-compose up --build
 ```
 
-### Step 3: Accessing the Application
+### Step 2: Accessing the Application
 
 Open your browser and navigate to:
 
