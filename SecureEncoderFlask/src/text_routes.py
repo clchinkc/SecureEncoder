@@ -19,12 +19,14 @@ save_text_schema = {
     "required": ["new_text"]
 }
 
+
 @text_bp.route('/api/save_text', methods=['PATCH'])
 @expects_json(save_text_schema)
 def save_text():
     data = request.get_json()
     current_text = session.get('text', None)
     new_text = data.get('new_text', None)
+    force_update = request.args.get('force_update', 'false') == 'true'
 
     if current_text is None and new_text is None:
         return jsonify({'message': 'No text provided'}), 204
@@ -33,9 +35,12 @@ def save_text():
         return jsonify({'message': 'Text created successfully', 'text': new_text}), 201
     elif current_text is not None and new_text is None:
         return jsonify({'message': 'No new text provided, text remains unchanged', 'text': current_text}), 304
-    else:
+    elif force_update:
         session['text'] = new_text
         return jsonify({'message': 'Text updated successfully', 'new_text': new_text}), 200
+    else:
+        return jsonify({'message': 'Text already exists, use force_update to overwrite'}), 409
+
 
 process_text_schema = {
     "type": "object",
@@ -46,6 +51,7 @@ process_text_schema = {
     },
     "required": ["text", "operation", "action"]
 }
+
 
 @text_bp.route('/api/process_text', methods=['POST'])
 @expects_json(process_text_schema)

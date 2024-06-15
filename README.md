@@ -65,6 +65,11 @@ Secure Encoder is a web application designed to encode and decode text using var
    ```bash
    npm start
    ```
+   Or to run the production build:
+   ```bash
+   npx serve -s build
+   ```
+   
    This will launch the web application on `http://localhost:3000` and connect it to the Flask backend.
 
 # React Frontend with Docker Compose
