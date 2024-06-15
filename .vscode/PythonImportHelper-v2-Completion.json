@@ -1143,7 +1143,7 @@
         "kind": 2,
         "importPath": "SecureEncoderFlask.src.text_routes",
         "description": "SecureEncoderFlask.src.text_routes",
-        "peekOfCode": "def save_text():\n    data = request.get_json()\n    current_text = session.get('text', None)\n    new_text = data.get('new_text', None)\n    if current_text is None and new_text is None:\n        return jsonify({'message': 'No text provided'}), 204\n    elif current_text is None and new_text is not None:\n        session['text'] = new_text\n        return jsonify({'message': 'Text created successfully', 'text': new_text}), 201\n    elif current_text is not None and new_text is None:",
+        "peekOfCode": "def save_text():\n    data = request.get_json()\n    current_text = session.get('text', None)\n    new_text = data.get('new_text', None)\n    force_update = request.args.get('force_update', 'false') == 'true'\n    if current_text is None and new_text is None:\n        return jsonify({'message': 'No text provided'}), 204\n    elif current_text is None and new_text is not None:\n        session['text'] = new_text\n        return jsonify({'message': 'Text created successfully', 'text': new_text}), 201",
         "detail": "SecureEncoderFlask.src.text_routes",
         "documentation": {}
     },
