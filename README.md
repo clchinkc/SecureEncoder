@@ -1,7 +1,7 @@
 # Secure Encoder
 
 ## Introduction
-Secure Encoder is a web application designed to encode and decode text using various cryptographic algorithms. This application supports operations like Base64, Hex, UTF-8, Latin-1, ASCII, URL encoding/decoding, and encryption/decryption using AES and RSA algorithms. It aims to provide a user-friendly interface for secure text manipulation, which is especially useful for developers and security professionals. It is based on Python Flask, React, and a little bit of sqlalchemy. It is built with create-react-app and tailwind css.
+Secure Encoder is a web application designed to encode and decode text using various cryptographic algorithms. This application supports operations like Base64, Hex, UTF-8, Latin-1, ASCII, URL encoding/decoding, and encryption/decryption using AES and RSA algorithms. It aims to provide a user-friendly interface for secure text manipulation, which is especially useful for developers and security professionals. It is based on Python Flask, React, and a little bit of sqlalchemy. It is built with vite and tailwind css.
 
 ## Features
 - **File Uploads:** Users can upload key files needed for encryption/decoding.
@@ -63,7 +63,7 @@ Secure Encoder is a web application designed to encode and decode text using var
 
 3. Start the React application:
    ```bash
-   npm start
+   npm run dev
    ```
    Or to run the production build:
    ```bash
