@@ -5,7 +5,7 @@ services:
   frontend:
     image: secure-encoder-frontend
     build: 
-      context: /SecureEncoderReact
+      context: ./SecureEncoderReact
       dockerfile: Dockerfile.dev
     container_name: secure-encoder-frontend-container
     ports:
@@ -27,3 +27,4 @@ services:
       - "5000:5000"
     volumes:
       - ./SecureEncoderFlask:/src
+    restart: unless-stopped
