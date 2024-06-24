@@ -65,7 +65,12 @@ Secure Encoder is a web application designed to encode and decode text using var
    ```bash
    npm run dev
    ```
-   Or to run the production build:
+   Build and start the built application:
+   ```bash
+   npm run build
+   npm run serve
+   ```
+   Or to run the production build on local static server:
    ```bash
    npx serve -s build
    ```

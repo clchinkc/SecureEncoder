@@ -3,6 +3,7 @@ import brotli
 import zstandard as zstd
 import base64
 
+
 def encode_number(n):
     """Encode a number using a simpler variable-length encoding."""
     bytes = []
@@ -12,6 +13,7 @@ def encode_number(n):
     bytes.insert(0, n & 0x7F)
     return bytes
 
+
 def lz77_compress(text, window_size=100, min_match_length=3):
     """Compress using LZ77 with reduced overhead for smaller matches."""
     if not text:
@@ -20,10 +22,14 @@ def lz77_compress(text, window_size=100, min_match_length=3):
     result = bytearray()
     while i < len(text):
         max_match = (0, 0)  # (offset, length)
-        if i + min_match_length <= len(text):  # Ensures there is enough data to form a match
+        if i + min_match_length <= len(
+            text
+        ):  # Ensures there is enough data to form a match
             for j in range(max(i - window_size, 0), i):
                 k = 0
-                while i + k < len(text) and k < window_size and text[j + k] == text[i + k]:
+                while (
+                    i + k < len(text) and k < window_size and text[j + k] == text[i + k]
+                ):
                     k += 1
                 if k > max_match[1] and k >= min_match_length:
                     max_match = (i - j, k)
@@ -42,7 +48,8 @@ def lz77_compress(text, window_size=100, min_match_length=3):
             i += 1
 
     # Encode the result as Base64 to handle binary data
-    return base64.b64encode(result).decode('ascii')
+    return base64.b64encode(result).decode("ascii")
+
 
 def lz77_decompress(compressed):
     """Decompress data that was compressed with LZ77."""
@@ -74,11 +81,12 @@ def lz77_decompress(compressed):
             i += 1
 
             start = len(result) - offset
-            result.extend(result[start:start+length])
+            result.extend(result[start : start + length])
         else:
             result.append(chr(data[i]))
             i += 1
-    return ''.join(result)
+    return "".join(result)
+
 
 def lzw_compress(input_data):
     if not input_data:
@@ -100,12 +108,15 @@ def lzw_compress(input_data):
         compressed.append(dictionary[w])
 
     # Encode numbers in the compressed list to handle dynamic dictionary sizes
-    bits = max(dict_size.bit_length(), 8)  # At least 8 bits to handle up to 256 initial dictionary values
+    bits = max(
+        dict_size.bit_length(), 8
+    )  # At least 8 bits to handle up to 256 initial dictionary values
     compressed_bytes = bytearray()
     for number in compressed:
-        compressed_bytes.extend(number.to_bytes((bits + 7) // 8, 'big'))
+        compressed_bytes.extend(number.to_bytes((bits + 7) // 8, "big"))
 
     return base64.b64encode(compressed_bytes).decode()
+
 
 def lzw_decompress(compressed):
     if not compressed:
@@ -120,7 +131,7 @@ def lzw_decompress(compressed):
     # Unpack integers according to the bit size used during compression
     compressed_integers = []
     for i in range(0, len(compressed_bytes), byte_count):
-        number = int.from_bytes(compressed_bytes[i:i+byte_count], 'big')
+        number = int.from_bytes(compressed_bytes[i : i + byte_count], "big")
         compressed_integers.append(number)
 
     w = result = dictionary[compressed_integers[0]]
@@ -135,29 +146,34 @@ def lzw_decompress(compressed):
         w = entry
     return result
 
+
 def zstd_compress(data):
     cctx = zstd.ZstdCompressor()
     compressed_data = cctx.compress(data.encode())
     return base64.b64encode(compressed_data).decode()
+
 
 def zstd_decompress(compressed):
     dctx = zstd.ZstdDecompressor()
     compressed_data = base64.b64decode(compressed)
     return dctx.decompress(compressed_data).decode()
 
+
 def deflate_compress(data):
     compressed_data = zlib.compress(data.encode(), level=9)
     return base64.b64encode(compressed_data).decode()
+
 
 def deflate_decompress(compressed):
     compressed_data = base64.b64decode(compressed)
     return zlib.decompress(compressed_data).decode()
 
+
 def brotli_compress(data):
     compressed_data = brotli.compress(data.encode())
     return base64.b64encode(compressed_data).decode()
 
+
 def brotli_decompress(compressed):
     compressed_data = base64.b64decode(compressed)
     return brotli.decompress(compressed_data).decode()
-
