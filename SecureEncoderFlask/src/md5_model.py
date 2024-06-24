@@ -4,6 +4,7 @@ import functools
 
 db = SQLAlchemy()
 
+
 class MD5Hash(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(255), unique=True, nullable=False)
@@ -12,6 +13,7 @@ class MD5Hash(db.Model):
     def __init__(self, text, md5_hash):
         self.text = text
         self.md5_hash = md5_hash
+
 
 def md5_encode(text):
     hash_object = hashlib.md5(text.encode())
@@ -23,12 +25,14 @@ def md5_encode(text):
         db.session.commit()
     return hash_hex
 
+
 @functools.lru_cache(maxsize=1)
 def md5_decode(hash_hex):
     match = MD5Hash.query.filter_by(md5_hash=hash_hex).first()
     if match:
         return match.text
     return "No match found"
+
 
 def populate_db(faker, num_entries=1000):
     for _ in range(num_entries):

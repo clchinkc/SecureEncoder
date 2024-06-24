@@ -13,35 +13,52 @@ with app.app_context():
 
 setup_logger(app)
 
+
 @app.after_request
 def apply_security_headers(response):
-    response.headers['Strict-Transport-Security'] = 'max-age=63072000; includeSubDomains'
-    response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self'; object-src 'none';"
+    response.headers["Strict-Transport-Security"] = (
+        "max-age=63072000; includeSubDomains"
+    )
+    response.headers["Content-Security-Policy"] = (
+        "default-src 'self'; script-src 'self'; object-src 'none';"
+    )
     response.headers["X-Frame-Options"] = "SAMEORIGIN"
     response.headers["X-Content-Type-Options"] = "nosniff"
     response.headers["X-XSS-Protection"] = "1; mode=block"
     response.headers["Referrer-Policy"] = "no-referrer-when-downgrade"
     return response
 
+
 @app.after_request
 def add_session_to_response(response):
-    response.set_cookie('files', json.dumps(session.get('files', [])))
-    response.set_cookie('result', session.get('result', ''))
-    response.set_cookie('operation', session.get('operation', ''))
-    response.set_cookie('action', session.get('action', ''))
-    response.set_cookie('text', session.get('text', ''))
+    response.set_cookie("files", json.dumps(session.get("files", [])))
+    response.set_cookie("result", session.get("result", ""))
+    response.set_cookie("operation", session.get("operation", ""))
+    response.set_cookie("action", session.get("action", ""))
+    response.set_cookie("text", session.get("text", ""))
     return response
+
 
 @app.errorhandler(Exception)
 def handle_exception(e):
     if isinstance(e, HTTPException):
         return e
     app.logger.error(f"Unhandled exception: {str(e)}")
-    return jsonify({'error': str(e)}), 500 if isinstance(e, KeyError) or isinstance(e, ValueError) else 400
+    return jsonify({"error": str(e)}), 500 if isinstance(e, KeyError) or isinstance(
+        e, ValueError
+    ) else 400
+
 
 @app.errorhandler(404)
 def page_not_found(e):
-    return '''<h1>404</h1><h2>The resource could not be found.</h2>''', 404
+    return """<h1>404</h1><h2>The resource could not be found.</h2>""", 404
+
 
 def main():
-    app.run(host='0.0.0.0', port=int(app.config['FLASK_PORT']), debug=app.config['FLASK_DEBUG'], use_reloader=True, threaded=True)
+    app.run(
+        host="0.0.0.0",
+        port=int(app.config["FLASK_PORT"]),
+        debug=app.config["FLASK_DEBUG"],
+        use_reloader=True,
+        threaded=True,
+    )

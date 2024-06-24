@@ -8,12 +8,13 @@ from .file_routes import file_bp
 from .text_routes import text_bp
 from decouple import config
 
+
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
 
     # Default configuration
     app.config.from_object(config("APP_SETTINGS"))
-    app.config.from_mapping(UPLOAD_FOLDER=os.path.join(app.root_path, 'keys'))
+    app.config.from_mapping(UPLOAD_FOLDER=os.path.join(app.root_path, "keys"))
 
     if test_config is not None:
         # Load the test config if passed in
@@ -29,6 +30,7 @@ def create_app(test_config=None):
 
     return app
 
+
 def setup_logger(app):
     if app.debug:
         app.logger.setLevel(logging.DEBUG)
@@ -36,8 +38,10 @@ def setup_logger(app):
         app.logger.setLevel(logging.WARNING)
 
         # Create a file handler for production logs
-        file_handler = RotatingFileHandler('production.log', maxBytes=1024 * 1024 * 100, backupCount=10)
+        file_handler = RotatingFileHandler(
+            "production.log", maxBytes=1024 * 1024 * 100, backupCount=10
+        )
         file_handler.setLevel(logging.WARNING)
-        formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
+        formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
         file_handler.setFormatter(formatter)
         app.logger.addHandler(file_handler)
