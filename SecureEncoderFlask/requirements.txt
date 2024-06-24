@@ -12,5 +12,5 @@ python-dotenv==0.21.1
 python-decouple==3.7
 urllib3==1.26.13
 SQLAlchemy==2.0.30
-Werkzeug==2.2.2
+Werkzeug==3.0.3
 zstandard==0.22.0
