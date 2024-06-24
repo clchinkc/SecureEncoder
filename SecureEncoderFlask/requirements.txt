@@ -1,5 +1,5 @@
 Brotli==1.1.0
-cryptography==38.0.4
+cryptography==42.0.4
 Faker==25.1.0
 Flask==2.2.2
 Flask_Cors==4.0.0
