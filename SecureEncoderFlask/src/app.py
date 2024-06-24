@@ -1,21 +1,21 @@
-from flask import jsonify, session
+from flask import Flask, jsonify, Response, session
 from .create_app import create_app, setup_logger
 from .md5_model import db, populate_db
 from faker import Faker
 from werkzeug.exceptions import HTTPException
 import json
 
-app = create_app()
+app: Flask = create_app()
 with app.app_context():
     db.create_all()
-    faker = Faker()
+    faker: Faker = Faker()
     populate_db(faker, 10)
 
 setup_logger(app)
 
 
 @app.after_request
-def apply_security_headers(response):
+def apply_security_headers(response: Response):
     response.headers["Strict-Transport-Security"] = (
         "max-age=63072000; includeSubDomains"
     )
@@ -30,7 +30,7 @@ def apply_security_headers(response):
 
 
 @app.after_request
-def add_session_to_response(response):
+def add_session_to_response(response: Response):
     response.set_cookie("files", json.dumps(session.get("files", [])))
     response.set_cookie("result", session.get("result", ""))
     response.set_cookie("operation", session.get("operation", ""))
@@ -40,7 +40,7 @@ def add_session_to_response(response):
 
 
 @app.errorhandler(Exception)
-def handle_exception(e):
+def handle_exception(e: Exception) -> Response:
     if isinstance(e, HTTPException):
         return e
     app.logger.error(f"Unhandled exception: {str(e)}")
@@ -50,7 +50,7 @@ def handle_exception(e):
 
 
 @app.errorhandler(404)
-def page_not_found(e):
+def page_not_found(e: HTTPException):
     return """<h1>404</h1><h2>The resource could not be found.</h2>""", 404
 
 

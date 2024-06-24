@@ -1,10 +1,11 @@
+from flask import Flask
 from src.md5_model import db, MD5Hash, md5_encode, md5_decode
 from src.create_app import create_app
 import pytest
 
 
 @pytest.fixture
-def app():
+def app() -> Flask:
     app = create_app(
         {
             "TESTING": True,
@@ -20,11 +21,11 @@ def app():
 
 
 @pytest.fixture
-def client(app):
+def client(app) -> Flask.test_client:
     return app.test_client()
 
 
-def test_md5_encode(app):
+def test_md5_encode(app) -> None:
     # Use app context here for database operations
     with app.app_context():
         text = "hello world"
@@ -34,7 +35,7 @@ def test_md5_encode(app):
         assert len(encoded) == 32  # MD5 hashes should be 32 characters long
 
 
-def test_md5_decode(app):
+def test_md5_decode(app) -> None:
     with app.app_context():
         text = "hello world"
         encoded = md5_encode(text)
@@ -42,7 +43,7 @@ def test_md5_decode(app):
         assert decoded == text  # Ensure the decoded text matches the original
 
 
-def test_md5_decode_no_match(app):
+def test_md5_decode_no_match(app) -> None:
     with app.app_context():
         decoded = md5_decode("nonexistenthash")
         assert (

@@ -5,16 +5,18 @@ import os
 file_bp = Blueprint("file_bp", __name__)
 
 
-def allowed_file(filename, allowed_extensions):
+def allowed_file(filename: str, allowed_extensions: set[str]) -> bool:
     return "." in filename and filename.rsplit(".", 1)[1].lower() in allowed_extensions
 
 
 @file_bp.route("/api/upload_key", methods=["POST"])
 def upload_key():
-    file = request.files["file"]
+    file = request.files.get("file")
     if file.filename == "":
         return jsonify({"error": "No file selected"}), 400
-    if file and allowed_file(file.filename, current_app.config["ALLOWED_EXTENSIONS"]):
+    if file and allowed_file(
+        file.filename, set(current_app.config["ALLOWED_EXTENSIONS"])
+    ):
         filename = secure_filename(file.filename)
         file.save(os.path.join(current_app.config["UPLOAD_FOLDER"], filename))
         return jsonify(
@@ -24,7 +26,7 @@ def upload_key():
 
 
 @file_bp.route("/api/files", methods=["GET"])
-def list_files():
+def list_files() -> jsonify:
     files = [
         f
         for f in os.listdir(current_app.config["UPLOAD_FOLDER"])
@@ -34,7 +36,7 @@ def list_files():
 
 
 @file_bp.route("/api/download_key/<string:filename>")
-def download_key(filename):
+def download_key(filename: str) -> jsonify:
     file_path = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
     if not os.path.exists(file_path):
         return jsonify({"error": "Key not found"}), 404
@@ -44,7 +46,7 @@ def download_key(filename):
 
 
 @file_bp.route("/api/delete_key/<string:filename>", methods=["DELETE"])
-def delete_key(filename):
+def delete_key(filename: str) -> jsonify:
     file_path = os.path.join(
         current_app.config["UPLOAD_FOLDER"], secure_filename(filename)
     )

@@ -16,28 +16,28 @@ TEST_TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non ri
 SPECIAL_TEST_TEXT = "~!#$%^&*()_+"
 
 
-def test_lz77_compression_cycle():
+def test_lz77_compression_cycle() -> None:
     """Test LZ77 compression and decompression."""
     compressed = lz77_compress(TEST_TEXT)
     decompressed = lz77_decompress(compressed)
     assert decompressed == TEST_TEXT, "LZ77 decompression does not match the original"
 
 
-def test_lzw_compression_cycle():
+def test_lzw_compression_cycle() -> None:
     """Test LZW compression and decompression."""
     compressed = lzw_compress(TEST_TEXT)
     decompressed = lzw_decompress(compressed)
     assert decompressed == TEST_TEXT, "LZW decompression does not match the original"
 
 
-def test_zstd_compression_cycle():
+def test_zstd_compression_cycle() -> None:
     """Test Zstandard compression and decompression."""
     compressed = zstd_compress(TEST_TEXT)
     decompressed = zstd_decompress(compressed)
     assert decompressed == TEST_TEXT, "Zstd decompression does not match the original"
 
 
-def test_deflate_compression_cycle():
+def test_deflate_compression_cycle() -> None:
     """Test Deflate compression and decompression."""
     compressed = deflate_compress(TEST_TEXT)
     decompressed = deflate_decompress(compressed)
@@ -46,7 +46,7 @@ def test_deflate_compression_cycle():
     ), "Deflate decompression does not match the original"
 
 
-def test_brotli_compression_cycle():
+def test_brotli_compression_cycle() -> None:
     """Test Brotli compression and decompression."""
     compressed = brotli_compress(TEST_TEXT)
     decompressed = brotli_decompress(compressed)
@@ -55,7 +55,7 @@ def test_brotli_compression_cycle():
 
 # Additional tests for edge cases
 @pytest.mark.parametrize("text", ["", "a", TEST_TEXT, SPECIAL_TEST_TEXT])
-def test_compression_with_varied_text(text):
+def test_compression_with_varied_text(text: str) -> None:
     """Test compression algorithms with varied text inputs."""
     functions = [
         (lz77_compress, lz77_decompress),

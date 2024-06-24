@@ -1,3 +1,4 @@
+from typing import Optional
 from flask import Flask
 from flask_cors import CORS
 import os
@@ -9,7 +10,7 @@ from .text_routes import text_bp
 from decouple import config
 
 
-def create_app(test_config=None):
+def create_app(test_config: Optional[dict[str, any]] = None) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
 
     # Default configuration
@@ -31,12 +32,11 @@ def create_app(test_config=None):
     return app
 
 
-def setup_logger(app):
-    if app.debug:
-        app.logger.setLevel(logging.DEBUG)
-    else:
-        app.logger.setLevel(logging.WARNING)
+def setup_logger(app: Flask) -> None:
+    level = logging.DEBUG if app.debug else logging.WARNING
+    app.logger.setLevel(level)
 
+    if not app.debug:
         # Create a file handler for production logs
         file_handler = RotatingFileHandler(
             "production.log", maxBytes=1024 * 1024 * 100, backupCount=10

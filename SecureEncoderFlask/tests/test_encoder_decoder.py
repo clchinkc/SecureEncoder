@@ -14,35 +14,35 @@ from src.encoder_decoder import (
 )
 
 
-def test_encode_base64():
+def test_encode_base64() -> None:
     """Test Base64 encoding of a string."""
     input_text = "Hello, World!"
     expected_output = "SGVsbG8sIFdvcmxkIQ=="
     assert encode_base64(input_text) == expected_output, "Base64 encoding failed"
 
 
-def test_decode_base64():
+def test_decode_base64() -> None:
     """Test decoding of a Base64-encoded string."""
     encoded_text = "SGVsbG8sIFdvcmxkIQ=="
     expected_output = "Hello, World!"
     assert decode_base64(encoded_text) == expected_output, "Base64 decoding failed"
 
 
-def test_encode_hex():
+def test_encode_hex() -> None:
     """Test Hex encoding of a string."""
     input_text = "Hello, World!"
     expected_output = "48656c6c6f2c20576f726c6421"
     assert encode_hex(input_text) == expected_output, "Hex encoding failed"
 
 
-def test_decode_hex():
+def test_decode_hex() -> None:
     """Test decoding of a Hex-encoded string."""
     encoded_text = "48656c6c6f2c20576f726c6421"
     expected_output = "Hello, World!"
     assert decode_hex(encoded_text) == expected_output, "Hex decoding failed"
 
 
-def test_encode_utf8():
+def test_encode_utf8() -> None:
     """Test UTF-8 encoding of a string."""
     input_text = "Hello, World!"
     expected_output = "48656c6c6f2c20576f726c6421"
@@ -52,7 +52,7 @@ def test_encode_utf8():
     ), f"UTF-8 encoding failed: {encoded_text} != {expected_output}"
 
 
-def test_decode_utf8():
+def test_decode_utf8() -> None:
     """Test decoding of a UTF-8 encoded byte array."""
     input_bytes = "48656c6c6f2c20576f726c6421"
     expected_output = "Hello, World!"
@@ -62,7 +62,7 @@ def test_decode_utf8():
     ), f"UTF-8 decoding failed: {output_text} != {expected_output}"
 
 
-def test_encode_latin1():
+def test_encode_latin1() -> None:
     """Test Latin-1 encoding of a string."""
     input_text = "Café"
     expected_output = "436166e9"
@@ -72,7 +72,7 @@ def test_encode_latin1():
     ), f"Latin-1 encoding failed: {encoded_text} != {expected_output}"
 
 
-def test_decode_latin1():
+def test_decode_latin1() -> None:
     """Test decoding of a Latin-1 encoded byte array."""
     input_bytes = "436166e9"
     expected_output = "Café"
@@ -82,7 +82,7 @@ def test_decode_latin1():
     ), f"Latin-1 decoding failed: {output_text} != {expected_output}"
 
 
-def test_encode_ascii():
+def test_encode_ascii() -> None:
     """Test ASCII encoding of a string."""
     input_text = "Hello, World!"
     expected_output = "72 101 108 108 111 44 32 87 111 114 108 100 33"
@@ -92,7 +92,7 @@ def test_encode_ascii():
     ), f"ASCII encoding failed: {encoded_text} != {expected_output}"
 
 
-def test_decode_ascii():
+def test_decode_ascii() -> None:
     """Test decoding of an ASCII-encoded string."""
     encoded_text = "72 101 108 108 111 44 32 87 111 114 108 100 33"
     expected_output = "Hello, World!"
@@ -102,7 +102,7 @@ def test_decode_ascii():
     ), f"ASCII decoding failed: {output_text} != {expected_output}"
 
 
-def test_encode_url():
+def test_encode_url() -> None:
     """Test URL encoding of a string."""
     input_text = "Hello, World! @2023"
     expected_output = "Hello%2C%20World%21%20%402023"
@@ -112,7 +112,7 @@ def test_encode_url():
     ), f"URL encoding failed: {encoded_text} != {expected_output}"
 
 
-def test_decode_url():
+def test_decode_url() -> None:
     """Test decoding of a URL-encoded string."""
     encoded_text = "Hello%2C%20World%21%20%402023"
     expected_output = "Hello, World! @2023"

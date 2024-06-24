@@ -5,7 +5,7 @@ TEST_TEXT = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non ri
 SPECIAL_TEST_TEXT = "~!#$%^&*()_+"
 
 
-def test_huffman_compression_cycle():
+def test_huffman_compression_cycle() -> None:
     """Test Huffman compression and decompression."""
     encoded_data = huffman_compress("he")
     assert (
@@ -19,7 +19,7 @@ def test_huffman_compression_cycle():
 
 # Additional tests for edge cases
 @pytest.mark.parametrize("text", ["", "a", TEST_TEXT, SPECIAL_TEST_TEXT])
-def test_compression_with_varied_text(text):
+def test_compression_with_varied_text(text: str) -> None:
     """Test compression algorithms with varied text inputs."""
     functions = [
         (huffman_compress, huffman_decompress),
