@@ -23,7 +23,7 @@ def decode_hex(encoded_text: str) -> str:
     return binascii.unhexlify(encoded_text.encode()).decode()
 
 
-def encode_utf8(input_text: str) -> bytes:
+def encode_utf8(input_text: str) -> str:
     """Encode a string using UTF-8."""
     return input_text.encode("utf-8").hex()
 
@@ -33,7 +33,7 @@ def decode_utf8(encoded_text: str) -> str:
     return bytes.fromhex(encoded_text).decode("utf-8")
 
 
-def encode_latin1(input_text: str) -> bytes:
+def encode_latin1(input_text: str) -> str:
     """Encode a string using ISO-8859-1 (Latin-1)."""
     return input_text.encode("iso-8859-1").hex()
 

@@ -11,7 +11,7 @@ from src.encryption_decryption import (
 )
 
 
-def setup_module(module):
+def setup_module(module) -> None:
     """Setup any state specific to the execution of the given module."""
     global original_key_file
     original_key_file = "aes_key.bin"  # This should match your production key file path
@@ -21,13 +21,13 @@ def setup_module(module):
     os.makedirs(os.path.dirname(test_key_file), exist_ok=True)
 
 
-def teardown_module(module):
+def teardown_module(module) -> None:
     """Teardown any state that was previously setup with a setup_module method."""
     if os.path.exists(test_key_file):
         os.remove(test_key_file)
 
 
-def test_ensure_aes_key_generation():
+def test_ensure_aes_key_generation() -> None:
     """Test that a new key is generated when the key file is missing."""
     if os.path.exists(test_key_file):
         os.remove(test_key_file)  # Ensure the key file is not present before the test
@@ -42,7 +42,7 @@ def test_ensure_aes_key_generation():
         assert f.read() == key, "Key file should contain the generated key"
 
 
-def test_ensure_aes_key_retrieval():
+def test_ensure_aes_key_retrieval() -> None:
     """Test that an existing key is retrieved when the key file is present."""
     key = os.urandom(32)
     with open(test_key_file, "wb") as f:
@@ -52,7 +52,7 @@ def test_ensure_aes_key_retrieval():
     assert retrieved_key == key, "Retrieved key should match the one in the key file"
 
 
-def test_aes_encrypt_decrypt():
+def test_aes_encrypt_decrypt() -> None:
     """Test that text is correctly encrypted and decrypted back to its original form."""
     key = ensure_aes_key(test_key_file)  # Use the helper function to manage the key
     plaintext = "Hello, World!"
@@ -61,7 +61,7 @@ def test_aes_encrypt_decrypt():
     assert decrypted == plaintext, "Decrypted text should match the original"
 
 
-def test_aes_encryption_decryption_empty_string():
+def test_aes_encryption_decryption_empty_string() -> None:
     """Test encryption and decryption of an empty string."""
     key = ensure_aes_key(test_key_file)
     plaintext = ""
@@ -72,7 +72,7 @@ def test_aes_encryption_decryption_empty_string():
     ), "Decrypted text should be an empty string for empty input"
 
 
-def test_aes_encryption_uniqueness():
+def test_aes_encryption_uniqueness() -> None:
     """Test that encrypting the same text with different keys or nonces results in different ciphertexts."""
     plaintext = "Repeatable text"
     key1 = ensure_aes_key(test_key_file)
@@ -89,7 +89,7 @@ def test_aes_encryption_uniqueness():
     ), "Encryption with the same key but different nonces should produce different outputs"
 
 
-def test_aes_encryption_decryption_invalid_key():
+def test_aes_encryption_decryption_invalid_key() -> None:
     """Test that decryption fails with an incorrect key."""
     key = ensure_aes_key(test_key_file)
     plaintext = "Secret message"
@@ -102,7 +102,7 @@ def test_aes_encryption_decryption_invalid_key():
     ), "Decryption should fail with an incorrect key and raise a ValueError"
 
 
-def test_rsa_encrypt_decrypt():
+def test_rsa_encrypt_decrypt() -> None:
     """Test that text is correctly encrypted and decrypted back to its original form using RSA."""
     private_key, public_key = generate_rsa_keys()
     plaintext = "Hello, RSA World!"
@@ -111,7 +111,7 @@ def test_rsa_encrypt_decrypt():
     assert decrypted == plaintext, "Decrypted text should match the original plaintext"
 
 
-def test_rsa_encryption_uniqueness():
+def test_rsa_encryption_uniqueness() -> None:
     """Test that RSA encryption of the same text results in different ciphertexts."""
     _, public_key = generate_rsa_keys()
     plaintext = "Repeatable text"
@@ -122,7 +122,7 @@ def test_rsa_encryption_uniqueness():
     ), "RSA encryption should produce different outputs for the same input"
 
 
-def test_rsa_encrypt_decrypt_with_multiple_keys():
+def test_rsa_encrypt_decrypt_with_multiple_keys() -> None:
     """Test RSA encryption and decryption using multiple key pairs."""
     private_key1, public_key1 = generate_rsa_keys()
     private_key2, public_key2 = generate_rsa_keys()
@@ -144,7 +144,7 @@ def test_rsa_encrypt_decrypt_with_multiple_keys():
     ), "Different key pairs should produce different ciphertexts"
 
 
-def test_rsa_large_data_encryption():
+def test_rsa_large_data_encryption() -> None:
     """Test RSA encryption and decryption with a chunking approach (demonstrative)."""
     private_key, public_key = generate_rsa_keys()
     plaintext = "A" * 1000  # Demonstrative chunking
@@ -160,7 +160,7 @@ def test_rsa_large_data_encryption():
     ), "Decrypted text should match the original large plaintext"
 
 
-def test_rsa_decryption_with_wrong_key():
+def test_rsa_decryption_with_wrong_key() -> None:
     """Test RSA decryption fails when using a wrong private key."""
     private_key1, public_key1 = generate_rsa_keys()
     private_key2, _ = generate_rsa_keys()  # Correct private key is not used
@@ -175,7 +175,7 @@ def test_rsa_decryption_with_wrong_key():
         ), "Expected decryption failure did not occur"
 
 
-def test_rsa_public_key_reuse():
+def test_rsa_public_key_reuse() -> None:
     """Test reusing the same public key for multiple encryptions."""
     private_key, public_key = generate_rsa_keys()
     plaintexts = ["Message 1", "Message 2", "Message 3"]
@@ -188,7 +188,7 @@ def test_rsa_public_key_reuse():
     ), "All decrypted texts should match their original plaintexts"
 
 
-def test_rsa_padding_oracle_attack_scenario():
+def test_rsa_padding_oracle_attack_scenario() -> None:
     """Simulate a scenario that should be resistant to padding oracle attacks."""
     private_key, public_key = generate_rsa_keys()
     plaintext = "Very sensitive data"

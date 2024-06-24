@@ -2,36 +2,37 @@ import base64
 import json
 from collections import Counter
 import heapq
+from typing import Optional, Union
 
 
-def huffman_compress(data):
+def huffman_compress(data: str) -> str:
     huffman_algorithm = HuffmanCoding()
     return huffman_algorithm.compress(data)
 
 
-def huffman_decompress(data):
+def huffman_decompress(data: str) -> str:
     huffman_algorithm = HuffmanCoding()
     return huffman_algorithm.decompress(data)
 
 
 class HuffmanCoding:
     class Node:
-        def __init__(self, char=None, freq=None):
+        def __init__(self, char: Optional[str] = None, freq: Optional[int] = None):
             self.char = char
             self.freq = freq
-            self.left = None
-            self.right = None
+            self.left: Optional["HuffmanCoding.Node"] = None
+            self.right: Optional["HuffmanCoding.Node"] = None
 
-        def __lt__(self, other):
+        def __lt__(self, other: "HuffmanCoding.Node"):
             return self.freq < other.freq
 
-    def __init__(self):
-        self.huffman_tree = None
+    def __init__(self) -> None:
+        self.huffman_tree: Optional[HuffmanCoding.Node] = None
 
-    def build_frequency_table(self, data):
+    def build_frequency_table(self, data: str) -> Counter:
         return Counter(data)
 
-    def build_huffman_tree(self, freq_table):
+    def build_huffman_tree(self, freq_table) -> None:
         priority_queue = [self.Node(char, freq) for char, freq in freq_table.items()]
         heapq.heapify(priority_queue)
 
@@ -45,7 +46,9 @@ class HuffmanCoding:
 
         self.huffman_tree = priority_queue[0]
 
-    def build_codes(self, node, prefix="", codebook=None):
+    def build_codes(
+        self, node: Node, prefix: str = "", codebook: Optional[dict[str, str]] = None
+    ) -> dict[str, str]:
         if codebook is None:
             codebook = {}
         if node.char is not None:
@@ -55,7 +58,7 @@ class HuffmanCoding:
             self.build_codes(node.right, prefix + "1", codebook)
         return codebook
 
-    def serialize_tree(self, node):
+    def serialize_tree(self, node: Node) -> dict[str, Union[str, dict]]:
         if node.char is not None:
             return {"char": node.char}
         return {
@@ -63,7 +66,7 @@ class HuffmanCoding:
             "right": self.serialize_tree(node.right),
         }
 
-    def deserialize_tree(self, data):
+    def deserialize_tree(self, data: dict[str, Union[str, dict]]) -> Node:
         if "char" in data:
             return self.Node(char=data["char"])
         node = self.Node()
@@ -71,7 +74,7 @@ class HuffmanCoding:
         node.right = self.deserialize_tree(data["right"])
         return node
 
-    def compress(self, data):
+    def compress(self, data: str) -> str:
         if not data:
             return ""
         if len(data) == 1:
@@ -96,7 +99,7 @@ class HuffmanCoding:
 
         return combined_base64
 
-    def decompress(self, combined_base64):
+    def decompress(self, combined_base64: str) -> str:
         if not combined_base64:
             return ""
         if len(combined_base64) == 1:

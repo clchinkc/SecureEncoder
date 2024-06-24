@@ -5,7 +5,7 @@ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from cryptography.hazmat.backends import default_backend
 
 
-def ensure_aes_key(key_file):
+def ensure_aes_key(key_file: str) -> bytes:
     """Ensure there is an AES key available, and return it."""
     if not os.path.exists(key_file):
         key = os.urandom(32)  # AES-256 key
@@ -19,7 +19,7 @@ def ensure_aes_key(key_file):
 
 
 # AES-GCM provides confidentiality along with built-in message integrity and authenticity checks, using a single algorithm.
-def aes_encrypt(plaintext: str, key: bytes):
+def aes_encrypt(plaintext: str, key: bytes) -> str:
     """Encrypt a string using AES-GCM encryption with the provided key."""
     # Generate a random nonce
     nonce = os.urandom(12)
@@ -31,7 +31,7 @@ def aes_encrypt(plaintext: str, key: bytes):
     return (nonce + ciphertext).hex()
 
 
-def aes_decrypt(ciphertext_hex: str, key: bytes):
+def aes_decrypt(ciphertext_hex: str, key: bytes) -> str:
     """Decrypt a string using AES-GCM decryption with the provided key."""
     ciphertext = bytes.fromhex(ciphertext_hex)
     # Extract nonce from the beginning of the ciphertext
@@ -47,7 +47,7 @@ def aes_decrypt(ciphertext_hex: str, key: bytes):
         raise ValueError("Decryption failed or wrong key used: " + str(e))
 
 
-def generate_rsa_keys():
+def generate_rsa_keys() -> tuple[rsa.RSAPrivateKey, rsa.RSAPublicKey]:
     """Generate RSA private and public keys."""
     private_key = rsa.generate_private_key(
         public_exponent=65537, key_size=2048, backend=default_backend()
@@ -56,7 +56,9 @@ def generate_rsa_keys():
     return private_key, public_key
 
 
-def save_rsa_key(key, key_file, is_private=True):
+def save_rsa_key(
+    key: rsa.RSAPrivateKey | rsa.RSAPublicKey, key_file: str, is_private: bool = True
+):
     """Save an RSA key (private or public) to a file."""
     with open(key_file, "wb") as kf:
         if is_private:
@@ -76,7 +78,7 @@ def save_rsa_key(key, key_file, is_private=True):
             )
 
 
-def ensure_rsa_public_key(public_key_file):
+def ensure_rsa_public_key(public_key_file: str) -> rsa.RSAPublicKey:
     """Ensure the RSA public key is available and return it."""
     if not os.path.exists(public_key_file):
         # If the public key is missing, generate both keys to ensure matching pairs
@@ -102,7 +104,7 @@ def ensure_rsa_public_key(public_key_file):
     return public_key
 
 
-def ensure_rsa_private_key(private_key_file):
+def ensure_rsa_private_key(private_key_file: str) -> rsa.RSAPrivateKey:
     """Ensure the RSA private key is available and return it."""
     if not os.path.exists(private_key_file):
         # If the private key is missing, generate both keys to ensure matching pairs
@@ -119,7 +121,7 @@ def ensure_rsa_private_key(private_key_file):
     return private_key
 
 
-def rsa_encrypt(plaintext: str, public_key):
+def rsa_encrypt(plaintext: str, public_key: rsa.RSAPublicKey) -> str:
     """Encrypt a string using RSA public key."""
     ciphertext = public_key.encrypt(
         plaintext.encode(),
@@ -132,7 +134,7 @@ def rsa_encrypt(plaintext: str, public_key):
     return ciphertext.hex()
 
 
-def rsa_decrypt(ciphertext_hex: str, private_key):
+def rsa_decrypt(ciphertext_hex: str, private_key: rsa.RSAPrivateKey) -> str:
     """Decrypt a string using RSA private key."""
     ciphertext = bytes.fromhex(ciphertext_hex)
     plaintext = private_key.decrypt(

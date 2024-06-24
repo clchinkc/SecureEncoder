@@ -4,7 +4,7 @@ import zstandard as zstd
 import base64
 
 
-def encode_number(n):
+def encode_number(n: int) -> list:
     """Encode a number using a simpler variable-length encoding."""
     bytes = []
     while n > 127:
@@ -14,7 +14,7 @@ def encode_number(n):
     return bytes
 
 
-def lz77_compress(text, window_size=100, min_match_length=3):
+def lz77_compress(text: str, window_size: int = 100, min_match_length: int = 3) -> str:
     """Compress using LZ77 with reduced overhead for smaller matches."""
     if not text:
         return ""
@@ -51,7 +51,7 @@ def lz77_compress(text, window_size=100, min_match_length=3):
     return base64.b64encode(result).decode("ascii")
 
 
-def lz77_decompress(compressed):
+def lz77_decompress(compressed: str) -> str:
     """Decompress data that was compressed with LZ77."""
     if not compressed:
         return ""
@@ -88,7 +88,7 @@ def lz77_decompress(compressed):
     return "".join(result)
 
 
-def lzw_compress(input_data):
+def lzw_compress(input_data: str) -> str:
     if not input_data:
         return ""
     dict_size = 256
@@ -118,7 +118,7 @@ def lzw_compress(input_data):
     return base64.b64encode(compressed_bytes).decode()
 
 
-def lzw_decompress(compressed):
+def lzw_decompress(compressed: str) -> str:
     if not compressed:
         return ""
     compressed_bytes = base64.b64decode(compressed)
@@ -147,33 +147,33 @@ def lzw_decompress(compressed):
     return result
 
 
-def zstd_compress(data):
+def zstd_compress(data: str) -> str:
     cctx = zstd.ZstdCompressor()
     compressed_data = cctx.compress(data.encode())
     return base64.b64encode(compressed_data).decode()
 
 
-def zstd_decompress(compressed):
+def zstd_decompress(compressed: str) -> str:
     dctx = zstd.ZstdDecompressor()
     compressed_data = base64.b64decode(compressed)
     return dctx.decompress(compressed_data).decode()
 
 
-def deflate_compress(data):
+def deflate_compress(data: str) -> str:
     compressed_data = zlib.compress(data.encode(), level=9)
     return base64.b64encode(compressed_data).decode()
 
 
-def deflate_decompress(compressed):
+def deflate_decompress(compressed: str) -> str:
     compressed_data = base64.b64decode(compressed)
     return zlib.decompress(compressed_data).decode()
 
 
-def brotli_compress(data):
+def brotli_compress(data: str) -> str:
     compressed_data = brotli.compress(data.encode())
     return base64.b64encode(compressed_data).decode()
 
 
-def brotli_decompress(compressed):
+def brotli_decompress(compressed: str) -> str:
     compressed_data = base64.b64decode(compressed)
     return brotli.decompress(compressed_data).decode()
