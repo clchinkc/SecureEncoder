@@ -17,7 +17,7 @@ def huffman_decompress(data: str) -> str:
 
 class HuffmanCoding:
     class Node:
-        def __init__(self, char: Optional[str] = None, freq: Optional[int] = None):
+        def __init__(self, char: Optional[str] = None, freq: int = 0) -> None:
             self.char = char
             self.freq = freq
             self.left: Optional["HuffmanCoding.Node"] = None
