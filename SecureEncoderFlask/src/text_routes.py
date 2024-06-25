@@ -51,7 +51,7 @@ save_text_schema = {
 
 @text_bp.route("/api/save_text", methods=["PATCH"])
 @expects_json(save_text_schema)
-def save_text() -> jsonify:
+def save_text() -> tuple[jsonify, int]:
     data = request.get_json()
     current_text = session.get("text", None)
     new_text = data.get("new_text", None)
@@ -164,7 +164,7 @@ def process_text() -> jsonify:
         operation_func = operations[session["action"]][session["operation"]]
         result = operation_func(session["text"])
         return jsonify({"result": result}), 200
-    except KeyError as e:
-        return jsonify({"error": f"Invalid operation or action provided: {e}"}), 400
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    except KeyError:
+        return jsonify({"error": "Invalid operation or action provided"}), 400
+    except Exception:
+        return jsonify({"error": "An error occurred while processing the text"}), 500
