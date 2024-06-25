@@ -1,0 +1,15 @@
+# Multi Stage Dockerfile for Production
+
+# STAGE 1
+FROM node:18.17.1-alpine as build
+WORKDIR /app
+COPY package.json ./
+RUN rm -rf node_modules package-lock.json && npm cache clear --force && npm install
+COPY --chown=node:node . .
+USER node
+RUN npm run build
+
+# STAGE 2
+FROM nginx
+ENV NODE_ENV production
+COPY --from=build /app/build /usr/share/nginx/html

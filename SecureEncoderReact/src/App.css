@@ -1,0 +1,137 @@
+/* src/App.css */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+:root {
+    color-scheme: light dark;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Roboto, -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    @apply bg-white dark:bg-neutral-900 text-black dark:text-neutral-100;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.App {
+    @apply justify-center items-center;
+}
+
+h1, h2, h3, p {
+    font-weight: 400;
+    @apply text-black dark:text-neutral-100;
+}
+
+h1,h2 {
+    @apply text-2xl;
+    text-wrap: balance;
+    word-break: auto-phrase;
+}
+
+h3 {
+    @apply text-xl;
+    text-wrap: balance;
+    word-break: auto-phrase;
+}
+
+p {
+    @apply text-base;
+    text-wrap: pretty;
+    word-break: auto-phrase;
+}
+
+::selection {
+    @apply bg-yellow-400 dark:bg-blue-500;
+}
+
+.header {
+    summary {
+        text-decoration: none;
+        @apply pl-2 flex items-center;
+
+        img {
+            max-width: 100%;
+            height: auto;
+            aspect-ratio: 1/1;
+            vertical-align: middle;
+            font-style: italic;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: grayscale(100%) brightness(50%);
+            transition: filter 0.5s ease-in-out;
+        }
+        
+        h1 {
+            @apply tracking-wider;
+        }
+    }
+
+    summary:hover > img,
+    summary:has(:focus-visible) > img {
+        filter: grayscale(0%) brightness(100%);
+    }
+
+    p {
+        @apply pl-2 mb-2;
+    }
+}
+
+.container {
+    @apply max-h-screen w-full mx-auto;
+    padding: clamp(1rem, auto, 5rem);
+}
+
+.card {
+    @apply shadow-md rounded-lg m-2 p-4 flex-auto bg-white dark:bg-neutral-800;
+    margin: clamp(0.5rem 0, 0.5rem, 1rem);
+}
+
+.alert {
+    @apply border border-transparent;
+}
+
+.icon-style {
+    @apply bg-white dark:bg-neutral-900 text-black dark:text-neutral-100;
+    @apply text-2xl pr-2 align-middle;
+}
+
+textarea, #result {
+    @apply flex-auto;
+    text-wrap: pretty;
+    word-break: auto-phrase;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #c1c4c7;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #888;
+  }
+
+@media (prefer-reduced-motion: reduce) {
+    * {
+        @apply transition-none animate-none;
+    }
+}
