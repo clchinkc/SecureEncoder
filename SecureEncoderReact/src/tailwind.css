@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Form */
+.form {
+@apply w-full p-2 my-2 bg-neutral-100 border border-neutral-300 focus:bg-neutral-50 focus:border-neutral-500 focus:outline-none dark:bg-neutral-900 dark:border-neutral-700 dark:focus:bg-neutral-950 dark:focus:border-neutral-500 rounded-lg leading-tight appearance-none resize-none;
+}

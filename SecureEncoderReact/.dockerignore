@@ -1,0 +1,10 @@
+.git
+.vscode
+.dockerignore
+.gitignore
+config
+node_modules
+package-lock.json
+docker-compose.yaml
+Dockerfile
+README.md
