@@ -37,11 +37,16 @@ def list_files() -> tuple[jsonify, int]:
 
 @file_bp.route("/api/download_key/<string:filename>")
 def download_key(filename: str) -> jsonify:
-    file_path = os.path.join(current_app.config["UPLOAD_FOLDER"], filename)
+    safe_filename = secure_filename(filename)
+    upload_folder = current_app.config["UPLOAD_FOLDER"]
+    file_path = os.path.join(upload_folder, safe_filename)
+    fullpath = os.path.normpath(file_path)
+    if not fullpath.startswith(os.path.normpath(upload_folder)):
+        return jsonify({"error": "Invalid file path"}), 400
     if not os.path.exists(file_path):
         return jsonify({"error": "Key not found"}), 404
     return send_from_directory(
-        current_app.config["UPLOAD_FOLDER"], filename, as_attachment=True
+        current_app.config["UPLOAD_FOLDER"], safe_filename, as_attachment=True
     )
 
 
