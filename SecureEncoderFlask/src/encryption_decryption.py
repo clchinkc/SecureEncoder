@@ -1,3 +1,4 @@
+from typing import Union
 from cryptography.hazmat.primitives.asymmetric import rsa, padding
 from cryptography.hazmat.primitives import hashes, serialization
 import os
@@ -57,7 +58,9 @@ def generate_rsa_keys() -> tuple[rsa.RSAPrivateKey, rsa.RSAPublicKey]:
 
 
 def save_rsa_key(
-    key: rsa.RSAPrivateKey | rsa.RSAPublicKey, key_file: str, is_private: bool = True
+    key: Union[rsa.RSAPrivateKey, rsa.RSAPublicKey],
+    key_file: str,
+    is_private: bool = True,
 ):
     """Save an RSA key (private or public) to a file."""
     with open(key_file, "wb") as kf:

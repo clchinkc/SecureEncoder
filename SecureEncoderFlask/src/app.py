@@ -42,7 +42,7 @@ def add_session_to_response(response: Response):
 @app.errorhandler(Exception)
 def handle_exception(e: Exception) -> Response:
     if isinstance(e, HTTPException):
-        return e
+        return jsonify({"error": e.description}), e.code
     app.logger.error(f"Unhandled exception: {str(e)}")
     return jsonify({"error": str(e)}), 500 if isinstance(e, KeyError) or isinstance(
         e, ValueError

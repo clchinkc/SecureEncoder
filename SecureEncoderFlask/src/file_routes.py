@@ -1,6 +1,6 @@
+import os
 from flask import Blueprint, request, jsonify, send_from_directory, current_app
 from werkzeug.utils import secure_filename
-import os
 
 file_bp = Blueprint("file_bp", __name__)
 
@@ -26,7 +26,7 @@ def upload_key():
 
 
 @file_bp.route("/api/files", methods=["GET"])
-def list_files() -> jsonify:
+def list_files() -> tuple[jsonify, int]:
     files = [
         f
         for f in os.listdir(current_app.config["UPLOAD_FOLDER"])
