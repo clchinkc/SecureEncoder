@@ -1,5 +1,0 @@
-[submodule "SecureEncoderReact"]
-	path = SecureEncoderReact
-	url = git@github.com/clchinkc/SecureEncoderReact
-	active = true
-	recurse = true
