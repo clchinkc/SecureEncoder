@@ -1,57 +1,53 @@
-// src/components/ResultDisplay.jsx
+// src/components/ResultDisplay.tsx
 
-import { useState, useEffect, RefObject, FC } from 'react'
-import { useAppContext } from '../context/AppContext'
-import Button from './Button'
-import Alert from './Alert'
-import Card from './Card'
+import { useState, useEffect, RefObject, FC } from "react"
+import { useAppContext } from "../context/AppContext"
+import Button from "./Button"
+import Alert from "./Alert"
+import Card from "./Card"
 
 type ResultDisplayProps = {
 	copyToClipboardRef: RefObject<HTMLButtonElement>
 	downloadFileRef: RefObject<HTMLButtonElement>
 }
 
-const ResultDisplay: FC<ResultDisplayProps> = ({
-	copyToClipboardRef,
-	downloadFileRef
-}) => {
+const ResultDisplay: FC<ResultDisplayProps> = ({ copyToClipboardRef, downloadFileRef }) => {
 	const { operation, result } = useAppContext()
-	const [message, setMessage] = useState<string | null>('')
-	const [alertType, setAlertType] = useState<
-		'alert-info' | 'alert-success' | 'alert-danger'
-	>('alert-info')
+	const [message, setMessage] = useState<string | null>("")
+	const [alertType, setAlertType] = useState<"alert-info" | "alert-success" | "alert-danger">(
+		"alert-info"
+	)
 
 	const handleCopy = async () => {
 		if (!result) return
 		try {
 			await navigator.clipboard.writeText(result)
-			setMessage('Copied to clipboard!')
-			setAlertType('alert-success')
+			setMessage("Copied to clipboard!")
+			setAlertType("alert-success")
 		} catch (err) {
 			setMessage(`Failed to copy: ${err}`)
-			setAlertType('alert-danger')
+			setAlertType("alert-danger")
 		}
 	}
 
 	const handleDownload = async () => {
 		if (!result) return
 		try {
-			const file = new Blob([result], { type: 'text/plain' })
-			const filename =
-				`${operation.replace(/ /g, '_')}_result.txt` || 'result.txt'
+			const file = new Blob([result], { type: "text/plain" })
+			const filename = `${operation.replace(/ /g, "_")}_result.txt` || "result.txt"
 			const url = window.URL.createObjectURL(file)
-			const element = document.createElement('a')
+			const element = document.createElement("a")
 			element.href = url
 			element.download = filename
 			document.body.appendChild(element)
 			element.click()
 			window.URL.revokeObjectURL(url)
 			document.body.removeChild(element)
-			setMessage('File downloaded successfully!')
-			setAlertType('alert-success')
+			setMessage("File downloaded successfully!")
+			setAlertType("alert-success")
 		} catch (err) {
 			setMessage(`Failed to download: ${err}`)
-			setAlertType('alert-danger')
+			setAlertType("alert-danger")
 		}
 	}
 
@@ -59,19 +55,19 @@ const ResultDisplay: FC<ResultDisplayProps> = ({
 	useEffect(() => {
 		const handleAutoHideMessage = () => {
 			setMessage(null)
-			setAlertType('alert-info')
+			setAlertType("alert-info")
 		}
 
-		document.addEventListener('click', handleAutoHideMessage)
+		document.addEventListener("click", handleAutoHideMessage)
 		return () => {
-			document.removeEventListener('click', handleAutoHideMessage)
+			document.removeEventListener("click", handleAutoHideMessage)
 		}
 	}, [])
 
 	const showMessage = () => {
 		if (!result) {
-			setMessage('No result to display or download yet')
-			setAlertType('alert-info')
+			setMessage("No result to display or download yet")
+			setAlertType("alert-info")
 		}
 	}
 
@@ -83,7 +79,7 @@ const ResultDisplay: FC<ResultDisplayProps> = ({
 				disabled
 				className="form overflow-y-auto"
 				id="result"
-				value={result || 'No result to display yet'}
+				value={result || "No result to display yet"}
 				rows={1}
 				aria-label="Result text"
 				aria-live="polite"

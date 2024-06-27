@@ -1,13 +1,6 @@
-// src/hoc/withKeyboardShortcuts.jsx
+// src/hoc/withKeyboardShortcuts.tsx
 
-import {
-	useEffect,
-	useRef,
-	useState,
-	RefObject,
-	ComponentType,
-	FC
-} from 'react'
+import { useEffect, useRef, useState, RefObject, ComponentType, FC } from "react"
 
 type RefProps = {
 	uploadButtonRef: RefObject<HTMLButtonElement>
@@ -48,7 +41,7 @@ const withKeyboardShortcuts = <P extends object>(
 			decodingButtonRef,
 			copyToClipboardRef,
 			downloadFileRef,
-			isMounted
+			isMounted,
 		})
 
 		useEffect(() => {
@@ -60,10 +53,10 @@ const withKeyboardShortcuts = <P extends object>(
 				}
 			}
 
-			window.addEventListener('keydown', handleKeyDown)
+			window.addEventListener("keydown", handleKeyDown)
 
 			return () => {
-				window.removeEventListener('keydown', handleKeyDown)
+				window.removeEventListener("keydown", handleKeyDown)
 			}
 		}, [keyMap])
 
@@ -75,7 +68,7 @@ const withKeyboardShortcuts = <P extends object>(
 			decodingButtonRef,
 			copyToClipboardRef,
 			downloadFileRef,
-			isMounted
+			isMounted,
 		}
 
 		return <WrappedComponent {...(props as P)} {...refs} />

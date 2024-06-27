@@ -1,11 +1,11 @@
-// src/App.jsx
+// src/App.tsx
 
-import { FC, useRef, useEffect } from 'react'
-import './tailwind.css'
-import './App.css'
-import { Route, Routes } from 'react-router-dom'
-import Home from './pages/Home'
-import NotFound from './pages/NotFound'
+import { FC, useRef, useEffect } from "react"
+import "./tailwind.css"
+import "./App.css"
+import { Route, Routes } from "react-router-dom"
+import Home from "./pages/Home"
+import NotFound from "./pages/NotFound"
 
 const App: FC = () => {
 	const uploadButtonRef = useRef<HTMLButtonElement>(null)
@@ -19,12 +19,12 @@ const App: FC = () => {
 	useEffect(() => {
 		const resize = () => {
 			const doc = document.documentElement
-			const docHeight = doc.clientHeight / 48 + 'px'
-			const docWidth = doc.clientWidth / 96 + 'px'
+			const docHeight = doc.clientHeight / 48 + "px"
+			const docWidth = doc.clientWidth / 96 + "px"
 			doc.style.fontSize = docHeight < docWidth ? docHeight : docWidth
 		}
 
-		window.addEventListener('resize', resize)
+		window.addEventListener("resize", resize)
 		resize()
 	}, [])
 

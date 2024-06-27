@@ -1,8 +1,8 @@
-// src/components/OperationSelector.jsx
+// src/components/OperationSelector.tsx
 
-import { RefObject, FC } from 'react'
-import { useAppContext } from '../context/AppContext'
-import Card from './Card'
+import { RefObject, FC } from "react"
+import { useAppContext } from "../context/AppContext"
+import Card from "./Card"
 
 type OperationSelectorProps = {
 	chooseButtonRef: RefObject<HTMLSelectElement>

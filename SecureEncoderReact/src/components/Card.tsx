@@ -1,7 +1,7 @@
-// src/components/Card.jsx
+// src/components/Card.tsx
 
-import { Suspense, ReactNode, FC } from 'react'
-import Loading from './Loading'
+import { Suspense, ReactNode, FC } from "react"
+import Loading from "./Loading"
 
 type CardProps = {
 	fallback?: ReactNode
