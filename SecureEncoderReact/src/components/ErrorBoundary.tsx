@@ -1,6 +1,6 @@
-// src/components/ErrorBoundary.jsx
+// src/components/ErrorBoundary.tsx
 
-import { Component, ErrorInfo, ReactNode } from 'react'
+import { Component, ErrorInfo, ReactNode } from "react"
 
 type ErrorBoundaryProps = {
 	children: ReactNode
@@ -22,14 +22,12 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
 	componentDidCatch(error: Error, errorInfo: ErrorInfo) {
 		// Log error to an error reporting service
-		console.error('ErrorBoundary caught an error', error, errorInfo)
+		console.error("ErrorBoundary caught an error", error, errorInfo)
 	}
 
 	render() {
 		if (this.state.hasError) {
-			return (
-				<h2>Something unexpected happened. Please try again later.</h2>
-			)
+			return <h2>Something unexpected happened. Please try again later.</h2>
 		}
 		return this.props.children
 	}

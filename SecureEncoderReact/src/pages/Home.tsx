@@ -1,21 +1,21 @@
-// src/pages/Home.jsx
+// src/pages/Home.tsx
 
-import { lazy, RefObject, FC } from 'react'
-import { AppContextProvider } from '../context/AppContext'
-import ErrorBoundary from '../components/ErrorBoundary'
-import Header from '../components/Header'
-import Tabs from '../components/Tabs'
+import { lazy, RefObject, FC } from "react"
+import { AppContextProvider } from "../context/AppContext"
+import ErrorBoundary from "../components/ErrorBoundary"
+import Header from "../components/Header"
+import Tabs from "../components/Tabs"
 
 // Lazy load components that are not immediately required
-import KeyUploader from '../components/KeyUploader'
-import FileList from '../components/FileList'
-import OperationSelector from '../components/OperationSelector'
-const TextProcessor = lazy(() => import('../components/TextProcessor'))
-const ResultDisplay = lazy(() => import('../components/ResultDisplay'))
-import withKeyboardShortcuts from '../hoc/withKeyboardShortcuts'
+import KeyUploader from "../components/KeyUploader"
+import FileList from "../components/FileList"
+import OperationSelector from "../components/OperationSelector"
+const TextProcessor = lazy(() => import("../components/TextProcessor"))
+const ResultDisplay = lazy(() => import("../components/ResultDisplay"))
+import withKeyboardShortcuts from "../hoc/withKeyboardShortcuts"
 
-import '../tailwind.css'
-import '../App.css'
+import "../tailwind.css"
+import "../App.css"
 
 type AppProps = {
 	uploadButtonRef: RefObject<HTMLButtonElement>
@@ -34,7 +34,7 @@ const App: FC<AppProps> = ({
 	encodingButtonRef,
 	decodingButtonRef,
 	copyToClipboardRef,
-	downloadFileRef
+	downloadFileRef,
 }) => {
 	return (
 		<div className="App">
@@ -42,8 +42,8 @@ const App: FC<AppProps> = ({
 				<ErrorBoundary>
 					<Header title="Secure Encoder">
 						<p>
-							Encode and decode text using various algorithms and
-							keys. Expand your capabilities securely.
+							Encode and decode text using various algorithms and keys. Expand your
+							capabilities securely.
 						</p>
 					</Header>
 					<Tabs />
@@ -55,9 +55,7 @@ const App: FC<AppProps> = ({
 									fileSelectionRef={fileSelectionRef}
 								/>
 								<FileList />
-								<OperationSelector
-									chooseButtonRef={chooseButtonRef}
-								/>
+								<OperationSelector chooseButtonRef={chooseButtonRef} />
 							</div>
 							<div className="min-h-20 w-full xl:order-2 xl:min-h-[200px] xl:w-2/3">
 								<div className="flex min-h-10 flex-col xl:h-1/2 xl:min-h-[100px]">
@@ -89,7 +87,7 @@ const createKeyMap = ({
 	decodingButtonRef,
 	copyToClipboardRef,
 	downloadFileRef,
-	isMounted
+	isMounted,
 }: AppProps & { isMounted: boolean }) => ({
 	e: () => {
 		if (isMounted && encodingButtonRef.current) {
@@ -132,7 +130,7 @@ const createKeyMap = ({
 			downloadFileRef.current.focus()
 			downloadFileRef.current.click()
 		}
-	}
+	},
 })
 
 export default withKeyboardShortcuts(App, createKeyMap)

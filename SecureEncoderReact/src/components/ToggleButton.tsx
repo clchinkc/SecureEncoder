@@ -1,23 +1,23 @@
-// src/components/ToggleButton.jsx
+// src/components/ToggleButton.tsx
 
-import { useEffect, useState, FC } from 'react'
+import { useEffect, useState, FC } from "react"
 
 const ToggleButton: FC = () => {
 	const [darkMode, setDarkMode] = useState<boolean>(false)
 
 	useEffect(() => {
-		const theme = localStorage.getItem('dark-mode')
-		if (theme === 'true') {
+		const theme = localStorage.getItem("dark-mode")
+		if (theme === "true") {
 			setDarkMode(true)
-			document.documentElement.classList.add('dark')
+			document.documentElement.classList.add("dark")
 		}
 	}, [])
 
 	const toggleDarkMode = () => {
 		const newDarkMode = !darkMode
 		setDarkMode(newDarkMode)
-		document.documentElement.classList.toggle('dark', newDarkMode)
-		localStorage.setItem('dark-mode', newDarkMode.toString())
+		document.documentElement.classList.toggle("dark", newDarkMode)
+		localStorage.setItem("dark-mode", newDarkMode.toString())
 	}
 
 	return (
@@ -30,12 +30,9 @@ const ToggleButton: FC = () => {
 				checked={darkMode}
 				onChange={toggleDarkMode}
 			/>
-			<label
-				className="relative cursor-pointer p-2"
-				htmlFor="light-switch"
-			>
+			<label className="relative cursor-pointer p-2" htmlFor="light-switch">
 				<svg
-					className={`${darkMode ? 'hidden' : 'block'}`}
+					className={`${darkMode ? "hidden" : "block"}`}
 					width="16"
 					height="16"
 					xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +47,7 @@ const ToggleButton: FC = () => {
 					/>
 				</svg>
 				<svg
-					className={`${darkMode ? 'block' : 'hidden'}`}
+					className={`${darkMode ? "block" : "hidden"}`}
 					width="16"
 					height="16"
 					xmlns="http://www.w3.org/2000/svg"
