@@ -130,7 +130,7 @@ const FileList: FC = () => {
 				<tbody>
 					{files?.map((file) => (
 						<tr key={file}>
-							<td className="border-b border-neutral-300 px-3 py-2">
+							<td className="border-b border-neutral-300 px-3 py-2 overflow-hidden">
 								<i className="fas fa-file-image icon-style text-blue-500"></i>
 								{file}
 							</td>
