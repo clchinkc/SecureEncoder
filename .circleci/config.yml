@@ -1,18 +1,18 @@
 version: 2.1
-
 orbs:
   node: circleci/node@5
   python: circleci/python@2
 
 jobs:
   test-node:
-    executor: node/default
+    docker:
+      - image: cimg/node:18.17.1
     working_directory: ~/project/SecureEncoderReact
     steps:
       - checkout:
           path: ~/project
       - run:
-          name: Clean up
+          name: Prepare Environment
           command: rm -rf node_modules package-lock.json && npm cache clear --force
       - node/install-packages:
           pkg-manager: npm
@@ -21,13 +21,14 @@ jobs:
           command: npm test --passWithNoTests
 
   build-node:
-    executor: node/default
+    docker:
+      - image: cimg/node:18.17.1
     working_directory: ~/project/SecureEncoderReact
     steps:
       - checkout:
           path: ~/project
       - run:
-          name: Clean up
+          name: Prepare Environment
           command: rm -rf node_modules package-lock.json && npm cache clear --force
       - node/install-packages:
           pkg-manager: npm
@@ -45,25 +46,19 @@ jobs:
 
   test-python:
     docker:
-      - image: cimg/python:3.9-node
+      - image: python:3.9-slim-buster
     working_directory: ~/project/SecureEncoderFlask
     steps:
       - checkout:
           path: ~/project
-      - python/install-packages
+      - run:
+          name: Install Dependencies
+          command: pip install --user -r requirements.txt
       - run:
           name: Run tests
           command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
       - store_test_results:
           path: junit.xml
-
-  deploy:
-    docker:
-      - image: cimg/base:stable
-    steps:
-      - run:
-          name: Example Deploy Command
-          command: echo "Deploy Step Here"
 
 workflows:
   version: 2
