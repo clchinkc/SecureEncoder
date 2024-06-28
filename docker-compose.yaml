@@ -2,29 +2,33 @@
 version: '3'
 
 services:
-  frontend:
-    image: secure-encoder-frontend
-    build: 
-      context: ./SecureEncoderReact
-      dockerfile: Dockerfile.dev
-    container_name: secure-encoder-frontend-container
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./SecureEncoderReact:/app
-      - /app/node_modules
-    env_file:
-      - ./SecureEncoderReact/.env
-    restart: unless-stopped
+    frontend:
+        image: secure-encoder-frontend
+        build: 
+            context: ./SecureEncoderReact
+            dockerfile: Dockerfile.dev
+        container_name: secure-encoder-frontend-container
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./SecureEncoderReact:/app
+            - /app/node_modules
+        env_file:
+            - ./SecureEncoderReact/.env
+        restart: unless-stopped
 
-  backend:
-    image: secure-encoder-backend
-    build:
-      context: ./SecureEncoderFlask
-      dockerfile: Dockerfile.dev
-    container_name: secure-encoder-backend-container
-    ports:
-      - "5000:5000"
-    volumes:
-      - ./SecureEncoderFlask:/src
-    restart: unless-stopped
+    backend:
+        image: secure-encoder-backend
+        build:
+            context: ./SecureEncoderFlask
+            dockerfile: Dockerfile.dev
+        container_name: secure-encoder-backend-container
+        ports:
+            - "5000:5000"
+        volumes:
+            - ./SecureEncoderFlask:/src
+            - md5_db_data:/instance/md5.db
+        restart: unless-stopped
+
+volumes:
+    md5_db_data:

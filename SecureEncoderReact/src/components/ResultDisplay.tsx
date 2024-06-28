@@ -76,13 +76,13 @@ const ResultDisplay: FC<ResultDisplayProps> = ({ copyToClipboardRef, downloadFil
 			<h2>Result:</h2>
 			<textarea
 				readOnly
-				disabled
-				className="form overflow-y-auto"
+				className="form overflow-y-auto cursor-not-allowed"
 				id="result"
 				value={result || "No result to display yet"}
 				rows={1}
 				aria-label="Result text"
 				aria-live="polite"
+				aria-disabled="true"
 			/>
 			{message && <Alert type={alertType}>{message}</Alert>}
 			<div className="flex space-x-2">
