@@ -1,31 +1,43 @@
-# This config was automatically generated from your source code
-# Stacks detected: deps:node:SecureEncoderReact,deps:python:SecureEncoderFlask
 version: 2.1
 orbs:
   node: circleci/node@5
   python: circleci/python@2
+
 jobs:
   test-node:
     # Install node dependencies and run tests
-    executor: node/default
+    docker:
+      - image: node:18.17.1-alpine
     working_directory: ~/project/SecureEncoderReact
     steps:
       - checkout:
           path: ~/project
-      - node/install-packages:
-          pkg-manager: npm
+      - run:
+          name: Install dependencies
+          command: |
+            cd ~/project/SecureEncoderReact
+            rm -rf node_modules package-lock.json
+            npm cache clear --force
+            npm install
       - run:
           name: Run tests
           command: npm test --passWithNoTests
+
   build-node:
     # Build node project
-    executor: node/default
+    docker:
+      - image: node:18.17.1-alpine
     working_directory: ~/project/SecureEncoderReact
     steps:
       - checkout:
           path: ~/project
-      - node/install-packages:
-          pkg-manager: npm
+      - run:
+          name: Install dependencies
+          command: |
+            cd ~/project/SecureEncoderReact
+            rm -rf node_modules package-lock.json
+            npm cache clear --force
+            npm install
       - run:
           command: npm run build
       - run:
@@ -38,25 +50,43 @@ jobs:
       - store_artifacts:
           path: ~/artifacts
           destination: node-build
+
   test-python:
     # Install dependencies and run tests
     docker:
-      - image: cimg/python:3.8-node
+      - image: python:3.9-slim-buster
     working_directory: ~/project/SecureEncoderFlask
     steps:
       - checkout:
           path: ~/project
-      - python/install-packages
+      - run:
+          name: Install dependencies
+          command: |
+            cd ~/project/SecureEncoderFlask
+            pip install --user -r requirements.txt
       - run:
           name: Run tests
           command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
       - store_test_results:
           path: junit.xml
+
   deploy:
     # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/base:stable
     steps:
+      - run:
+          name: Placeholder for deployment steps
+          command: echo "Deployment steps go here"
+
+workflows:
+  version: 2
+  test-and-build:
+    jobs:
+      - test-node
+      - build-node
+      - test-python
+
       # Replace this with steps to deploy to users
       - run:
           name: deploy
