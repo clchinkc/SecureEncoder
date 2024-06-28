@@ -64,3 +64,21 @@ jobs:
       - run:
           name: Example Deploy Command
           command: echo "Deploy Step Here"
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - test-node
+      - build-node:
+          requires:
+            - test-node
+      - test-python:
+          requires:
+            - build-node
+      - deploy:
+          requires:
+            - test-python
+          filters:
+            branches:
+              only: main
