@@ -2,7 +2,6 @@ version: 2.1
 orbs:
   node: circleci/node@5
   python: circleci/python@2
-
 jobs:
   test-node:
     # Install node dependencies and run tests
@@ -11,16 +10,11 @@ jobs:
     steps:
       - checkout:
           path: ~/project
-      - run:
-          name: Clear cache and reinstall dependencies
-          command: |
-            rm -rf node_modules package-lock.json
-            npm cache clear --force
-            npm install
+      - node/install-packages:
+          pkg-manager: npm
       - run:
           name: Run tests
           command: npm test --passWithNoTests
-
   build-node:
     # Build node project
     executor: node/default
@@ -28,64 +22,55 @@ jobs:
     steps:
       - checkout:
           path: ~/project
+      - node/install-packages:
+          pkg-manager: npm
       - run:
-          name: Clear cache and reinstall dependencies
           command: |
             rm -rf node_modules package-lock.json
             npm cache clear --force
             npm install
       - run:
-          command: npm run build
-      - run:
           name: Create the ~/artifacts directory if it doesn't exist
           command: mkdir -p ~/artifacts
+      # Copy output to artifacts dir
       - run:
           name: Copy artifacts
           command: cp -R build dist public .output .next .docusaurus ~/artifacts 2>/dev/null || true
       - store_artifacts:
           path: ~/artifacts
           destination: node-build
-
   test-python:
-    # Install dependencies and run tests for Python
+    # Install dependencies and run tests
     docker:
-      - image: cimg/python:3.9  # Updated to match Docker Python version
+      - image: cimg/python:3.9-node
     working_directory: ~/project/SecureEncoderFlask
     steps:
       - checkout:
           path: ~/project
-      - run:
-          name: Install dependencies from requirements.txt
-          command: pip install -r requirements.txt
+      - python/install-packages
       - run:
           name: Run tests
           command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
       - store_test_results:
           path: junit.xml
-
   deploy:
-    # Placeholder for deployment job
+    # This is an example deploy job, not actually used by the workflow
     docker:
       - image: cimg/base:stable
     steps:
+      # Replace this with steps to deploy to users
       - run:
-          name: Example Deployment
-          command: echo "Deploying Application"
-
+          name: deploy
+          command: '#e.g. ./deploy.sh'
 workflows:
-  version: 2
-  build_and_test:
+  build-and-test:
     jobs:
       - test-node
       - build-node:
           requires:
             - test-node
-      - test-python:
-          requires:
-            - build-node
-      - deploy:
-          requires:
             - test-python
-          filters:
-            branches:
-              only: main
+      - test-python
+    # - deploy:
+    #     requires:
+    #       - build-node
