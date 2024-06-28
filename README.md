@@ -1,3 +1,11 @@
+![github follow](https://img.shields.io/github/followers/clchinkc?label=Follow)
+
+![Language](https://img.shields.io/badge/language-python-3572A5)
+![Language](https://img.shields.io/badge/language-typescript-3178c6)
+![github license](https://img.shields.io/github/license/clchinkc/SecureEncoder)
+
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main)
+
 # Secure Encoder
 
 ## Introduction
