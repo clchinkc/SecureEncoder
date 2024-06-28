@@ -10,7 +10,14 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     setupFiles: '.vitest/setup',
-    include: ['**/test.{ts,tsx}']
+    include: ['tests/*.{test,spec}.{ts,tsx}'],
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/cypress/**',
+      '**/.{idea,git,cache,output,temp}/**',
+      '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build,eslint,prettier}.config.*'
+    ]
   },
   preview: {
     strictPort: true,
