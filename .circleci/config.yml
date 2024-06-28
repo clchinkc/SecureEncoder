@@ -5,33 +5,35 @@ orbs:
 
 jobs:
   test-node:
-    docker:
-      - image: cimg/node:18.17.1
+    # Install node dependencies and run tests
+    executor: node/default
     working_directory: ~/project/SecureEncoderReact
     steps:
       - checkout:
           path: ~/project
       - run:
-          name: Prepare Environment
-          command: rm -rf node_modules package-lock.json && npm cache clear --force
-      - node/install-packages:
-          pkg-manager: npm
+          name: Clear cache and reinstall dependencies
+          command: |
+            rm -rf node_modules package-lock.json
+            npm cache clear --force
+            npm install
       - run:
           name: Run tests
           command: npm test --passWithNoTests
 
   build-node:
-    docker:
-      - image: cimg/node:18.17.1
+    # Build node project
+    executor: node/default
     working_directory: ~/project/SecureEncoderReact
     steps:
       - checkout:
           path: ~/project
       - run:
-          name: Prepare Environment
-          command: rm -rf node_modules package-lock.json && npm cache clear --force
-      - node/install-packages:
-          pkg-manager: npm
+          name: Clear cache and reinstall dependencies
+          command: |
+            rm -rf node_modules package-lock.json
+            npm cache clear --force
+            npm install
       - run:
           command: npm run build
       - run:
@@ -45,20 +47,30 @@ jobs:
           destination: node-build
 
   test-python:
+    # Install dependencies and run tests for Python
     docker:
-      - image: python:3.9-slim-buster
+      - image: cimg/python:3.9  # Updated to match Docker Python version
     working_directory: ~/project/SecureEncoderFlask
     steps:
       - checkout:
           path: ~/project
       - run:
-          name: Install Dependencies
-          command: pip install --user -r requirements.txt
+          name: Install dependencies from requirements.txt
+          command: pip install -r requirements.txt
       - run:
           name: Run tests
           command: pytest --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
       - store_test_results:
           path: junit.xml
+
+  deploy:
+    # Placeholder for deployment job
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - run:
+          name: Example Deployment
+          command: echo "Deploying Application"
 
 workflows:
   version: 2
