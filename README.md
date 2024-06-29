@@ -20,7 +20,6 @@
 [![CircleCI][circleci-shield]][circleci-url]
 [![codecov](https://codecov.io/gh/clchinkc/SecureEncoder/branch/main/graph/badge.svg)](https://codecov.io/gh/clchinkc/SecureEncoder)
 
-
 ## Supported Languages
 
 ![Language](https://img.shields.io/badge/language-python-3572A5)
