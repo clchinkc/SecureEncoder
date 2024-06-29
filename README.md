@@ -1,39 +1,65 @@
-![github follow](https://img.shields.io/github/followers/clchinkc?label=Follow)
+# Secure Encoder
+
+
+## Project Statistics
+
+[![Stargazers][stars-shield]][stars-url]
+[![Forks][forks-shield]][forks-url]
+[![Follow][follow-shield]][follow-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+[![Issues][issues-shield]][issues-url]
+[![Pull Requests][pulls-shield]][pulls-url]
+[![Contributors][contributors-shield]][contributors-url]
+[![MIT License][license-shield]][license-url]
+
+
+## Continuous Integration Status
+[![CircleCI][circleci-shield]][circleci-url]
+
+
+## Supported Languages
 
 ![Language](https://img.shields.io/badge/language-python-3572A5)
 ![Language](https://img.shields.io/badge/language-typescript-3178c6)
-![github license](https://img.shields.io/github/license/clchinkc/SecureEncoder)
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main)
-
-# Secure Encoder
 
 ## Introduction
 Secure Encoder is a web application designed to encode and decode text using various cryptographic algorithms. This application supports operations like Base64, Hex, UTF-8, Latin-1, ASCII, URL encoding/decoding, and encryption/decryption using AES and RSA algorithms. It aims to provide a user-friendly interface for secure text manipulation, which is especially useful for developers and security professionals. It is based on Python Flask, React, and a little bit of sqlalchemy. It is built with vite and tailwind css.
 
 ## Features
-- **File Uploads:** Users can upload key files needed for encryption/decoding.
-- **Dynamic Encoding/Decoding:** Support for multiple encoding schemes including Base64, Hex, and more.
-- **Encryption and Decryption:** Implements AES and RSA algorithms using uploaded keys.
-- **Interactive UI:** Real-time web application built with React.
-- **Security:** Implements best practices like Content Security Policy headers.
+- [x] **File Uploads:** Users can upload key files needed for encryption/decoding.
+- [x] **Dynamic Encoding/Decoding:** Support for multiple encoding schemes including Base64, Hex, and more.
+- [x] **Encryption and Decryption:** Implements AES and RSA algorithms using uploaded keys.
+- [x] **Interactive UI:** Real-time web application built with React.
+- [x] **Security:** Implements best practices like Content Security Policy headers.
 
 ## Tech Stack
-- **Frontend:** React.js
-- **Backend:** Flask (Python)
-- **CSS Framework:** Bootstrap
+
+<div align="center">
+
+| Component      | Technology Used            | Description                               |
+|----------------|----------------------------|-------------------------------------------|
+| Frontend       | React.js, TypeScript       | Interactive UI built with React           |
+| Backend        | Flask (Python)             | Server-side logic handled by Flask        |
+| CSS Framework  | Tailwind                   | Styling provided by Tailwind CSS          |
+| Database       | sqlalchemy                 | ORM for database interactions (if used)   |
+| CI/CD          | CircleCI                   | Continuous integration and deployment     |
+| Containerization | Docker, Docker Compose   | Container setup for development and production environments |
+
+</div>
 
 ## Project Setup
 
 ### Prerequisites
-- Node.js (v14 or later)
-- npm (Node Package Manager)
-- Python 3.8 or later
+- [Node.js](https://nodejs.org/en/) (v14 or later)
+- [npm (Node Package Manager)](https://www.npmjs.com/)
+- [Python](https://www.python.org/downloads/) (3.8 or later)
 
 ### Environment Setup
 1. Clone the repository:
    ```bash
-   git clone SecureEncoderMain
+   git clone git@github.com:clchinkc/SecureEncoder.git
    ```
 
 2. Set environment variables:
@@ -87,7 +113,7 @@ Secure Encoder is a web application designed to encode and decode text using var
 
 # React Frontend with Docker Compose
 
-This project sets up a React frontend application using Docker and Docker Compose for development with hot reloading.
+>This project sets up a React frontend application using Docker and Docker Compose for development with hot reloading.
 
 ## Prerequisites
 
@@ -96,7 +122,7 @@ This project sets up a React frontend application using Docker and Docker Compos
 
 ## Getting Started
 
-Follow these instructions to get the React frontend application up and running in a Docker container.
+>Follow these instructions to get the React frontend application up and running in a Docker container.
 
 ### Step 1: Build and Run the Container
 
@@ -129,3 +155,25 @@ docker-compose down
 
 
 #
+
+
+<!-- links -->
+[your-project-path]: clchinkc/SecureEncoder
+[follow-shield]: https://img.shields.io/github/followers/clchinkc.svg?style=flat-square
+[follow-url]: https://github.com/clchinkc
+[contributors-shield]: https://img.shields.io/github/contributors/clchinkc/SecureEncoder.svg?style=flat-square
+[contributors-url]: https://github.com/clchinkc/SecureEncoder/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/clchinkc/SecureEncoder.svg?style=flat-square
+[forks-url]: https://github.com/clchinkc/SecureEncoder/network/members
+[stars-shield]: https://img.shields.io/github/stars/clchinkc/SecureEncoder.svg?style=flat-square
+[stars-url]: https://github.com/clchinkc/SecureEncoder/stargazers
+[issues-shield]: https://img.shields.io/github/issues/clchinkc/SecureEncoder.svg?style=flat-square
+[issues-url]: https://img.shields.io/github/issues/clchinkc/SecureEncoder.svg
+[pulls-shield]: https://img.shields.io/github/issues-pr/clchinkc/SecureEncoder
+[pulls-url]: https://img.shields.io/github/issues-pr/clchinkc/SecureEncoder
+[license-shield]: https://img.shields.io/github/license/clchinkc/SecureEncoder.svg?style=flat-square
+[license-url]: https://github.com/clchinkc/SecureEncoder/blob/master/LICENSE.txt
+[circleci-shield]: https://dl.circleci.com/status-badge/img/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main.svg?style=svg
+[circleci-url]: https://dl.circleci.com/status-badge/redirect/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/clchinkc
