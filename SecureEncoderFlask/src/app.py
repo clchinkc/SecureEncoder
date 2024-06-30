@@ -14,6 +14,13 @@ with app.app_context():
 setup_logger(app)
 
 
+# When serving a single-page application, we need to catch all routes and serve the index.html file.
+@app.route("/", defaults={"path": ""})
+@app.route("/<path:path>")
+def catch_all(path):
+    return app.send_static_file("index.html")
+
+
 @app.after_request
 def apply_security_headers(response: Response):
     response.headers["Strict-Transport-Security"] = (
@@ -55,10 +62,20 @@ def page_not_found(e: HTTPException):
 
 
 def main():
-    app.run(
-        host="0.0.0.0",
-        port=int(app.config["FLASK_PORT"]),
-        debug=app.config["FLASK_DEBUG"],
-        use_reloader=True,
-        threaded=True,
-    )
+    if app.config["FLASK_DEVELOPMENT"]:
+        app.run(
+            host="0.0.0.0",
+            port=int(app.config["FLASK_PORT"]),
+            debug=app.config["FLASK_DEBUG"],
+            use_reloader=True,
+            threaded=True,
+        )
+    else:
+        from waitress import serve
+
+        serve(
+            app=app,
+            host="0.0.0.0",
+            port=int(app.config["FLASK_PORT"]),
+            url_scheme="https",
+        )

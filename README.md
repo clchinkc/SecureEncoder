@@ -1,5 +1,7 @@
 # Secure Encoder
 
+![Screen Capture](screen_capture.JPG)
+
 
 ## Project Statistics
 
@@ -25,13 +27,17 @@
 
 
 ## Introduction
-Secure Encoder is a web application designed to encode and decode text using various cryptographic algorithms. This application supports operations like Base64, Hex, UTF-8, Latin-1, ASCII, URL encoding/decoding, and encryption/decryption using AES and RSA algorithms. It aims to provide a user-friendly interface for secure text manipulation, which is especially useful for developers and security professionals. It is based on Python Flask, React, and a little bit of sqlalchemy. It is built with vite and tailwind css.
+**Secure Encoder** is a web application designed for encoding and decoding text using various cryptographic algorithms. It supports operations such as Base64, Hex, UTF-8, Latin-1, ASCII, and URL encoding/decoding, alongside encryption and decryption using AES and RSA algorithms. The primary goal is to offer a user-friendly interface for secure text manipulation, making it particularly useful for developers and security professionals.
+
+This project addresses the need for reliable and secure methods of data manipulation in web applications. It simplifies the process for developers who require quick encoding and decoding solutions and provides robust encryption tools for security professionals to ensure data safety.
+
+The application is built using Python Flask, React, and SQLAlchemy, leveraging Vite and Tailwind CSS for the front end.
 
 ## Features
 - [x] **File Uploads:** Users can upload key files needed for encryption/decoding.
 - [x] **Dynamic Encoding/Decoding:** Support for multiple encoding schemes including Base64, Hex, and more.
-- [x] **Encryption and Decryption:** Implements AES and RSA algorithms using uploaded keys.
-- [x] **Interactive UI:** Real-time web application built with React.
+- [x] **Encryption and Decryption:** Implements AES and RSA algorithms with key management for secure data handling.
+- [x] **Interactive UI:** The React-based interactive UI ensures a smooth user experience.
 - [x] **Security:** Implements best practices like Content Security Policy headers.
 
 ## Tech Stack
@@ -45,7 +51,7 @@ Secure Encoder is a web application designed to encode and decode text using var
 | CSS Framework  | Tailwind                   | Styling provided by Tailwind CSS          |
 | Database       | sqlalchemy                 | ORM for database interactions (if used)   |
 | CI/CD          | CircleCI                   | Continuous integration and deployment     |
-| Containerization | Docker, Docker Compose   | Container setup for development and production environments |
+| Containerization | Docker, Docker Compose (optional)   | Container setup for development and production environments |
 
 </div>
 
