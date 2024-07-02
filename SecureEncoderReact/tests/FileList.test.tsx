@@ -7,10 +7,8 @@ import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 import FileList from '../src/components/FileList';
 
-// Mock the environment variables
-vi.mock('../src/env', () => ({
-  VITE_APP_FLASK_URL: 'http://localhost:5000',
-}));
+// Setup environment variable
+process.env.VITE_APP_FLASK_URL = 'http://localhost:5000';
 
 // Mock react-query
 vi.mock('@tanstack/react-query', async (importOriginal) => {
@@ -21,7 +19,7 @@ vi.mock('@tanstack/react-query', async (importOriginal) => {
   };
 });
 
-// Setup MSW
+// Setup MSW server
 const server = setupServer(
   http.get('http://localhost:5000/api/files', () => {
     return HttpResponse.json(['file1.pem', 'file2.pem']);
