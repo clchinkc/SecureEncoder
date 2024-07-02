@@ -11,7 +11,7 @@ export default defineConfig({
     // Put the Codecov vite plugin after all other plugins
     codecovVitePlugin({
       enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
-      bundleName: "SecureEncoder",
+      bundleName: "es",
       uploadToken: process.env.CODECOV_TOKEN,
     }),
   ],
