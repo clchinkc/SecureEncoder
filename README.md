@@ -17,7 +17,6 @@
 
 
 ## Continuous Integration Status
-[![CircleCI][circleci-shield]][circleci-url]
 [![codecov](https://codecov.io/gh/clchinkc/SecureEncoder/branch/main/graph/badge.svg)](https://codecov.io/gh/clchinkc/SecureEncoder)
 
 
