@@ -8,7 +8,7 @@ import { setupServer } from 'msw/node';
 import FileList from '../src/components/FileList';
 
 // Setup environment variable
-process.env.VITE_APP_FLASK_URL = 'http://localhost:5000';
+import.meta.env.VITE_APP_FLASK_URL = 'http://localhost:5000';
 
 // Mock react-query
 vi.mock('@tanstack/react-query', async (importOriginal) => {
