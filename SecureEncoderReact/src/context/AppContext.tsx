@@ -39,9 +39,13 @@ export const useAppContext = (): AppContextProps => {
 
 type AppContextProviderProps = {
 	children: ReactNode
+	value?: Partial<AppContextProps>
 }
 
-export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) => {
+export const AppContextProvider: FC<AppContextProviderProps> = ({
+	children,
+	value,
+}: AppContextProviderProps) => {
 	const getSessionStorageItem = (key: string, defaultValue: string): string => {
 		const item = sessionStorage.getItem(key)
 		return item !== null ? item : defaultValue
@@ -52,12 +56,20 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({ children }) =>
 		return item !== null ? JSON.parse(item) : []
 	}
 
-	const [files, setFiles] = useState<string[]>(getSessionStorageItemArray("files"))
-	const [result, setResult] = useState<string>(getSessionStorageItem("result", ""))
-	const [operation, setOperation] = useState<string>(getSessionStorageItem("operation", ""))
-	const [action, setAction] = useState<string>(getSessionStorageItem("action", ""))
-	const [text, setText] = useState<string>(getSessionStorageItem("text", ""))
-	const [loading, setLoading] = useState<boolean>(false)
+	const [files, setFiles] = useState<string[]>(
+		value?.files || getSessionStorageItemArray("files")
+	)
+	const [result, setResult] = useState<string>(
+		value?.result || getSessionStorageItem("result", "")
+	)
+	const [operation, setOperation] = useState<string>(
+		value?.operation || getSessionStorageItem("operation", "")
+	)
+	const [action, setAction] = useState<string>(
+		value?.action || getSessionStorageItem("action", "")
+	)
+	const [text, setText] = useState<string>(value?.text || getSessionStorageItem("text", ""))
+	const [loading, setLoading] = useState<boolean>(value?.loading || false)
 
 	useEffect(() => {
 		sessionStorage.setItem("files", JSON.stringify(files))

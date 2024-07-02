@@ -27,7 +27,7 @@ type AppProps = {
 	downloadFileRef: RefObject<HTMLButtonElement>
 }
 
-const App: FC<AppProps> = ({
+const Home: FC<AppProps> = ({
 	uploadButtonRef,
 	fileSelectionRef,
 	chooseButtonRef,
@@ -133,4 +133,4 @@ const createKeyMap = ({
 	},
 })
 
-export default withKeyboardShortcuts(App, createKeyMap)
+export default withKeyboardShortcuts(Home, createKeyMap)
