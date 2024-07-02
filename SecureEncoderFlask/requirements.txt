@@ -8,6 +8,7 @@ flask_sqlalchemy==3.1.1
 flask-expects-json==1.7.0
 Faker==26.0.0
 pytest==8.2.2
+pytest-cov==5.0.0
 python-dotenv==1.0.1
 python-decouple==3.8
 SQLAlchemy==2.0.31
