@@ -24,7 +24,9 @@ const Header: FC<HeaderProps> = ({ title, children }) => {
 						width="32"
 						height="32"
 					/>
-					<h1 translate="no">{title}</h1>
+					<h1 translate="no" data-testid="app-title">
+						{title}
+					</h1>
 					<ToggleButton />
 				</summary>
 				<div

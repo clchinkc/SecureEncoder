@@ -60,18 +60,21 @@ const withKeyboardShortcuts = <P extends object>(
 			}
 		}, [keyMap])
 
-		const refs = {
-			uploadButtonRef,
-			fileSelectionRef,
-			chooseButtonRef,
-			encodingButtonRef,
-			decodingButtonRef,
-			copyToClipboardRef,
-			downloadFileRef,
-			isMounted,
-		}
-
-		return <WrappedComponent {...(props as P)} {...refs} />
+		return (
+			<WrappedComponent
+				{...props}
+				{...{
+					uploadButtonRef,
+					fileSelectionRef,
+					chooseButtonRef,
+					encodingButtonRef,
+					decodingButtonRef,
+					copyToClipboardRef,
+					downloadFileRef,
+					isMounted,
+				}}
+			/>
+		)
 	}
 	return WithKeyboardShortcuts
 }

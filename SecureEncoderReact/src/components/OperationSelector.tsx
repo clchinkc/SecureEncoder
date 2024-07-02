@@ -11,6 +11,10 @@ type OperationSelectorProps = {
 const OperationSelector: FC<OperationSelectorProps> = ({ chooseButtonRef }) => {
 	const { operation, setOperation } = useAppContext()
 
+	const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		setOperation(event.target.value)
+	}
+
 	return (
 		<Card>
 			<h2>Choose Operation:</h2>
@@ -19,13 +23,13 @@ const OperationSelector: FC<OperationSelectorProps> = ({ chooseButtonRef }) => {
 				className="form"
 				id="operation"
 				value={operation}
-				onChange={(e) => setOperation(e.target.value)}
+				onChange={handleChange}
 				aria-label="Select an operation"
 				aria-live="polite"
 				required
 			>
 				<option defaultValue="" value="" disabled>
-					Select an Operation
+					Select an operation
 				</option>
 				<option disabled className="font-bold">
 					───

@@ -76,7 +76,7 @@ const ResultDisplay: FC<ResultDisplayProps> = ({ copyToClipboardRef, downloadFil
 			<h2>Result:</h2>
 			<textarea
 				readOnly
-				className="form overflow-y-auto cursor-not-allowed"
+				className="form cursor-not-allowed overflow-y-auto"
 				id="result"
 				value={result || "No result to display yet"}
 				rows={1}
