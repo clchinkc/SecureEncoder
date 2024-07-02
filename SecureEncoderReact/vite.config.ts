@@ -2,10 +2,19 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
 import tsconfigPaths from 'vite-tsconfig-paths'
+import { codecovVitePlugin } from "@codecov/vite-plugin";
 
 // https://vitejs.dev/config https://vitest.dev/config
 export default defineConfig({
-  plugins: [react(), tsconfigPaths()],
+  plugins: [
+    react(), tsconfigPaths(),
+    // Put the Codecov vite plugin after all other plugins
+    codecovVitePlugin({
+      enableBundleAnalysis: process.env.CODECOV_TOKEN !== undefined,
+      bundleName: "SecureEncoder",
+      uploadToken: process.env.CODECOV_TOKEN,
+    }),
+  ],
   test: {
     globals: true,
     environment: 'happy-dom',

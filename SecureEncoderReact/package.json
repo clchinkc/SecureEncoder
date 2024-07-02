@@ -30,6 +30,7 @@
     "vite": "^5.2.11"
   },
   "devDependencies": {
+    "@codecov/vite-plugin": "^0.0.1-beta.10",
     "@fullhuman/postcss-purgecss": "^6.0.0",
     "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^14.3.1",

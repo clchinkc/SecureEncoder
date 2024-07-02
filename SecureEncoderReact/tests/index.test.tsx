@@ -1,16 +1,13 @@
 // tests/index.test.tsx
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { QueryClient } from '@tanstack/react-query';
 import ReactDOM, { Root } from 'react-dom/client';
 
 
 describe('Index', () => {
   let root: HTMLElement;
-  let queryClient: QueryClient;
 
   beforeEach(() => {
-    queryClient = new QueryClient();
     root = document.createElement('div');
     root.id = 'root';
     document.body.appendChild(root);
