@@ -5,6 +5,7 @@ on:
     branches:
       - development
       - main
+      - main
   pull_request:
     branches:
       - main
@@ -15,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20.x, 21.x]
+        node-version: [18.x, 20.x]
 
     steps:
       - name: Checkout code
@@ -34,10 +35,11 @@ jobs:
         working-directory: ./SecureEncoderReact
         run: npm run test:coverage
 
-      - name: Upload coverage to Codecov
+      - name: Upload coverage to Codecov for SecureEncoderReact
         uses: codecov/codecov-action@v4.0.1
         with:
           files: ./SecureEncoderReact/coverage/lcov.info
+          flags: SecureEncoderReact
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
@@ -65,7 +67,7 @@ jobs:
           npm cache clean --force
           npm install
 
-      - name: Build Node.js project
+      - name: Build Node.js application
         working-directory: ./SecureEncoderReact
         run: npm run build
 
@@ -99,10 +101,11 @@ jobs:
         working-directory: ./SecureEncoderFlask
         run: pytest --cov=./ --cov-report=xml --junitxml=junit.xml || ((($? == 5)) && echo 'Did not find any tests to run.')
 
-      - name: Upload coverage to Codecov
+      - name: Upload coverage to Codecov for SecureEncoderFlask
         uses: codecov/codecov-action@v4.0.1
         with:
           files: ./SecureEncoderFlask/coverage.xml
+          flags: SecureEncoderFlask
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 

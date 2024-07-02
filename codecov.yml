@@ -1,0 +1,34 @@
+coverage:
+  status:
+    project:
+      default:
+        # Set target coverage to auto compare with the previous base commit
+        target: auto
+        # Set a minimum threshold for coverage drops, e.g., allowing a 10% drop
+        threshold: 10%
+        # Optionally, specify a base commit for comparison
+        base: auto
+        informational: true
+    # Blocking coverage targets so each PR must increase coverage
+    patch:
+      default:
+        target: auto
+        threshold: 5%
+        informational: true
+    # Status checks based on flags
+    SecureEncoderReact:
+      flags:
+        - SecureEncoderReact
+    SecureEncoderFlask:
+      flags:
+        - SecureEncoderFlask
+
+flags:
+  SecureEncoderReact:
+    paths: 
+      - SecureEncoderReact/
+  SecureEncoderFlask:
+    paths:
+      - SecureEncoderFlask/
+
+comment: false
