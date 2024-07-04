@@ -13,21 +13,21 @@
 [![Issues][issues-shield]][issues-url]
 [![Pull Requests][pulls-shield]][pulls-url]
 [![Contributors][contributors-shield]][contributors-url]
-[![MIT License][license-shield]][license-url]
+[![License][license-shield]][license-url]
 
 
 ## Continuous Integration Status
 
-[![codecov](https://codecov.io/gh/clchinkc/SecureEncoder/branch/main/graph/badge.svg)](https://codecov.io/gh/clchinkc/SecureEncoder)
-[![CodeQL](https://github.com/clchinkc/SecureEncoder/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/clchinkc/SecureEncoder/actions/workflows/codeql-analysis.yml)
-[![CI](https://github.com/clchinkc/SecureEncoder/actions/workflows/test-and-converage.yml/badge.svg)](https://github.com/clchinkc/SecureEncoder/actions/workflows/test-and-converage.yml)
-<!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c4b6335acf254697b80714b81e8154d7)](https://www.codacy.com/gh/LongmaoTeamTf/deep_recommenders/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LongmaoTeamTf/deep_recommenders&amp;utm_campaign=Badge_Grade) -->
+[![Codecov][codecov-shield]][codecov-url]
+[![Codacy][codacy-shield]][codacy-url]
+[![CodeQL][codeql-shield]][codeql-url]
+[![CI][ci-shield]][ci-url]
 
 
 ## Supported Languages
 
-[![Python](https://img.shields.io/badge/python-3.9_|_3.10-3572A5)](requirements.txt)
-[![Typescript](https://img.shields.io/badge/typescript-^5.4.5-3178c6)](requirements.txt)
+[![Python](https://img.shields.io/badge/python-3.9_|_3.10-3572A5)](SecureEncoderFlask\requirements.txt)
+[![Typescript](https://img.shields.io/badge/typescript-^5.4.5-3178c6)](SecureEncoderReact\package.json)
 
 ## Introduction
 **Secure Encoder** is a web application designed for encoding and decoding text using various cryptographic algorithms. It supports operations such as Base64, Hex, UTF-8, Latin-1, ASCII, and URL encoding/decoding, alongside encryption and decryption using AES and RSA algorithms. The primary goal is to offer a user-friendly interface for secure text manipulation, making it particularly useful for developers and security professionals.
@@ -168,19 +168,30 @@ docker-compose down
 
 <!-- links -->
 [your-project-path]: clchinkc/SecureEncoder
-[follow-shield]: https://img.shields.io/github/followers/clchinkc.svg?style=flat-square
-[follow-url]: https://github.com/clchinkc
-[contributors-shield]: https://img.shields.io/github/contributors/clchinkc/SecureEncoder.svg?style=flat-square
-[contributors-url]: https://github.com/clchinkc/SecureEncoder/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/clchinkc/SecureEncoder.svg?style=flat-square
-[forks-url]: https://github.com/clchinkc/SecureEncoder/network/members
 [stars-shield]: https://img.shields.io/github/stars/clchinkc/SecureEncoder.svg?style=flat-square
 [stars-url]: https://github.com/clchinkc/SecureEncoder/stargazers
+[forks-shield]: https://img.shields.io/github/forks/clchinkc/SecureEncoder.svg?style=flat-square
+[forks-url]: https://github.com/clchinkc/SecureEncoder/network/members
+[follow-shield]: https://img.shields.io/github/followers/clchinkc.svg?style=flat-square
+[follow-url]: https://github.com/clchinkc
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/clchinkc
+
 [issues-shield]: https://img.shields.io/github/issues/clchinkc/SecureEncoder.svg?style=flat-square
 [issues-url]: https://img.shields.io/github/issues/clchinkc/SecureEncoder.svg
 [pulls-shield]: https://img.shields.io/github/issues-pr/clchinkc/SecureEncoder
 [pulls-url]: https://img.shields.io/github/issues-pr/clchinkc/SecureEncoder
+[contributors-shield]: https://img.shields.io/github/contributors/clchinkc/SecureEncoder.svg?style=flat-square
+[contributors-url]: https://github.com/clchinkc/SecureEncoder/graphs/contributors
 [license-shield]: https://img.shields.io/github/license/clchinkc/SecureEncoder.svg?style=flat-square
 [license-url]: https://github.com/clchinkc/SecureEncoder/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/clchinkc
+
+[codecov-shield]: https://codecov.io/gh/clchinkc/SecureEncoder/branch/main/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/clchinkc/SecureEncoder
+[codacy-shield]: https://app.codacy.com/project/badge/Grade/9b63875ab1164fc2a2a8a774c95399aa
+[codacy-url]: https://app.codacy.com/gh/clchinkc/SecureEncoder/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+[codeql-shield]: https://github.com/clchinkc/SecureEncoder/actions/workflows/codeql-analysis.yml/badge.svg
+[codeql-url]: https://github.com/clchinkc/SecureEncoder/actions/workflows/codeql-analysis.yml
+[ci-shield]: https://github.com/clchinkc/SecureEncoder/actions/workflows/test-and-converage.yml/badge.svg
+[ci-url]: https://github.com/clchinkc/SecureEncoder/actions/workflows/test-and-converage.yml
+

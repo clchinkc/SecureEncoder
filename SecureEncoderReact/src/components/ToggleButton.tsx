@@ -32,7 +32,7 @@ const ToggleButton: FC = () => {
 			/>
 			<label className="relative cursor-pointer p-2" htmlFor="light-switch">
 				<svg
-					className={`${darkMode ? "hidden" : "block"}`}
+					className={darkMode ? "hidden" : "block"}
 					width="16"
 					height="16"
 					xmlns="http://www.w3.org/2000/svg"
@@ -47,7 +47,7 @@ const ToggleButton: FC = () => {
 					/>
 				</svg>
 				<svg
-					className={`${darkMode ? "block" : "hidden"}`}
+					className={darkMode ? "hidden" : "block"}
 					width="16"
 					height="16"
 					xmlns="http://www.w3.org/2000/svg"

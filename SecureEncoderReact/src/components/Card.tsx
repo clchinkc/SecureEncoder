@@ -3,7 +3,7 @@
 import { Suspense, ReactNode, FC } from "react"
 import Loading from "./Loading"
 
-type CardProps = {
+interface CardProps {
 	fallback?: ReactNode
 	children: ReactNode
 }

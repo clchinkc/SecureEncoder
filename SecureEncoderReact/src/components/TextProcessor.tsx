@@ -8,7 +8,7 @@ import Card from "./Card"
 import { useMutation } from "@tanstack/react-query"
 import { throttle, debounce } from "../utils/throttleAndDebounce"
 
-type TextProcessorProps = {
+interface TextProcessorProps {
 	encodingButtonRef: RefObject<HTMLButtonElement>
 	decodingButtonRef: RefObject<HTMLButtonElement>
 }
@@ -149,8 +149,8 @@ const TextProcessor: FC<TextProcessorProps> = ({ encodingButtonRef, decodingButt
 				className="form overflow-y-auto"
 				id="text"
 				value={text}
-				onChange={(e) => setText(e.target.value)}
-				onBlur={() => handleImmediateSave()}
+				onChange={(e) => { setText(e.target.value); }}
+				onBlur={() => { handleImmediateSave(); }}
 				placeholder="Enter text here"
 				rows={1}
 				aria-label="Input text"
@@ -165,7 +165,7 @@ const TextProcessor: FC<TextProcessorProps> = ({ encodingButtonRef, decodingButt
 						type="button-primary"
 						className="w-full"
 						disabled={!text.trim() || !operation || loading}
-						onClick={(e) => handleSubmit("encode", e)}
+						onClick={(e) => { handleSubmit("encode", e); }}
 						showAlert={showMessage}
 					>
 						{loading && action === "encode" ? "Encoding..." : "Encode / Encrypt"}
@@ -177,7 +177,7 @@ const TextProcessor: FC<TextProcessorProps> = ({ encodingButtonRef, decodingButt
 						type="button-secondary"
 						className="w-full"
 						disabled={!text.trim() || !operation || loading}
-						onClick={(e) => handleSubmit("decode", e)}
+						onClick={(e) => { handleSubmit("decode", e); }}
 						showAlert={showMessage}
 					>
 						{loading && action === "decode" ? "Decoding..." : "Decode / Decrypt"}

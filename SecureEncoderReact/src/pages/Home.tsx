@@ -17,7 +17,7 @@ import withKeyboardShortcuts from "../hoc/withKeyboardShortcuts"
 import "../tailwind.css"
 import "../App.css"
 
-type AppProps = {
+interface AppProps {
 	uploadButtonRef: RefObject<HTMLButtonElement>
 	fileSelectionRef: RefObject<HTMLInputElement>
 	chooseButtonRef: RefObject<HTMLSelectElement>

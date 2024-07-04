@@ -4,7 +4,7 @@ import { RefObject, FC } from "react"
 import { useAppContext } from "../context/AppContext"
 import Card from "./Card"
 
-type OperationSelectorProps = {
+interface OperationSelectorProps {
 	chooseButtonRef: RefObject<HTMLSelectElement>
 }
 

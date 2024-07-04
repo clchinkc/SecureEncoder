@@ -58,7 +58,7 @@ const FileList: FC = () => {
 		data: files,
 		error,
 		isLoading,
-	} = useQuery<string[], Error>({
+	} = useQuery<string[]>({
 		queryKey: ["files"],
 		queryFn: fetchFiles,
 		staleTime: 30000, // 30 seconds
@@ -94,8 +94,8 @@ const FileList: FC = () => {
 		},
 	})
 
-	const handleDownload = (filename: string) => downloadMutation.mutate(filename)
-	const handleDelete = (filename: string) => deleteMutation.mutate(filename)
+	const handleDownload = (filename: string) => { downloadMutation.mutate(filename); }
+	const handleDelete = (filename: string) => { deleteMutation.mutate(filename); }
 
 	// Event listener for mouse click to auto-hide the notification
 	useEffect(() => {
@@ -139,7 +139,7 @@ const FileList: FC = () => {
 									type="button-primary"
 									outline
 									className="w-1/2"
-									onClick={() => handleDownload(file)}
+									onClick={() => { handleDownload(file); }}
 								>
 									Download
 								</Button>
@@ -147,7 +147,7 @@ const FileList: FC = () => {
 									type="button-secondary"
 									outline
 									className="w-1/2"
-									onClick={() => handleDelete(file)}
+									onClick={() => { handleDelete(file); }}
 								>
 									Delete
 								</Button>

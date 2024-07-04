@@ -64,7 +64,6 @@ def page_not_found(e: HTTPException):
 def main():
     if app.config["FLASK_DEVELOPMENT"]:
         app.run(
-            host="0.0.0.0",
             port=int(app.config["FLASK_PORT"]),
             debug=app.config["FLASK_DEBUG"],
             use_reloader=True,
@@ -75,7 +74,6 @@ def main():
 
         serve(
             app=app,
-            host="0.0.0.0",
             port=int(app.config["FLASK_PORT"]),
             url_scheme="https",
         )

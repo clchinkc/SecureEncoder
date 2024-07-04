@@ -2,7 +2,7 @@
 
 import { forwardRef, MouseEventHandler, ReactNode } from "react"
 
-type ButtonProps = {
+interface ButtonProps {
 	onClick?: MouseEventHandler<HTMLButtonElement>
 	children: ReactNode
 	type?: "button-primary" | "button-secondary" | null

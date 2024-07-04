@@ -2,7 +2,7 @@
 
 import { ReactNode, FC } from "react"
 
-type AlertProps = {
+interface AlertProps {
 	type: "alert-info" | "alert-success" | "alert-danger" | null
 	children: ReactNode
 }
