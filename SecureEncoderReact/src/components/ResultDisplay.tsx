@@ -6,7 +6,7 @@ import Button from "./Button"
 import Alert from "./Alert"
 import Card from "./Card"
 
-type ResultDisplayProps = {
+interface ResultDisplayProps {
 	copyToClipboardRef: RefObject<HTMLButtonElement>
 	downloadFileRef: RefObject<HTMLButtonElement>
 }
@@ -30,7 +30,7 @@ const ResultDisplay: FC<ResultDisplayProps> = ({ copyToClipboardRef, downloadFil
 		}
 	}
 
-	const handleDownload = async () => {
+	const handleDownload = () => {
 		if (!result) return
 		try {
 			const file = new Blob([result], { type: "text/plain" })

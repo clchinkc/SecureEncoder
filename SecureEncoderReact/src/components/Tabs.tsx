@@ -3,7 +3,7 @@
 import { FC } from "react"
 import { useAppContext } from "../context/AppContext"
 
-type Option = {
+interface Option {
 	title: string
 	value: string
 }
@@ -34,7 +34,7 @@ const Tabs: FC = () => {
 			<h2 className="sr-only">Operation Tabs</h2>
 			{options.map((option) => (
 				<div
-					onClick={() => setOperation(option.value)}
+					onClick={() => { setOperation(option.value); }}
 					className={`w-full rounded-t-xl border-2 p-1 px-3 ${
 						operation === option.value
 							? "bg-neutral-100 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-100"

@@ -8,7 +8,7 @@ import { AppContextProvider } from '../src/context/AppContext';
 import TextProcessor from '../src/components/TextProcessor';
 import OperationSelector from '../src/components/OperationSelector';
 
-type WrapperProps = {
+interface WrapperProps {
     children: React.ReactNode;
 }
 

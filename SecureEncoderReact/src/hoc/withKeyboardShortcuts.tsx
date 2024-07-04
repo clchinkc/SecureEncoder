@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, RefObject, ComponentType, FC } from "react"
 
-type RefProps = {
+interface RefProps {
 	uploadButtonRef: RefObject<HTMLButtonElement>
 	fileSelectionRef: RefObject<HTMLInputElement>
 	chooseButtonRef: RefObject<HTMLSelectElement>

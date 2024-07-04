@@ -10,16 +10,14 @@ export const throttle = <T extends unknown[]>(func: Procedure<T>, delay: number)
 			return
 		}
 		lastCall = now
-		return func(...args)
+		func(...args)
 	}
 }
 
 export const debounce = <T extends unknown[]>(func: Procedure<T>, delay: number) => {
 	let timeoutId: NodeJS.Timeout
 	return function (...args: T) {
-		if (timeoutId) {
-			clearTimeout(timeoutId)
-		}
+		clearTimeout(timeoutId)
 		timeoutId = setTimeout(() => {
 			func(...args)
 		}, delay)

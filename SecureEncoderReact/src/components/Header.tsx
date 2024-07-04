@@ -5,7 +5,7 @@ import small_logo from "../assets/android-chrome-192x192.png"
 import big_logo from "../assets/android-chrome-512x512.png"
 import ToggleButton from "./ToggleButton"
 
-type HeaderProps = {
+interface HeaderProps {
 	title: string
 	children: ReactNode
 }

@@ -12,7 +12,7 @@ import {
 	SetStateAction,
 } from "react"
 
-type AppContextProps = {
+interface AppContextProps {
 	files: string[]
 	setFiles: Dispatch<SetStateAction<string[]>>
 	result: string
@@ -37,7 +37,7 @@ export const useAppContext = (): AppContextProps => {
 	return context
 }
 
-type AppContextProviderProps = {
+interface AppContextProviderProps {
 	children: ReactNode
 	value?: Partial<AppContextProps>
 }
@@ -57,19 +57,19 @@ export const AppContextProvider: FC<AppContextProviderProps> = ({
 	}
 
 	const [files, setFiles] = useState<string[]>(
-		value?.files || getSessionStorageItemArray("files")
+		value?.files ?? getSessionStorageItemArray("files")
 	)
 	const [result, setResult] = useState<string>(
-		value?.result || getSessionStorageItem("result", "")
+		value?.result ?? getSessionStorageItem("result", "")
 	)
 	const [operation, setOperation] = useState<string>(
-		value?.operation || getSessionStorageItem("operation", "")
+		value?.operation ?? getSessionStorageItem("operation", "")
 	)
 	const [action, setAction] = useState<string>(
-		value?.action || getSessionStorageItem("action", "")
+		value?.action ?? getSessionStorageItem("action", "")
 	)
-	const [text, setText] = useState<string>(value?.text || getSessionStorageItem("text", ""))
-	const [loading, setLoading] = useState<boolean>(value?.loading || false)
+	const [text, setText] = useState<string>(value?.text ?? getSessionStorageItem("text", ""))
+	const [loading, setLoading] = useState<boolean>(value?.loading ?? false)
 
 	useEffect(() => {
 		sessionStorage.setItem("files", JSON.stringify(files))

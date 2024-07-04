@@ -6,12 +6,12 @@ import base64
 
 def encode_number(n: int) -> list:
     """Encode a number using a simpler variable-length encoding."""
-    bytes: list = []
+    encoded: list = []
     while n > 127:
-        bytes.insert(0, (n & 0x7F) | 0x80)
+        encoded.insert(0, (n & 0x7F) | 0x80)
         n >>= 7
-    bytes.insert(0, n & 0x7F)
-    return bytes
+    encoded.insert(0, n & 0x7F)
+    return encoded
 
 
 def lz77_compress(text: str, window_size: int = 100, min_match_length: int = 3) -> str:

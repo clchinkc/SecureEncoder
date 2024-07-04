@@ -6,7 +6,7 @@ import Alert from "./Alert"
 import { useMutation, useQueryClient } from "@tanstack/react-query"
 import Card from "./Card"
 
-type KeyUploaderProps = {
+interface KeyUploaderProps {
 	uploadButtonRef: RefObject<HTMLButtonElement>
 	fileSelectionRef: RefObject<HTMLInputElement>
 }
@@ -39,7 +39,7 @@ const KeyUploader: FC<KeyUploaderProps> = ({ uploadButtonRef, fileSelectionRef }
 		onSuccess: (filename) => {
 			setMessage(`File ${filename} uploaded successfully!`)
 			setAlertType("alert-success")
-			queryClient.invalidateQueries({ queryKey: ["files"] })
+			void queryClient.invalidateQueries({ queryKey: ["files"] })
 		},
 		onError: (error) => {
 			setMessage(`Error: ${error.message}`)
