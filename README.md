@@ -17,14 +17,17 @@
 
 
 ## Continuous Integration Status
+
 [![codecov](https://codecov.io/gh/clchinkc/SecureEncoder/branch/main/graph/badge.svg)](https://codecov.io/gh/clchinkc/SecureEncoder)
+[![CodeQL](https://github.com/clchinkc/SecureEncoder/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/clchinkc/SecureEncoder/actions/workflows/codeql-analysis.yml)
+[![CI](https://github.com/clchinkc/SecureEncoder/actions/workflows/test-and-converage.yml/badge.svg)](https://github.com/clchinkc/SecureEncoder/actions/workflows/test-and-converage.yml)
+<!-- [![Codacy Badge](https://app.codacy.com/project/badge/Grade/c4b6335acf254697b80714b81e8154d7)](https://www.codacy.com/gh/LongmaoTeamTf/deep_recommenders/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=LongmaoTeamTf/deep_recommenders&amp;utm_campaign=Badge_Grade) -->
 
 
 ## Supported Languages
 
-![Language](https://img.shields.io/badge/language-python-3572A5)
-![Language](https://img.shields.io/badge/language-typescript-3178c6)
-
+[![Python](https://img.shields.io/badge/python-3.9_|_3.10-3572A5)](requirements.txt)
+[![Typescript](https://img.shields.io/badge/typescript-^5.4.5-3178c6)](requirements.txt)
 
 ## Introduction
 **Secure Encoder** is a web application designed for encoding and decoding text using various cryptographic algorithms. It supports operations such as Base64, Hex, UTF-8, Latin-1, ASCII, and URL encoding/decoding, alongside encryption and decryption using AES and RSA algorithms. The primary goal is to offer a user-friendly interface for secure text manipulation, making it particularly useful for developers and security professionals.
@@ -179,7 +182,5 @@ docker-compose down
 [pulls-url]: https://img.shields.io/github/issues-pr/clchinkc/SecureEncoder
 [license-shield]: https://img.shields.io/github/license/clchinkc/SecureEncoder.svg?style=flat-square
 [license-url]: https://github.com/clchinkc/SecureEncoder/blob/master/LICENSE.txt
-[circleci-shield]: https://dl.circleci.com/status-badge/img/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main.svg?style=svg
-[circleci-url]: https://dl.circleci.com/status-badge/redirect/circleci/WNz31DEf8bF44pHHr3dwni/N8K1spakYUa4DvNqX3q44k/tree/main
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/clchinkc
