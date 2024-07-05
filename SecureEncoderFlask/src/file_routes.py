@@ -1,6 +1,7 @@
 import os
 from flask import Blueprint, request, jsonify, send_from_directory, current_app
 from werkzeug.utils import secure_filename
+from .log_execution import log_execution
 
 file_bp = Blueprint("file_bp", __name__)
 
@@ -10,6 +11,7 @@ def allowed_file(filename: str, allowed_extensions: set[str]) -> bool:
 
 
 @file_bp.route("/api/upload_key", methods=["POST"])
+@log_execution
 def upload_key():
     file = request.files.get("file")
     if file.filename == "":
@@ -26,6 +28,7 @@ def upload_key():
 
 
 @file_bp.route("/api/files", methods=["GET"])
+@log_execution
 def list_files() -> tuple[jsonify, int]:
     files = [
         f
@@ -36,6 +39,7 @@ def list_files() -> tuple[jsonify, int]:
 
 
 @file_bp.route("/api/download_key/<string:filename>")
+@log_execution
 def download_key(filename: str) -> jsonify:
     safe_filename = secure_filename(filename)
     upload_folder = current_app.config["UPLOAD_FOLDER"]
@@ -51,6 +55,7 @@ def download_key(filename: str) -> jsonify:
 
 
 @file_bp.route("/api/delete_key/<string:filename>", methods=["DELETE"])
+@log_execution
 def delete_key(filename: str) -> jsonify:
     file_path = os.path.join(
         current_app.config["UPLOAD_FOLDER"], secure_filename(filename)

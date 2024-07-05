@@ -10,8 +10,42 @@ from .text_routes import text_bp
 from decouple import config
 
 
+def setup_logger(app: Flask) -> None:
+    # Set the logging configuration
+    logging.basicConfig(
+        level=logging.DEBUG if app.debug else logging.INFO,
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        filename="app.log",  # General app log file
+        filemode="a",
+    )
+
+    # Setup for console output
+    console = logging.StreamHandler()
+    console.setLevel(logging.DEBUG if app.debug else logging.INFO)
+    console_formatter = logging.Formatter(
+        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    )
+    console.setFormatter(console_formatter)
+    logging.getLogger("").addHandler(console)
+
+    # Adjust logger settings based on the debug mode
+    level = logging.DEBUG if app.debug else logging.WARNING
+    app.logger.setLevel(level)
+
+    # File handler for production, with more limited logging
+    if not app.debug:
+        file_handler = RotatingFileHandler(
+            "production.log", maxBytes=1024 * 1024 * 100, backupCount=10
+        )
+        file_handler.setLevel(logging.WARNING)
+        formatter = logging.Formatter("%(asctime)s - %(levelname)s: %(message)s")
+        file_handler.setFormatter(formatter)
+        app.logger.addHandler(file_handler)
+
+
 def create_app(test_config: Optional[dict[str, any]] = None) -> Flask:
     app = Flask(__name__, instance_relative_config=True)
+    setup_logger(app)
 
     # Default configuration
     app.config.from_object(config("APP_SETTINGS"))
@@ -30,18 +64,3 @@ def create_app(test_config: Optional[dict[str, any]] = None) -> Flask:
     app.register_blueprint(text_bp)
 
     return app
-
-
-def setup_logger(app: Flask) -> None:
-    level = logging.DEBUG if app.debug else logging.WARNING
-    app.logger.setLevel(level)
-
-    if not app.debug:
-        # Create a file handler for production logs
-        file_handler = RotatingFileHandler(
-            "production.log", maxBytes=1024 * 1024 * 100, backupCount=10
-        )
-        file_handler.setLevel(logging.WARNING)
-        formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
-        file_handler.setFormatter(formatter)
-        app.logger.addHandler(file_handler)

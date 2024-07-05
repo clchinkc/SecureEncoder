@@ -39,6 +39,7 @@ from .compression_decompression import (
     brotli_decompress,
 )
 from .huffman import huffman_compress, huffman_decompress
+from .log_execution import log_execution
 
 text_bp = Blueprint("text_bp", __name__)
 
@@ -50,6 +51,7 @@ save_text_schema = {
 
 
 @text_bp.route("/api/save_text", methods=["PATCH"])
+@log_execution
 @expects_json(save_text_schema)
 def save_text() -> tuple[jsonify, int]:
     data = request.get_json()
@@ -92,6 +94,7 @@ process_text_schema = {
 
 
 @text_bp.route("/api/process_text", methods=["POST"])
+@log_execution
 @expects_json(process_text_schema)
 def process_text() -> jsonify:
     data = request.get_json()
