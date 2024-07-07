@@ -1,6 +1,7 @@
-from flask import Blueprint, request, jsonify, session, current_app
-from flask_expects_json import expects_json
 import os
+from flask import Blueprint, request, jsonify, session, current_app
+from marshmallow import ValidationError
+from .schemas import SaveTextSchema, ProcessTextSchema
 
 from .encoder_decoder import (
     encode_base64,
@@ -43,18 +44,15 @@ from .log_execution import log_execution
 
 text_bp = Blueprint("text_bp", __name__)
 
-save_text_schema = {
-    "type": "object",
-    "properties": {"new_text": {"type": "string"}},
-    "required": ["new_text"],
-}
-
 
 @text_bp.route("/api/save_text", methods=["PATCH"])
 @log_execution
-@expects_json(save_text_schema)
 def save_text() -> tuple[jsonify, int]:
-    data = request.get_json()
+    try:
+        data = SaveTextSchema().load(request.get_json())
+    except ValidationError as err:
+        return jsonify(err.messages), 400
+
     current_text = session.get("text", None)
     new_text = data.get("new_text", None)
     force_update = request.args.get("force_update", "false") == "true"
@@ -82,22 +80,14 @@ def save_text() -> tuple[jsonify, int]:
         ), 409
 
 
-process_text_schema = {
-    "type": "object",
-    "properties": {
-        "text": {"type": "string"},
-        "operation": {"type": "string"},
-        "action": {"type": "string"},
-    },
-    "required": ["text", "operation", "action"],
-}
-
-
 @text_bp.route("/api/process_text", methods=["POST"])
 @log_execution
-@expects_json(process_text_schema)
 def process_text() -> jsonify:
-    data = request.get_json()
+    try:
+        data = ProcessTextSchema().load(request.get_json())
+    except ValidationError as err:
+        return jsonify(err.messages), 400
+
     session["text"] = data["text"]
     session["operation"] = data["operation"]
     session["action"] = data["action"]

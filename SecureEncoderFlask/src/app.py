@@ -9,7 +9,7 @@ app: Flask = create_app()
 with app.app_context():
     db.create_all()
     faker: Faker = Faker()
-    populate_db(faker, 10)
+    populate_db(faker, 100)
 
 
 # When serving a single-page application, we need to catch all routes and serve the index.html file.

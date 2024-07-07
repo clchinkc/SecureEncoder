@@ -29,17 +29,45 @@
 [![Python](https://img.shields.io/badge/python-3.9_|_3.10-3572A5)](SecureEncoderFlask\requirements.txt)
 [![Typescript](https://img.shields.io/badge/typescript-^5.4.5-3178c6)](SecureEncoderReact\package.json)
 
+
+## Table of Contents
+- [Secure Encoder](#secure-encoder)
+	- [Project Statistics](#project-statistics)
+	- [Continuous Integration Status](#continuous-integration-status)
+	- [Supported Languages](#supported-languages)
+	- [Table of Contents](#table-of-contents)
+	- [Introduction](#introduction)
+	- [Features](#features)
+	- [Tech Stack](#tech-stack)
+	- [Project Setup](#project-setup)
+		- [Prerequisites](#prerequisites)
+		- [Environment Setup](#environment-setup)
+		- [Running the Application in Separate Terminals](#running-the-application-in-separate-terminals)
+			- [Backend](#backend)
+			- [Frontend](#frontend)
+- [React Frontend with Docker Compose](#react-frontend-with-docker-compose)
+	- [Prerequisites](#prerequisites-1)
+	- [Getting Started](#getting-started)
+		- [Step 1: Build and Run the Container](#step-1-build-and-run-the-container)
+		- [Step 2: Accessing the Application](#step-2-accessing-the-application)
+		- [Stopping the Container](#stopping-the-container)
+	- [Notes](#notes)
+	- [Contributing](#contributing)
+	- [License](#license)
+- [](#)
+
+
 ## Introduction
-**Secure Encoder** is a web application designed for encoding and decoding text using various cryptographic algorithms. It supports operations such as Base64, Hex, UTF-8, Latin-1, ASCII, and URL encoding/decoding, alongside encryption and decryption using AES and RSA algorithms. The primary goal is to offer a user-friendly interface for secure text manipulation, making it particularly useful for developers and security professionals.
+**Secure Encoder** is a sophisticated web application crafted to provide robust encoding and decryption capabilities using various cryptographic algorithms, including AES and RSA. The application supports a variety of operations such as Base64, Hex, UTF-8, Latin-1, ASCII, and URL encoding/decoding.
 
-This project addresses the need for reliable and secure methods of data manipulation in web applications. It simplifies the process for developers who require quick encoding and decoding solutions and provides robust encryption tools for security professionals to ensure data safety.
+Its primary goal is to offer a user-friendly interface for secure text manipulation, catering especially to developers and security professionals who require reliable and secure methods for data manipulation in web applications. This makes it particularly useful for those who need quick encoding and decoding solutions alongside robust encryption tools to ensure data safety.
 
-The application is built using Python Flask, React, and SQLAlchemy, leveraging Vite and Tailwind CSS for the front end.
+Developed using Python Flask and React, and leveraging SQLalchemy with Vite and Tailwind CSS for the front end, Secure Encoder exemplifies the effective use of test-driven development (TDD) practices, advanced data structures and algorithms, and expert deployment techniques.
 
 ## Features
-- [x] **File Uploads:** Users can upload key files needed for encryption/decoding.
 - [x] **Dynamic Encoding/Decoding:** Support for multiple encoding schemes including Base64, Hex, and more.
 - [x] **Encryption and Decryption:** Implements AES and RSA algorithms with key management for secure data handling.
+- [x] **File Uploads:** Users can upload key files needed for encryption/decoding.
 - [x] **Interactive UI:** The React-based interactive UI ensures a smooth user experience.
 - [x] **Security:** Implements best practices like Content Security Policy headers.
 
@@ -53,7 +81,7 @@ The application is built using Python Flask, React, and SQLAlchemy, leveraging V
 | Backend        | Flask (Python)             | Server-side logic handled by Flask        |
 | CSS Framework  | Tailwind                   | Styling provided by Tailwind CSS          |
 | Database       | sqlalchemy                 | ORM for database interactions (if used)   |
-| CI/CD          | CircleCI                   | Continuous integration and deployment     |
+| CI/CD          | Codecov, Codacy, CodeQL                   | Continuous integration and deployment     |
 | Containerization | Docker, Docker Compose (optional)   | Container setup for development and production environments |
 
 </div>
@@ -162,6 +190,18 @@ docker-compose down
 - Keep your cryptographic keys secure and ensure they are not exposed to unauthorized users.
 - Regularly update dependencies to mitigate vulnerabilities associated with outdated libraries.
 
+
+## Contributing
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+## License
+Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 #
 
