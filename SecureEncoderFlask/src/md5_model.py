@@ -55,7 +55,7 @@ def md5_decode(hash_hex: str) -> str:
     match = MD5Hash.query.filter_by(md5_hash=hash_hex).first()
     if match:
         return md5_hash_schema.dump(match)["text"]
-    return json.dumps({"error": "No match found"})
+    return "No match found"
 
 
 def populate_db(faker: Faker, num_entries: int = 1000) -> None:
