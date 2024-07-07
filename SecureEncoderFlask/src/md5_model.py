@@ -5,7 +5,6 @@ from sqlalchemy.ext.declarative import DeclarativeMeta
 from typing import cast
 from faker import Faker
 from sqlalchemy.exc import SQLAlchemyError
-import json
 from marshmallow_sqlalchemy import SQLAlchemyAutoSchema, auto_field
 
 db = SQLAlchemy()
