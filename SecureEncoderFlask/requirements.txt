@@ -5,7 +5,8 @@ Flask==3.0.3
 Flask_Cors==4.0.1
 flask_expects_json==1.7.0
 flask_sqlalchemy==3.1.1
-flask-expects-json==1.7.0
+marshmallow==3.21.3
+marshmallow_sqlalchemy==1.0.0
 Faker==26.0.0
 pytest==8.2.2
 pytest-cov==5.0.0

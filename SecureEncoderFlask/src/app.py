@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, Response, session
-from .create_app import create_app, setup_logger
+from .create_app import create_app
 from .md5_model import db, populate_db
 from faker import Faker
 from werkzeug.exceptions import HTTPException
@@ -9,9 +9,7 @@ app: Flask = create_app()
 with app.app_context():
     db.create_all()
     faker: Faker = Faker()
-    populate_db(faker, 10)
-
-setup_logger(app)
+    populate_db(faker, 100)
 
 
 # When serving a single-page application, we need to catch all routes and serve the index.html file.
