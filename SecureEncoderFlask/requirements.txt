@@ -12,7 +12,7 @@ pytest==8.3.2
 pytest-cov==5.0.0
 python-dotenv==1.0.1
 python-decouple==3.8
-SQLAlchemy==2.0.34
+SQLAlchemy==2.0.35
 waitress==3.0.0
 Werkzeug==3.0.4
 zstandard==0.23.0
