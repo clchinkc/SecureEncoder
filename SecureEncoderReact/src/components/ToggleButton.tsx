@@ -16,6 +16,11 @@ const ToggleButton: FC = () => {
 	const toggleDarkMode = () => {
 		const newDarkMode = !darkMode
 		setDarkMode(newDarkMode)
+		const elements = document.querySelectorAll('*');
+		elements.forEach(element => {
+		  const htmlElement = element as HTMLElement;
+		  htmlElement.style.transition = 'background-color 2s, color 2s';
+		});
 		document.documentElement.classList.toggle("dark", newDarkMode)
 		localStorage.setItem("dark-mode", newDarkMode.toString())
 	}
@@ -47,7 +52,7 @@ const ToggleButton: FC = () => {
 					/>
 				</svg>
 				<svg
-					className={darkMode ? "hidden" : "block"}
+					className={darkMode ? "block" : "hidden"}
 					width="16"
 					height="16"
 					xmlns="http://www.w3.org/2000/svg"
