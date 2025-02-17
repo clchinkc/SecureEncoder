@@ -1,13 +1,13 @@
 Brotli==1.1.0
 cryptography==44.0.0
-Faker==33.1.0
+Faker==36.1.1
 Flask==3.1.0
 Flask_Cors==5.0.0
 flask_expects_json==1.7.0
 flask_sqlalchemy==3.1.1
 marshmallow==3.23.2
 marshmallow_sqlalchemy==1.1.0
-Faker==33.1.0
+Faker==36.1.1
 pytest==8.3.4
 pytest-cov==6.0.0
 python-dotenv==1.0.1
